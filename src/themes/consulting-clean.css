@@ -1,0 +1,32 @@
+body.theme-consulting-clean {
+  --deck-page-bg: #e9eef3;
+  --slide-bg: #fbfcfd;
+  --text: #15202b;
+  --muted: #627083;
+  --subtle: #e7ecf1;
+  --line: #d7dee7;
+  --panel: #f3f6f9;
+  --panel-strong: #e8eef5;
+  --accent: #1d4ed8;
+  --accent-2: #047857;
+  --accent-3: #a16207;
+}
+
+body.theme-consulting-clean .slide-canvas::before {
+  position: absolute;
+  top: 0;
+  right: 64px;
+  left: 64px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  content: "";
+}
+
+body.theme-consulting-clean .cover-meta {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+body.theme-consulting-clean .metric-tile strong {
+  color: var(--accent);
+}

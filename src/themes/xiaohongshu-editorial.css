@@ -1,0 +1,40 @@
+body.theme-xiaohongshu-editorial {
+  --deck-page-bg: #f1ede7;
+  --slide-bg: #fffaf4;
+  --text: #231f20;
+  --muted: #6d625b;
+  --subtle: #f0e6dc;
+  --line: #e5d8cb;
+  --panel: #fff3e7;
+  --panel-strong: #f7dfd0;
+  --accent: #d5274a;
+  --accent-2: #0f7a6a;
+  --accent-3: #7c3aed;
+  --shadow: 0 28px 80px rgba(80, 45, 30, 0.18);
+}
+
+body.theme-xiaohongshu-editorial .slide-canvas {
+  border: 1px solid #ead8ca;
+}
+
+body.theme-xiaohongshu-editorial .eyebrow,
+body.theme-xiaohongshu-editorial .comparison-label,
+body.theme-xiaohongshu-editorial .timeline-label,
+body.theme-xiaohongshu-editorial .metric-tile p {
+  color: var(--accent);
+}
+
+body.theme-xiaohongshu-editorial .cover-copy h1,
+body.theme-xiaohongshu-editorial .section-layout h1,
+body.theme-xiaohongshu-editorial .closing-layout h1 {
+  line-height: 1.06;
+}
+
+body.theme-xiaohongshu-editorial .point-list li::before {
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+body.theme-xiaohongshu-editorial .metric-tile strong {
+  color: var(--accent-2);
+}

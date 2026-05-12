@@ -1,0 +1,91 @@
+{
+  "version": "0.1.0",
+  "title": "Northstar Ops Seed Pitch",
+  "audience": "seed-stage investors",
+  "goal": "show why operations teams need an AI-native command center and secure a follow-up partner meeting",
+  "tone": "crisp, credible, commercially focused",
+  "theme": "consulting-clean",
+  "aspectRatio": "16:9",
+  "language": "en",
+  "story": {
+    "thesis": "Operations teams need an AI-native system that closes the gap between insight and action.",
+    "arc": [
+      "Operational work is still scattered across dashboards, tickets, docs, and chat.",
+      "AI can synthesize the work, but only if execution and verification are built in.",
+      "Northstar Ops becomes the command layer for repeatable business operations."
+    ]
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Seed pitch",
+      "title": "Northstar Ops",
+      "subtitle": "An AI command center for repeatable business operations",
+      "meta": "Confidential investor briefing"
+    },
+    {
+      "id": "problem",
+      "type": "key-insight",
+      "eyebrow": "Problem",
+      "headline": "The operating cadence of modern teams is fragmented beyond human scale.",
+      "points": [
+        "Metrics live in dashboards.",
+        "Decisions happen in meetings.",
+        "Work moves through tickets and chat.",
+        "Accountability is reconstructed manually."
+      ],
+      "evidence": "Leaders spend hours turning scattered signals into a weekly operating view."
+    },
+    {
+      "id": "solution",
+      "type": "two-column",
+      "title": "Northstar turns signals into operating actions",
+      "subtitle": "The system connects insight, ownership, and follow-through.",
+      "columns": [
+        {
+          "heading": "Today",
+          "body": "Teams review stale dashboards and manually chase status across tools.",
+          "points": ["Slow diagnosis", "Weak ownership", "No verification loop"]
+        },
+        {
+          "heading": "With Northstar",
+          "body": "AI agents summarize signals, draft actions, and verify completion evidence.",
+          "points": ["Live operating brief", "Assigned next steps", "Auditable follow-through"]
+        }
+      ]
+    },
+    {
+      "id": "traction",
+      "type": "metric-grid",
+      "title": "Early traction shows urgency",
+      "subtitle": "Design partners are using Northstar to compress weekly operating reviews.",
+      "metrics": [
+        { "label": "Design partners", "value": "8", "detail": "Across SaaS, marketplace, and logistics teams" },
+        { "label": "Brief time saved", "value": "62%", "detail": "Average reduction in prep time" },
+        { "label": "Weekly actions", "value": "240+", "detail": "Generated and tracked in pilots" },
+        { "label": "Expansion", "value": "3x", "detail": "Median seat growth after four weeks" }
+      ]
+    },
+    {
+      "id": "roadmap",
+      "type": "timeline",
+      "title": "The product compounds with each operating loop",
+      "events": [
+        { "label": "Now", "title": "Weekly brief", "description": "Summarize signals and draft action plans." },
+        { "label": "Next", "title": "Ownership layer", "description": "Assign, remind, and collect evidence." },
+        { "label": "Later", "title": "Playbooks", "description": "Turn repeat actions into reusable workflows." },
+        { "label": "Scale", "title": "Benchmarking", "description": "Compare operating health across teams." }
+      ]
+    },
+    {
+      "id": "ask",
+      "type": "closing",
+      "title": "We are raising to own the AI operating layer",
+      "subtitle": "The round funds product depth, integrations, and the first repeatable sales motion.",
+      "takeaway": "Northstar is built for the teams that need AI to run the business, not just summarize it.",
+      "nextSteps": ["Partner meeting", "Customer references", "Product deep dive"],
+      "contact": "founders@northstar.example"
+    }
+  ]
+}

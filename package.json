@@ -1,0 +1,28 @@
+{
+  "name": "ppt-html-studio",
+  "version": "0.1.0",
+  "description": "Narrative-first, schema-driven, visually verified HTML presentation generator for AI agents.",
+  "type": "module",
+  "bin": {
+    "ai-deck": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "validate": "tsx src/cli/index.ts validate",
+    "render": "tsx src/cli/index.ts render",
+    "verify": "tsx src/cli/index.ts verify",
+    "export": "tsx src/cli/index.ts export",
+    "example:render": "tsx scripts/render-example.ts",
+    "example:verify": "tsx scripts/verify-example.ts",
+    "example:export": "tsx scripts/export-example.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "playwright": "^1.53.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

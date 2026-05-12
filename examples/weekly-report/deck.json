@@ -1,0 +1,77 @@
+{
+  "version": "0.1.0",
+  "title": "本周增长复盘",
+  "audience": "增长团队和产品负责人",
+  "goal": "总结本周增长表现，明确下周优先动作",
+  "tone": "直接、清楚、有行动感",
+  "theme": "xiaohongshu-editorial",
+  "aspectRatio": "3:4",
+  "language": "zh-CN",
+  "story": {
+    "thesis": "本周增长不是流量问题，而是转化链路的信任感问题。",
+    "arc": [
+      "整体曝光稳定，但高意向用户没有顺利进入试用。",
+      "内容、落地页和注册步骤之间存在断点。",
+      "下周重点是减少解释成本，让用户更快看到价值。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Weekly Review",
+      "title": "本周增长复盘",
+      "subtitle": "曝光稳定，转化卡在用户真正理解价值之前",
+      "meta": "增长团队 · 第 19 周"
+    },
+    {
+      "id": "key-finding",
+      "type": "key-insight",
+      "eyebrow": "关键判断",
+      "headline": "问题不在获客，而在试用前的信任建立不够快。",
+      "points": [
+        "高意向搜索词点击率提升。",
+        "落地页停留时间没有同步变长。",
+        "注册页流失集中在第一步。",
+        "用户需要更早看到真实成果。"
+      ],
+      "evidence": "访谈里最常出现的问题是：我能不能先看到一个样例？"
+    },
+    {
+      "id": "metrics",
+      "type": "metric-grid",
+      "title": "本周指标",
+      "subtitle": "流量质量略升，但转化效率没有跟上。",
+      "metrics": [
+        { "label": "曝光", "value": "+8%", "detail": "搜索和内容渠道贡献主要增量" },
+        { "label": "点击率", "value": "+12%", "detail": "高意向词表现更好" },
+        { "label": "注册转化", "value": "-4%", "detail": "第一步填写流失增加" },
+        { "label": "激活率", "value": "+3%", "detail": "完成试用的用户质量更高" }
+      ]
+    },
+    {
+      "id": "comparison",
+      "type": "comparison",
+      "title": "用户看到的承诺和证据不匹配",
+      "left": {
+        "label": "现在",
+        "headline": "价值说得很快",
+        "points": ["主标题强调效率", "案例位置偏后", "注册前缺少样例"]
+      },
+      "right": {
+        "label": "下周",
+        "headline": "先给证据再要行动",
+        "points": ["首屏放真实样例", "缩短注册说明", "增加一键体验入口"]
+      }
+    },
+    {
+      "id": "plan",
+      "type": "closing",
+      "title": "下周只做三件事",
+      "subtitle": "减少用户理解成本，让高意向点击更快进入试用。",
+      "takeaway": "先证明价值，再要求注册。",
+      "nextSteps": ["首屏样例改版", "注册第一步减字段", "新增试用前预览"],
+      "contact": "growth@example.com"
+    }
+  ]
+}

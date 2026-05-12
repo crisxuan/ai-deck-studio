@@ -1,0 +1,12 @@
+node_modules/
+dist/
+
+examples/**/output/
+output/
+artifacts/
+
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example

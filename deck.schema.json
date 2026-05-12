@@ -1,0 +1,387 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/ai-deck-studio/deck.schema.json",
+  "title": "AI Deck Studio Deck Spec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "title", "audience", "goal", "theme", "aspectRatio", "slides"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 220
+    },
+    "tone": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "theme": {
+      "enum": ["consulting-clean", "tech-dark", "xiaohongshu-editorial"]
+    },
+    "aspectRatio": {
+      "enum": ["16:9", "4:3", "3:4"]
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 16
+    },
+    "story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["thesis", "arc"],
+      "properties": {
+        "thesis": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 220
+        },
+        "arc": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 220
+          }
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 40,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/cover" },
+          { "$ref": "#/$defs/agenda" },
+          { "$ref": "#/$defs/section" },
+          { "$ref": "#/$defs/keyInsight" },
+          { "$ref": "#/$defs/twoColumn" },
+          { "$ref": "#/$defs/comparison" },
+          { "$ref": "#/$defs/timeline" },
+          { "$ref": "#/$defs/metricGrid" },
+          { "$ref": "#/$defs/code" },
+          { "$ref": "#/$defs/closing" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "baseSlide": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "maxLength": 80
+        },
+        "type": {
+          "type": "string"
+        },
+        "presenterNotes": {
+          "type": "string",
+          "maxLength": 1200
+        },
+        "visualIntent": {
+          "type": "string",
+          "maxLength": 400
+        }
+      }
+    },
+    "shortText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "bodyText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 360
+    },
+    "points": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 140
+      }
+    },
+    "cover": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "cover" },
+            "eyebrow": { "$ref": "#/$defs/shortText" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 140 },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "meta": { "type": "string", "maxLength": 120 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "agenda": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "items"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "agenda" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 180 },
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 8,
+              "items": { "$ref": "#/$defs/shortText" }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "section": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "section" },
+            "eyebrow": { "$ref": "#/$defs/shortText" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 140 },
+            "kicker": { "type": "string", "maxLength": 220 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "keyInsight": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "headline"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "key-insight" },
+            "eyebrow": { "$ref": "#/$defs/shortText" },
+            "headline": { "type": "string", "minLength": 1, "maxLength": 140 },
+            "points": { "$ref": "#/$defs/points" },
+            "evidence": { "type": "string", "maxLength": 180 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "twoColumn": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "columns"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "two-column" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 180 },
+            "columns": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["heading"],
+                "properties": {
+                  "heading": { "$ref": "#/$defs/shortText" },
+                  "body": { "$ref": "#/$defs/bodyText" },
+                  "points": { "$ref": "#/$defs/points" }
+                }
+              }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "comparison": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "left", "right"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "comparison" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 180 },
+            "left": { "$ref": "#/$defs/comparisonSide" },
+            "right": { "$ref": "#/$defs/comparisonSide" },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "comparisonSide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "points"],
+      "properties": {
+        "label": { "$ref": "#/$defs/shortText" },
+        "headline": { "$ref": "#/$defs/shortText" },
+        "points": { "$ref": "#/$defs/points" }
+      }
+    },
+    "timeline": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "events"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "timeline" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 180 },
+            "events": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["label", "title"],
+                "properties": {
+                  "label": { "$ref": "#/$defs/shortText" },
+                  "title": { "$ref": "#/$defs/shortText" },
+                  "description": { "type": "string", "maxLength": 180 }
+                }
+              }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "metricGrid": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "metrics"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "metric-grid" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 180 },
+            "metrics": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 8,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["label", "value"],
+                "properties": {
+                  "label": { "$ref": "#/$defs/shortText" },
+                  "value": { "$ref": "#/$defs/shortText" },
+                  "detail": { "type": "string", "maxLength": 140 }
+                }
+              }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "code": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "code"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "code" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 180 },
+            "language": { "type": "string", "maxLength": 40 },
+            "code": { "type": "string", "minLength": 1, "maxLength": 1800 },
+            "caption": { "type": "string", "maxLength": 180 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "closing": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "closing" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 140 },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "takeaway": { "type": "string", "maxLength": 220 },
+            "nextSteps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/shortText" }
+            },
+            "contact": { "type": "string", "maxLength": 120 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    }
+  }
+}

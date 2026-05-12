@@ -1,0 +1,189 @@
+{
+  "version": "0.1.0",
+  "title": "Reliable AI Agent Workflows",
+  "audience": "engineering leaders and platform teams",
+  "goal": "explain how to move AI agents from demos to dependable internal workflows",
+  "tone": "technical, grounded, systems-oriented",
+  "theme": "tech-dark",
+  "aspectRatio": "16:9",
+  "language": "en",
+  "story": {
+    "thesis": "The next leap in agent quality comes from workflow closure, not larger prompts.",
+    "arc": [
+      "AI agents can already produce impressive task-level results.",
+      "Production use fails when context, permissions, verification, and recovery are missing.",
+      "A closed workflow architecture makes agents observable, auditable, and repairable."
+    ]
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Platform architecture",
+      "title": "Reliable AI Agent Workflows",
+      "subtitle": "From impressive task runs to dependable internal systems",
+      "meta": "Engineering strategy review",
+      "presenterNotes": "Open by separating model capability from operational reliability."
+    },
+    {
+      "id": "agenda",
+      "type": "agenda",
+      "title": "What we need to close",
+      "subtitle": "A practical map for making agent runs trustworthy.",
+      "items": [
+        "Where demos break",
+        "The workflow closure model",
+        "Verification as a product surface",
+        "Implementation path"
+      ]
+    },
+    {
+      "id": "problem-section",
+      "type": "section",
+      "eyebrow": "Part 1",
+      "title": "The fragile part is the workflow around the model",
+      "kicker": "Most agent failures happen before or after the model response: context collection, tool execution, review, export, and recovery."
+    },
+    {
+      "id": "core-insight",
+      "type": "key-insight",
+      "eyebrow": "Core insight",
+      "headline": "Reliability comes from closing the loop around each generated artifact.",
+      "points": [
+        "Collect bounded context before generation.",
+        "Run tools through explicit permissions.",
+        "Verify outputs with deterministic checks.",
+        "Repair from structured failure reports."
+      ],
+      "evidence": "Teams that treat verification as part of generation ship fewer manual cleanup steps."
+    },
+    {
+      "id": "split-responsibility",
+      "type": "two-column",
+      "title": "Separate model judgment from system guarantees",
+      "subtitle": "The architecture is strongest when each layer has one job.",
+      "columns": [
+        {
+          "heading": "LLM responsibilities",
+          "body": "The model owns intent interpretation, story, content tradeoffs, and repair reasoning.",
+          "points": [
+            "Plan the narrative",
+            "Write structured specs",
+            "Explain repair choices"
+          ]
+        },
+        {
+          "heading": "System responsibilities",
+          "body": "The runtime owns schema validation, rendering, screenshots, exports, and audit trails.",
+          "points": [
+            "Validate contracts",
+            "Render repeatably",
+            "Capture evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "before-after",
+      "type": "comparison",
+      "title": "Free-form generation vs. closed workflow",
+      "subtitle": "The same model behaves differently when the system gives it rails.",
+      "left": {
+        "label": "Free-form HTML",
+        "headline": "Fast, but inconsistent",
+        "points": [
+          "Layout decisions are repeated on every slide",
+          "Visual quality depends on prompt luck",
+          "Failures are hard to diagnose"
+        ]
+      },
+      "right": {
+        "label": "Structured deck spec",
+        "headline": "Slower upfront, steadier later",
+        "points": [
+          "Layouts are reusable contracts",
+          "Themes keep hierarchy consistent",
+          "Verification returns actionable failures"
+        ]
+      }
+    },
+    {
+      "id": "rollout",
+      "type": "timeline",
+      "title": "A staged path to production",
+      "subtitle": "Each phase adds one new layer of confidence.",
+      "events": [
+        {
+          "label": "Phase 0",
+          "title": "Schema and renderer",
+          "description": "Lock the deck contract and produce stable HTML."
+        },
+        {
+          "label": "Phase 1",
+          "title": "Visual checks",
+          "description": "Screenshot every slide and report layout failures."
+        },
+        {
+          "label": "Phase 2",
+          "title": "Exports",
+          "description": "Generate PDF and PNG artifacts from the same source."
+        },
+        {
+          "label": "Phase 3",
+          "title": "Repair loop",
+          "description": "Feed verification reports back into spec repair."
+        }
+      ]
+    },
+    {
+      "id": "quality-metrics",
+      "type": "metric-grid",
+      "title": "Quality signals worth tracking",
+      "subtitle": "These checks turn vague polish into observable release criteria.",
+      "metrics": [
+        {
+          "label": "Schema errors",
+          "value": "0",
+          "detail": "Deck specs must validate before rendering."
+        },
+        {
+          "label": "Console errors",
+          "value": "0",
+          "detail": "Browser errors block export."
+        },
+        {
+          "label": "Slide fit",
+          "value": "95%",
+          "detail": "Text blocks fit without overflow."
+        },
+        {
+          "label": "Export parity",
+          "value": "High",
+          "detail": "PDF and PNG match browser layout."
+        }
+      ]
+    },
+    {
+      "id": "schema-code",
+      "type": "code",
+      "title": "The renderer consumes a contract, not a prompt",
+      "subtitle": "A small spec is easier to validate, repair, and diff.",
+      "language": "json",
+      "code": "{\n  \"type\": \"key-insight\",\n  \"headline\": \"Reliability comes from closing the loop.\",\n  \"points\": [\n    \"Validate the spec\",\n    \"Render deterministic HTML\",\n    \"Verify screenshots\",\n    \"Repair from structured failures\"\n  ]\n}",
+      "caption": "The LLM edits structured content while layouts and themes stay reusable."
+    },
+    {
+      "id": "closing",
+      "type": "closing",
+      "title": "Make verification part of generation",
+      "subtitle": "The path to dependable agent output is a closed loop: plan, spec, render, verify, repair, export.",
+      "takeaway": "Treat every artifact as something the system can inspect before a human has to trust it.",
+      "nextSteps": [
+        "Adopt schema-first deck specs",
+        "Verify every rendered slide",
+        "Feed failures back into repair prompts"
+      ],
+      "contact": "platform-team@example.com"
+    }
+  ]
+}
