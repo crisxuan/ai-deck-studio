@@ -1,4 +1,4 @@
-# ppt-html-studio / AI Deck Studio
+# AI Deck Studio
 
 <p align="right">
   <a href="./README.md">中文</a> |
