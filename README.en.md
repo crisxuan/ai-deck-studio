@@ -1,5 +1,9 @@
 # AI Deck Studio
 
+<p align="center">
+  <img src="./assets/logo.svg" alt="AI Deck Studio Logo" width="760">
+</p>
+
 <p align="right">
   <a href="./README.md">中文</a> |
   <strong>English</strong>
