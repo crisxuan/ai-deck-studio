@@ -1,4 +1,4 @@
-# ppt-html-studio / AI Deck Studio
+# AI Deck Studio
 
 <p align="right">
   <strong>中文</strong> |
