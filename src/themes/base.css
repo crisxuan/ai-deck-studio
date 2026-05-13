@@ -215,7 +215,8 @@ li {
 .timeline-layout,
 .metric-grid-layout,
 .code-layout,
-.closing-layout {
+.closing-layout,
+.composition {
   height: 100%;
 }
 

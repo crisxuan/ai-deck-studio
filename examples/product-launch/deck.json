@@ -1,0 +1,223 @@
+{
+  "version": "0.2.0",
+  "title": "LumaGrid Product Launch",
+  "audience": "product leaders, operators, and AI platform buyers",
+  "goal": "launch LumaGrid as the premium command layer for verified AI work",
+  "tone": "cinematic, confident, precise",
+  "theme": "premium-keynote",
+  "aspectRatio": "16:9",
+  "language": "en",
+  "story": {
+    "thesis": "AI work becomes valuable when every output can be reviewed, verified, and reused.",
+    "arc": [
+      "Teams have more AI output than they can confidently ship.",
+      "The winning product layer is not another chat box, but a verified work system.",
+      "LumaGrid turns agent output into launch-ready artifacts with proof built in."
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "eyebrow": "Product launch",
+      "title": "The command layer for verified AI work",
+      "subtitle": "LumaGrid helps teams turn agent runs into polished artifacts, evidence trails, and reusable workflows.",
+      "chips": ["Artifacts", "Verification", "Reusable workflows", "Executive-ready output"],
+      "stat": {
+        "label": "Time from draft to deliverable",
+        "value": "4.8x",
+        "detail": "Faster in design partner launches"
+      },
+      "presenterNotes": "Open with the shift from AI assistance to AI work systems."
+    },
+    {
+      "id": "shift",
+      "type": "hero-statement",
+      "eyebrow": "The category shift",
+      "headline": "The next AI platform is judged by the quality of its finished work.",
+      "subheadline": "Teams do not need more raw generations. They need reliable systems that can plan, render, verify, and ship.",
+      "proofs": [
+        {
+          "label": "Artifacts created",
+          "value": "12k+",
+          "detail": "Across launch, report, and enablement workflows"
+        },
+        {
+          "label": "Manual cleanup",
+          "value": "-61%",
+          "detail": "Median reduction after workflow verification"
+        },
+        {
+          "label": "Reusable runs",
+          "value": "74%",
+          "detail": "Converted into repeatable team playbooks"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "type": "product-showcase",
+      "title": "LumaGrid packages the whole delivery loop",
+      "subtitle": "A premium interface for agent-generated artifacts, not another generic chat surface.",
+      "productName": "LumaGrid",
+      "tagline": "Plan. Generate. Verify. Ship.",
+      "features": [
+        {
+          "title": "Narrative planning",
+          "description": "Every artifact starts from audience, goal, thesis, and a structured arc."
+        },
+        {
+          "title": "Visual rendering",
+          "description": "Layouts, typography, and themes are owned by the system, not improvised per prompt."
+        },
+        {
+          "title": "Evidence trail",
+          "description": "Screenshots, checks, exports, and repair notes travel with each output."
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Artifact types",
+          "value": "18"
+        },
+        {
+          "label": "Verifier checks",
+          "value": "42"
+        }
+      ]
+    },
+    {
+      "id": "market-map",
+      "type": "market-map",
+      "title": "The market is moving from copilots to work systems",
+      "subtitle": "The opportunity sits where generation, verification, and delivery meet.",
+      "segments": [
+        {
+          "label": "Chat copilots",
+          "description": "Fast ideation, but weak delivery guarantees.",
+          "signal": "Crowded"
+        },
+        {
+          "label": "Automation tools",
+          "description": "Repeatable execution, but brittle when content quality matters.",
+          "signal": "Mature"
+        },
+        {
+          "label": "Creative suites",
+          "description": "High polish, but manual and disconnected from agent workflows.",
+          "signal": "Manual"
+        },
+        {
+          "label": "Verified work systems",
+          "description": "Structured generation, visual QA, export, and reuse in one loop.",
+          "signal": "Opening"
+        }
+      ],
+      "insight": "LumaGrid is built for the moment when AI output becomes operational infrastructure."
+    },
+    {
+      "id": "architecture",
+      "type": "system-architecture",
+      "title": "A closed loop architecture for polished work",
+      "subtitle": "The product separates model judgment from system guarantees.",
+      "layers": [
+        {
+          "label": "Intent layer",
+          "description": "Clarifies audience, goal, constraints, and quality bar.",
+          "tools": ["brief", "audience", "goal"]
+        },
+        {
+          "label": "Spec layer",
+          "description": "Turns story and content into structured, inspectable artifacts.",
+          "tools": ["schema", "limits", "notes"]
+        },
+        {
+          "label": "Render layer",
+          "description": "Produces consistent visual systems from reusable compositions.",
+          "tools": ["themes", "layouts", "runtime"]
+        },
+        {
+          "label": "Verify layer",
+          "description": "Captures screenshots, detects failures, and feeds repair loops.",
+          "tools": ["screenshots", "checks", "report"]
+        }
+      ],
+      "callout": "The model writes the plan. The system proves the artifact is ready."
+    },
+    {
+      "id": "data-story",
+      "type": "data-story",
+      "title": "Design partners ship cleaner artifacts faster",
+      "subtitle": "The value shows up when teams stop reformatting generated work by hand.",
+      "headline": "The workflow is strongest when verification is built into creation.",
+      "metrics": [
+        {
+          "label": "Deck production time",
+          "value": "-68%",
+          "detail": "From brief to export"
+        },
+        {
+          "label": "Visual QA failures",
+          "value": "-81%",
+          "detail": "After structured layouts"
+        },
+        {
+          "label": "Artifacts reused",
+          "value": "3.4x",
+          "detail": "More workflows repeat after verification"
+        },
+        {
+          "label": "Stakeholder edits",
+          "value": "-47%",
+          "detail": "Fewer formatting-only comments"
+        }
+      ],
+      "takeaway": "The product does not only generate faster. It reduces the cleanup work that made generation feel cheap."
+    },
+    {
+      "id": "tension",
+      "type": "tension-resolution",
+      "title": "The old promise was speed. The new promise is trust.",
+      "subtitle": "Better output comes from changing the system around the model.",
+      "tension": {
+        "label": "Before",
+        "headline": "Fast drafts that still need human rescue",
+        "points": [
+          "Free-form pages drift visually",
+          "No artifact-level quality report",
+          "Exports are treated as an afterthought"
+        ]
+      },
+      "resolution": {
+        "label": "After",
+        "headline": "Structured artifacts that arrive with proof",
+        "points": [
+          "Compositions encode design quality",
+          "Verification is part of generation",
+          "PDF and PNG exports are first-class"
+        ]
+      }
+    },
+    {
+      "id": "quote",
+      "type": "quote-break",
+      "eyebrow": "Design partner signal",
+      "quote": "The difference is that our team can trust the artifact before a designer touches it.",
+      "attribution": "VP Product, private beta customer",
+      "context": "The strongest adoption signal came from teams that already used AI daily but lacked a reliable delivery layer."
+    },
+    {
+      "id": "ask",
+      "type": "final-ask",
+      "title": "Build the verified work layer",
+      "subtitle": "LumaGrid turns AI generation into premium, inspectable, reusable artifacts.",
+      "ask": "Approve the launch plan and expand the design partner program to 20 teams.",
+      "actions": [
+        "Launch premium keynote workflow",
+        "Add artifact gallery and critique loop",
+        "Package templates for product, GTM, and executive reporting"
+      ],
+      "contact": "launch@lumagrid.example"
+    }
+  ]
+}

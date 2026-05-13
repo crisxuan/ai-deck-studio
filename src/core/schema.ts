@@ -1,4 +1,4 @@
-export const THEMES = ["consulting-clean", "tech-dark", "xiaohongshu-editorial"] as const;
+export const THEMES = ["consulting-clean", "tech-dark", "xiaohongshu-editorial", "premium-keynote"] as const;
 export const ASPECT_RATIOS = ["16:9", "4:3", "3:4"] as const;
 export const SLIDE_TYPES = [
   "cover",
@@ -10,7 +10,16 @@ export const SLIDE_TYPES = [
   "timeline",
   "metric-grid",
   "code",
-  "closing"
+  "closing",
+  "narrative-opener",
+  "hero-statement",
+  "product-showcase",
+  "market-map",
+  "system-architecture",
+  "data-story",
+  "tension-resolution",
+  "quote-break",
+  "final-ask"
 ] as const;
 
 export type ThemeName = (typeof THEMES)[number];
@@ -143,6 +152,106 @@ export type ClosingSlide = BaseSlide & {
   contact?: string;
 };
 
+export type MiniMetric = {
+  label: string;
+  value: string;
+  detail?: string;
+};
+
+export type FeatureCard = {
+  title: string;
+  description: string;
+};
+
+export type NarrativeOpenerSlide = BaseSlide & {
+  type: "narrative-opener";
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  chips?: string[];
+  stat?: MiniMetric;
+};
+
+export type HeroStatementSlide = BaseSlide & {
+  type: "hero-statement";
+  eyebrow?: string;
+  headline: string;
+  subheadline?: string;
+  proofs?: MiniMetric[];
+};
+
+export type ProductShowcaseSlide = BaseSlide & {
+  type: "product-showcase";
+  title: string;
+  subtitle?: string;
+  productName: string;
+  tagline?: string;
+  features: FeatureCard[];
+  metrics?: MiniMetric[];
+};
+
+export type MarketSegment = {
+  label: string;
+  description: string;
+  signal?: string;
+};
+
+export type MarketMapSlide = BaseSlide & {
+  type: "market-map";
+  title: string;
+  subtitle?: string;
+  insight?: string;
+  segments: MarketSegment[];
+};
+
+export type ArchitectureLayer = {
+  label: string;
+  description: string;
+  tools?: string[];
+};
+
+export type SystemArchitectureSlide = BaseSlide & {
+  type: "system-architecture";
+  title: string;
+  subtitle?: string;
+  callout?: string;
+  layers: ArchitectureLayer[];
+};
+
+export type DataStorySlide = BaseSlide & {
+  type: "data-story";
+  title: string;
+  subtitle?: string;
+  headline: string;
+  takeaway?: string;
+  metrics: MiniMetric[];
+};
+
+export type TensionResolutionSlide = BaseSlide & {
+  type: "tension-resolution";
+  title: string;
+  subtitle?: string;
+  tension: ComparisonSide;
+  resolution: ComparisonSide;
+};
+
+export type QuoteBreakSlide = BaseSlide & {
+  type: "quote-break";
+  eyebrow?: string;
+  quote: string;
+  attribution?: string;
+  context?: string;
+};
+
+export type FinalAskSlide = BaseSlide & {
+  type: "final-ask";
+  title: string;
+  subtitle?: string;
+  ask: string;
+  actions?: string[];
+  contact?: string;
+};
+
 export type SlideSpec =
   | CoverSlide
   | AgendaSlide
@@ -153,7 +262,16 @@ export type SlideSpec =
   | TimelineSlide
   | MetricGridSlide
   | CodeSlide
-  | ClosingSlide;
+  | ClosingSlide
+  | NarrativeOpenerSlide
+  | HeroStatementSlide
+  | ProductShowcaseSlide
+  | MarketMapSlide
+  | SystemArchitectureSlide
+  | DataStorySlide
+  | TensionResolutionSlide
+  | QuoteBreakSlide
+  | FinalAskSlide;
 
 export type ValidationIssue = {
   level: "error" | "warning";

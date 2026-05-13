@@ -29,7 +29,7 @@
       "maxLength": 160
     },
     "theme": {
-      "enum": ["consulting-clean", "tech-dark", "xiaohongshu-editorial"]
+      "enum": ["consulting-clean", "tech-dark", "xiaohongshu-editorial", "premium-keynote"]
     },
     "aspectRatio": {
       "enum": ["16:9", "4:3", "3:4"]
@@ -76,7 +76,16 @@
           { "$ref": "#/$defs/timeline" },
           { "$ref": "#/$defs/metricGrid" },
           { "$ref": "#/$defs/code" },
-          { "$ref": "#/$defs/closing" }
+          { "$ref": "#/$defs/closing" },
+          { "$ref": "#/$defs/narrativeOpener" },
+          { "$ref": "#/$defs/heroStatement" },
+          { "$ref": "#/$defs/productShowcase" },
+          { "$ref": "#/$defs/marketMap" },
+          { "$ref": "#/$defs/systemArchitecture" },
+          { "$ref": "#/$defs/dataStory" },
+          { "$ref": "#/$defs/tensionResolution" },
+          { "$ref": "#/$defs/quoteBreak" },
+          { "$ref": "#/$defs/finalAsk" }
         ]
       }
     }
@@ -371,6 +380,273 @@
             "subtitle": { "type": "string", "maxLength": 220 },
             "takeaway": { "type": "string", "maxLength": 220 },
             "nextSteps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/shortText" }
+            },
+            "contact": { "type": "string", "maxLength": 120 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "miniMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "value"],
+      "properties": {
+        "label": { "$ref": "#/$defs/shortText" },
+        "value": { "$ref": "#/$defs/shortText" },
+        "detail": { "type": "string", "maxLength": 140 }
+      }
+    },
+    "featureCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "description"],
+      "properties": {
+        "title": { "$ref": "#/$defs/shortText" },
+        "description": { "type": "string", "minLength": 1, "maxLength": 180 }
+      }
+    },
+    "narrativeOpener": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "narrative-opener" },
+            "eyebrow": { "$ref": "#/$defs/shortText" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 150 },
+            "subtitle": { "type": "string", "maxLength": 260 },
+            "chips": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/shortText" }
+            },
+            "stat": { "$ref": "#/$defs/miniMetric" },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "heroStatement": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "headline"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "hero-statement" },
+            "eyebrow": { "$ref": "#/$defs/shortText" },
+            "headline": { "type": "string", "minLength": 1, "maxLength": 150 },
+            "subheadline": { "type": "string", "maxLength": 260 },
+            "proofs": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/miniMetric" }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "productShowcase": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "productName", "features"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "product-showcase" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "productName": { "$ref": "#/$defs/shortText" },
+            "tagline": { "type": "string", "maxLength": 180 },
+            "features": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/featureCard" }
+            },
+            "metrics": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": { "$ref": "#/$defs/miniMetric" }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "marketMap": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "segments"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "market-map" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "insight": { "type": "string", "maxLength": 220 },
+            "segments": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 5,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["label", "description"],
+                "properties": {
+                  "label": { "$ref": "#/$defs/shortText" },
+                  "description": { "type": "string", "minLength": 1, "maxLength": 180 },
+                  "signal": { "$ref": "#/$defs/shortText" }
+                }
+              }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "systemArchitecture": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "layers"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "system-architecture" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "callout": { "type": "string", "maxLength": 220 },
+            "layers": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 5,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["label", "description"],
+                "properties": {
+                  "label": { "$ref": "#/$defs/shortText" },
+                  "description": { "type": "string", "minLength": 1, "maxLength": 180 },
+                  "tools": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 4,
+                    "items": { "$ref": "#/$defs/shortText" }
+                  }
+                }
+              }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "dataStory": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "headline", "metrics"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "data-story" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "headline": { "type": "string", "minLength": 1, "maxLength": 150 },
+            "takeaway": { "type": "string", "maxLength": 220 },
+            "metrics": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 5,
+              "items": { "$ref": "#/$defs/miniMetric" }
+            },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "tensionResolution": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "tension", "resolution"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "tension-resolution" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "tension": { "$ref": "#/$defs/comparisonSide" },
+            "resolution": { "$ref": "#/$defs/comparisonSide" },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "quoteBreak": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "quote"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "quote-break" },
+            "eyebrow": { "$ref": "#/$defs/shortText" },
+            "quote": { "type": "string", "minLength": 1, "maxLength": 260 },
+            "attribution": { "$ref": "#/$defs/shortText" },
+            "context": { "type": "string", "maxLength": 220 },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "finalAsk": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "ask"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "final-ask" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 150 },
+            "subtitle": { "type": "string", "maxLength": 240 },
+            "ask": { "type": "string", "minLength": 1, "maxLength": 220 },
+            "actions": {
               "type": "array",
               "minItems": 1,
               "maxItems": 4,

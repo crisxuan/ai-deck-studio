@@ -1,0 +1,531 @@
+body.theme-premium-keynote {
+  --deck-page-bg: #e7eaef;
+  --slide-bg: #fbfbf8;
+  --text: #10131b;
+  --muted: #5c6472;
+  --subtle: #ebe8df;
+  --line: rgba(16, 19, 27, 0.12);
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-strong: #f3f0e8;
+  --accent: #2954ff;
+  --accent-2: #00a77f;
+  --accent-3: #ff6b4a;
+  --shadow: 0 34px 90px rgba(16, 19, 27, 0.18);
+}
+
+body.theme-premium-keynote .slide-canvas {
+  border-color: rgba(16, 19, 27, 0.1);
+  background-color: var(--slide-bg);
+  background:
+    linear-gradient(115deg, transparent 0 60%, rgba(41, 84, 255, 0.07) 60% 76%, transparent 76%),
+    linear-gradient(180deg, #fffdfa 0%, #f7f4ec 100%);
+  background-color: var(--slide-bg);
+}
+
+body.theme-premium-keynote .slide-canvas::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(16, 19, 27, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 19, 27, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: "";
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.65), transparent 72%);
+}
+
+body.theme-premium-keynote .slide-canvas::after {
+  position: absolute;
+  top: 0;
+  right: 64px;
+  left: 64px;
+  height: 5px;
+  background: linear-gradient(90deg, #10131b, var(--accent), var(--accent-2), var(--accent-3));
+  content: "";
+  pointer-events: none;
+}
+
+body.theme-premium-keynote .composition {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+body.theme-premium-keynote h1,
+body.theme-premium-keynote .composition h1 {
+  letter-spacing: 0;
+}
+
+body.theme-premium-keynote .eyebrow {
+  color: var(--accent);
+}
+
+body.theme-premium-keynote .composition-subtitle {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.22rem;
+  line-height: 1.44;
+}
+
+body.theme-premium-keynote .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 58px;
+  align-items: end;
+}
+
+body.theme-premium-keynote .keynote-ambient {
+  position: absolute;
+  top: 34px;
+  right: 24px;
+  width: 430px;
+  height: 250px;
+  border: 1px solid rgba(16, 19, 27, 0.1);
+  background:
+    linear-gradient(135deg, rgba(41, 84, 255, 0.16), transparent 58%),
+    linear-gradient(45deg, rgba(0, 167, 127, 0.18), transparent 50%),
+    #ffffff;
+  clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
+}
+
+body.theme-premium-keynote .narrative-copy h1 {
+  max-width: 860px;
+  font-size: 4.55rem;
+  line-height: 0.94;
+}
+
+body.theme-premium-keynote .chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+body.theme-premium-keynote .chip-row span,
+body.theme-premium-keynote .tool-row span {
+  border: 1px solid rgba(16, 19, 27, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #222734;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 9px 12px;
+}
+
+body.theme-premium-keynote .spotlight-metric {
+  align-self: end;
+  border: 1px solid rgba(16, 19, 27, 0.12);
+  border-radius: var(--radius);
+  background: #10131b;
+  color: #ffffff;
+  padding: 28px;
+  box-shadow: 0 22px 54px rgba(16, 19, 27, 0.28);
+}
+
+body.theme-premium-keynote .spotlight-metric p,
+body.theme-premium-keynote .spotlight-metric span {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+body.theme-premium-keynote .spotlight-metric strong {
+  display: block;
+  margin: 14px 0;
+  font-size: 3.5rem;
+  line-height: 0.9;
+}
+
+body.theme-premium-keynote .hero-statement-layout {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 40px;
+}
+
+body.theme-premium-keynote .hero-statement-copy {
+  display: flex;
+  max-width: 980px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-premium-keynote .hero-statement-copy h1 {
+  font-size: 4.35rem;
+  line-height: 0.96;
+}
+
+body.theme-premium-keynote .proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.theme-premium-keynote .proof-strip article,
+body.theme-premium-keynote .data-metric,
+body.theme-premium-keynote .showcase-feature,
+body.theme-premium-keynote .market-segment,
+body.theme-premium-keynote .architecture-layer,
+body.theme-premium-keynote .tension-card,
+body.theme-premium-keynote .ask-panel {
+  border: 1px solid rgba(16, 19, 27, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 44px rgba(16, 19, 27, 0.08);
+}
+
+body.theme-premium-keynote .proof-strip article {
+  min-height: 130px;
+  padding: 22px;
+}
+
+body.theme-premium-keynote .proof-strip p,
+body.theme-premium-keynote .product-metrics p,
+body.theme-premium-keynote .data-metric p {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+body.theme-premium-keynote .proof-strip strong {
+  display: block;
+  color: var(--accent);
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+body.theme-premium-keynote .proof-strip span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+body.theme-premium-keynote .product-showcase-layout,
+body.theme-premium-keynote .market-map-layout,
+body.theme-premium-keynote .system-architecture-layout,
+body.theme-premium-keynote .data-story-layout,
+body.theme-premium-keynote .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 26px;
+}
+
+body.theme-premium-keynote .product-showcase-stage {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: 1.02fr 0.88fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+body.theme-premium-keynote .product-device {
+  overflow: hidden;
+  border: 1px solid rgba(16, 19, 27, 0.12);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(41, 84, 255, 0.08), transparent 45%),
+    #10131b;
+  color: #ffffff;
+  box-shadow: 0 24px 64px rgba(16, 19, 27, 0.28);
+}
+
+body.theme-premium-keynote .device-topbar {
+  display: flex;
+  gap: 8px;
+  padding: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.theme-premium-keynote .device-topbar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff6b4a;
+}
+
+body.theme-premium-keynote .device-topbar span:nth-child(2) {
+  background: #f6c347;
+}
+
+body.theme-premium-keynote .device-topbar span:nth-child(3) {
+  background: #00a77f;
+}
+
+body.theme-premium-keynote .device-hero {
+  padding: 38px;
+}
+
+body.theme-premium-keynote .device-hero p {
+  color: #8fb0ff;
+  font-size: 0.92rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+body.theme-premium-keynote .device-hero strong {
+  display: block;
+  max-width: 500px;
+  font-size: 2.65rem;
+  line-height: 1.02;
+}
+
+body.theme-premium-keynote .device-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 38px 38px;
+}
+
+body.theme-premium-keynote .device-grid span {
+  height: 86px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-premium-keynote .product-feature-stack {
+  display: grid;
+  min-height: 0;
+  gap: 14px;
+}
+
+body.theme-premium-keynote .showcase-feature {
+  padding: 22px;
+}
+
+body.theme-premium-keynote .showcase-feature h2 {
+  font-size: 1.15rem;
+}
+
+body.theme-premium-keynote .showcase-feature p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+body.theme-premium-keynote .product-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.theme-premium-keynote .product-metrics article {
+  border-left: 3px solid var(--accent-2);
+  padding-left: 14px;
+}
+
+body.theme-premium-keynote .product-metrics strong {
+  display: block;
+  font-size: 1.7rem;
+}
+
+body.theme-premium-keynote .market-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+body.theme-premium-keynote .market-segment {
+  min-height: 300px;
+  padding: 22px;
+}
+
+body.theme-premium-keynote .market-segment span {
+  display: inline-block;
+  margin-bottom: 36px;
+  border-radius: 999px;
+  background: #10131b;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 8px 10px;
+}
+
+body.theme-premium-keynote .market-segment h2 {
+  font-size: 1.25rem;
+}
+
+body.theme-premium-keynote .market-segment p,
+body.theme-premium-keynote .architecture-layer p,
+body.theme-premium-keynote .data-takeaway {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+body.theme-premium-keynote .map-insight,
+body.theme-premium-keynote .architecture-callout {
+  margin: 0;
+  border-left: 4px solid var(--accent);
+  color: #222734;
+  font-size: 1.04rem;
+  font-weight: 760;
+  padding-left: 16px;
+}
+
+body.theme-premium-keynote .architecture-stack {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-premium-keynote .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.88fr 1fr;
+  gap: 22px;
+  align-items: center;
+  padding: 18px 22px;
+}
+
+body.theme-premium-keynote .architecture-layer h2 {
+  margin-bottom: 6px;
+}
+
+body.theme-premium-keynote .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+body.theme-premium-keynote .data-story-layout {
+  grid-template-columns: 0.94fr 1.06fr;
+  grid-template-rows: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+body.theme-premium-keynote .data-story-copy h2 {
+  margin-top: 40px;
+  max-width: 650px;
+  font-size: 3.2rem;
+  line-height: 1.02;
+}
+
+body.theme-premium-keynote .data-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.theme-premium-keynote .data-metric {
+  min-height: 168px;
+  padding: 24px;
+}
+
+body.theme-premium-keynote .data-metric strong {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 3.15rem;
+  line-height: 0.95;
+}
+
+body.theme-premium-keynote .data-metric:nth-child(1) {
+  background: #10131b;
+  color: #ffffff;
+}
+
+body.theme-premium-keynote .data-metric:nth-child(1) p,
+body.theme-premium-keynote .data-metric:nth-child(1) span {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+body.theme-premium-keynote .tension-grid {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+body.theme-premium-keynote .tension-card {
+  min-height: 360px;
+  padding: 30px;
+}
+
+body.theme-premium-keynote .tension-card h2 {
+  font-size: 1.72rem;
+}
+
+body.theme-premium-keynote .is-tension {
+  background: linear-gradient(180deg, rgba(255, 107, 74, 0.08), rgba(255, 255, 255, 0.8));
+}
+
+body.theme-premium-keynote .is-resolution {
+  background: linear-gradient(180deg, rgba(0, 167, 127, 0.1), rgba(255, 255, 255, 0.8));
+}
+
+body.theme-premium-keynote .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #10131b;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+body.theme-premium-keynote .quote-break-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 960px;
+}
+
+body.theme-premium-keynote .quote-break-layout blockquote {
+  margin: 0;
+  color: var(--text);
+  font-size: 4rem;
+  font-weight: 850;
+  line-height: 1.02;
+}
+
+body.theme-premium-keynote .quote-attribution {
+  margin-top: 32px;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+body.theme-premium-keynote .quote-context {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+body.theme-premium-keynote .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.82fr;
+  gap: 48px;
+  align-items: end;
+}
+
+body.theme-premium-keynote .final-copy h1 {
+  font-size: 4.25rem;
+}
+
+body.theme-premium-keynote .ask-panel {
+  background: #10131b;
+  color: #ffffff;
+  padding: 32px;
+}
+
+body.theme-premium-keynote .ask-label {
+  color: #8fb0ff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body.theme-premium-keynote .ask-panel strong {
+  display: block;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  line-height: 1.08;
+}
+
+body.theme-premium-keynote .ask-panel .point-list li,
+body.theme-premium-keynote .ask-panel .contact {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body.theme-premium-keynote .ask-panel .point-list li::before {
+  background: var(--accent-2);
+}

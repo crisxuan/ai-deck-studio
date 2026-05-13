@@ -1,8 +1,8 @@
 # Layout Guide
 
-The MVP layouts are intentionally constrained so agents can produce reliable decks.
+The MVP layouts are intentionally constrained so agents can produce reliable decks. Visual System v2 adds premium composition layouts for showcase-quality decks.
 
-## Layouts
+## Core Layouts
 
 - `cover`: title, subtitle, deck metadata.
 - `agenda`: ordered list of sections.
@@ -14,6 +14,18 @@ The MVP layouts are intentionally constrained so agents can produce reliable dec
 - `metric-grid`: KPI summary.
 - `code`: readable code or structured snippet.
 - `closing`: takeaway, next steps, and contact.
+
+## Premium Composition Layouts
+
+- `narrative-opener`: cinematic opener with chips and a spotlight metric.
+- `hero-statement`: oversized thesis with proof metrics.
+- `product-showcase`: product mockup with feature stack and compact metrics.
+- `market-map`: market segments and positioning insight.
+- `system-architecture`: layered system map with tool tags.
+- `data-story`: headline narrative with metric dashboard.
+- `tension-resolution`: before/after story turn with a central transition.
+- `quote-break`: high-impact quote slide.
+- `final-ask`: closing ask with actions and contact.
 
 ## Repair Priority
 

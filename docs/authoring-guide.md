@@ -24,6 +24,7 @@ Recommended fields:
 - Business deck: `consulting-clean`
 - Technical talk: `tech-dark`
 - Social carousel: `xiaohongshu-editorial`
+- Product launch or premium showcase: `premium-keynote`
 
 ## Content Rules
 

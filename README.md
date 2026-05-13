@@ -19,8 +19,8 @@ AI Deck Studio 是一个面向 AI Agent 的演示文稿生成系统。它不是�
 
 - 从 `deck.json` 渲染静态 HTML 演示文稿
 - 使用 `deck.schema.json` 做结构校验
-- 10 种核心 slide layout
-- 3 套主题
+- 10 种核心 slide layout + 9 种高级 composition layout
+- 4 套主题，其中包含 `premium-keynote`
 - 键盘翻页和页面导航
 - speaker notes 字段支持
 - Playwright 截图验证
@@ -216,6 +216,8 @@ deck.schema.json
 
 ## 支持的布局
 
+基础 layout：
+
 | Layout | 用途 |
 | --- | --- |
 | `cover` | 封面 |
@@ -229,6 +231,20 @@ deck.schema.json
 | `code` | 代码或结构化片段展示 |
 | `closing` | 结尾、总结、下一步 |
 
+高级 composition layout：
+
+| Layout | 用途 |
+| --- | --- |
+| `narrative-opener` | 发布会式叙事开场 |
+| `hero-statement` | 大观点页，配关键证据 |
+| `product-showcase` | 产品展示和界面 mockup |
+| `market-map` | 市场结构、机会区和定位 |
+| `system-architecture` | 系统架构和工作流分层 |
+| `data-story` | 数据故事和关键指标叙事 |
+| `tension-resolution` | 痛点到解决方案的转折 |
+| `quote-break` | 高冲击力引用页 |
+| `final-ask` | 最终请求、行动和联系方式 |
+
 ## 支持的主题
 
 | Theme | 适用场景 |
@@ -236,6 +252,7 @@ deck.schema.json
 | `consulting-clean` | 商业汇报、战略报告、投资人材料 |
 | `tech-dark` | 技术分享、架构评审、开发者演示 |
 | `xiaohongshu-editorial` | 小红书风格、移动端轮播、轻量科普 |
+| `premium-keynote` | 产品发布会、高级 pitch、showcase deck |
 
 主题只改变视觉语言，不改变 deck 内容结构。
 
@@ -243,11 +260,13 @@ deck.schema.json
 
 | 示例 | 主题 | 比例 | 路径 |
 | --- | --- | --- | --- |
+| Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
 | Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
 | Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
 | Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |
 
 技术分享示例覆盖了全部 10 个 MVP layout，适合用来做回归验证。
+Product Launch 示例覆盖高级 composition layout，适合用来评估视觉上限。
 
 ## 输出产物
 
@@ -323,6 +342,7 @@ ppt-html-studio/
 ├── deck.schema.json
 ├── examples/
 │   ├── investor-pitch/
+│   ├── product-launch/
 │   ├── tech-sharing/
 │   └── weekly-report/
 ├── src/

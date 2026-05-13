@@ -2,7 +2,7 @@
 
 Themes should change visual language without changing content contracts.
 
-## MVP Themes
+## Themes
 
 ### consulting-clean
 
@@ -15,6 +15,10 @@ For engineering talks, architecture reviews, and developer demos.
 ### xiaohongshu-editorial
 
 For mobile-first explainers and carousel-style posts.
+
+### premium-keynote
+
+For product launches, premium pitch decks, and showcase presentations. This theme is built for stronger typography, product mockups, data panels, market maps, and keynote-style composition layouts.
 
 ## Theme Rules
 

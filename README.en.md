@@ -19,8 +19,8 @@ This repository is a runnable MVP. It currently supports:
 
 - Rendering static HTML decks from `deck.json`
 - Validating deck specs with `deck.schema.json`
-- 10 core slide layouts
-- 3 themes
+- 10 core slide layouts + 9 premium composition layouts
+- 4 themes, including `premium-keynote`
 - Keyboard navigation and slide controls
 - Speaker notes fields
 - Playwright screenshot verification
@@ -216,6 +216,8 @@ Minimal example:
 
 ## Supported Layouts
 
+Core layouts:
+
 | Layout | Use |
 | --- | --- |
 | `cover` | Cover slide |
@@ -229,6 +231,20 @@ Minimal example:
 | `code` | Code or structured snippet |
 | `closing` | Summary, next steps, and contact |
 
+Premium composition layouts:
+
+| Layout | Use |
+| --- | --- |
+| `narrative-opener` | Keynote-style narrative opener |
+| `hero-statement` | Large thesis slide with proof points |
+| `product-showcase` | Product showcase and interface mockup |
+| `market-map` | Market structure, opportunity, and positioning |
+| `system-architecture` | System architecture and workflow layers |
+| `data-story` | Data-driven narrative with metrics |
+| `tension-resolution` | Tension-to-resolution story turn |
+| `quote-break` | High-impact quote slide |
+| `final-ask` | Final ask, actions, and contact |
+
 ## Supported Themes
 
 | Theme | Best For |
@@ -236,6 +252,7 @@ Minimal example:
 | `consulting-clean` | Business briefings, strategy reports, investor material |
 | `tech-dark` | Technical talks, architecture reviews, developer demos |
 | `xiaohongshu-editorial` | Mobile-first explainers and social carousel posts |
+| `premium-keynote` | Product launches, premium pitch decks, showcase decks |
 
 Themes change the visual language without changing the deck content contract.
 
@@ -243,11 +260,13 @@ Themes change the visual language without changing the deck content contract.
 
 | Example | Theme | Ratio | Path |
 | --- | --- | --- | --- |
+| Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
 | Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
 | Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
 | Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |
 
 The technical sharing example covers all 10 MVP layouts and is useful for regression checks.
+The product launch example covers the premium composition layouts and is useful for evaluating the visual ceiling.
 
 ## Output Artifacts
 
@@ -323,6 +342,7 @@ ppt-html-studio/
 ├── deck.schema.json
 ├── examples/
 │   ├── investor-pitch/
+│   ├── product-launch/
 │   ├── tech-sharing/
 │   └── weekly-report/
 ├── src/

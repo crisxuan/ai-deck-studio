@@ -3,6 +3,17 @@ import { renderAgenda } from "../layouts/agenda.js";
 import { renderClosing } from "../layouts/closing.js";
 import { renderCode } from "../layouts/code.js";
 import { renderComparison } from "../layouts/comparison.js";
+import {
+  renderDataStory,
+  renderFinalAsk,
+  renderHeroStatement,
+  renderMarketMap,
+  renderNarrativeOpener,
+  renderProductShowcase,
+  renderQuoteBreak,
+  renderSystemArchitecture,
+  renderTensionResolution
+} from "../layouts/compositions.js";
 import { renderCover } from "../layouts/cover.js";
 import { renderKeyInsight } from "../layouts/keyInsight.js";
 import { renderMetricGrid } from "../layouts/metricGrid.js";
@@ -49,6 +60,24 @@ function renderSlideBody(slide: SlideSpec, deck: DeckSpec): string {
       return renderCode(slide);
     case "closing":
       return renderClosing(slide);
+    case "narrative-opener":
+      return renderNarrativeOpener(slide);
+    case "hero-statement":
+      return renderHeroStatement(slide);
+    case "product-showcase":
+      return renderProductShowcase(slide);
+    case "market-map":
+      return renderMarketMap(slide);
+    case "system-architecture":
+      return renderSystemArchitecture(slide);
+    case "data-story":
+      return renderDataStory(slide);
+    case "tension-resolution":
+      return renderTensionResolution(slide);
+    case "quote-break":
+      return renderQuoteBreak(slide);
+    case "final-ask":
+      return renderFinalAsk(slide);
   }
 }
 
