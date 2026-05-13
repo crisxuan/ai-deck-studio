@@ -20,13 +20,13 @@ AI Deck Studio 是一个面向 AI Agent 的演示文稿生成系统。它不是�
 - 从 `deck.json` 渲染静态 HTML 演示文稿
 - 使用 `deck.schema.json` 做结构校验
 - 10 种核心 slide layout + 9 种高级 composition layout
-- 4 套主题，其中包含 `premium-keynote`
+- 7 套主题，其中包含 `premium-keynote`、`technical-blueprint`、`founder-editorial`、`executive-dashboard`
 - 键盘翻页和页面导航
 - speaker notes 字段支持
 - Playwright 截图验证
 - PDF 导出
 - PNG 逐页导出
-- 3 份完整示例 deck
+- 8 份完整示例 deck，其中包含 3 套高级中文 showcase
 
 ## 为什么需要它
 
@@ -260,6 +260,9 @@ deck.schema.json
 | `tech-dark` | 技术分享、架构评审、开发者演示 |
 | `xiaohongshu-editorial` | 小红书风格、移动端轮播、轻量科普 |
 | `premium-keynote` | 产品发布会、高级 pitch、showcase deck |
+| `technical-blueprint` | AI 基础设施发布、系统架构、工程战略 |
+| `founder-editorial` | 创始人路演、投资人叙事、市场机会表达 |
+| `executive-dashboard` | 经营复盘、增长周报、KPI 决策会议 |
 
 主题只改变视觉语言，不改变 deck 内容结构。
 
@@ -269,6 +272,9 @@ deck.schema.json
 | --- | --- | --- | --- |
 | Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
 | Product Launch 中文版 | `premium-keynote` | `16:9` | `examples/product-launch-zh/deck.json` |
+| AI 基础设施架构发布 | `technical-blueprint` | `16:9` | `examples/architecture-keynote-zh/deck.json` |
+| Northstar Ops 高级投资人路演 | `founder-editorial` | `16:9` | `examples/investor-pitch-premium-zh/deck.json` |
+| 增长经营复盘高级版 | `executive-dashboard` | `16:9` | `examples/business-review-premium-zh/deck.json` |
 | Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
 | Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
 | Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |

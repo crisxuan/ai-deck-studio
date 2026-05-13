@@ -1,0 +1,116 @@
+{
+  "version": "0.2.0",
+  "title": "增长经营复盘高级版",
+  "audience": "增长负责人、产品负责人和经营管理团队",
+  "goal": "用更强的视觉叙事呈现本周增长判断和下周行动",
+  "tone": "直接、精致、有经营判断",
+  "theme": "executive-dashboard",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "story": {
+    "thesis": "本周增长问题不在流量，而在用户看到价值前的信任建立不够快。",
+    "arc": [
+      "曝光和点击质量上升，但注册转化没有同步提升。",
+      "用户在试用前缺少足够具体的价值证据。",
+      "下周重点是把样例、预览和注册链路改成更短的信任路径。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "eyebrow": "Weekly Growth Review",
+      "title": "增长卡点不是流量，而是信任建立",
+      "subtitle": "高意向点击增加，但用户还没看到足够证据，就被要求注册。",
+      "chips": ["搜索质量上升", "注册转化下降", "样例前置", "链路缩短"],
+      "stat": {
+        "label": "注册转化",
+        "value": "-4%",
+        "detail": "尽管点击率上升 12%"
+      }
+    },
+    {
+      "id": "judgement",
+      "type": "hero-statement",
+      "eyebrow": "本周判断",
+      "headline": "我们吸引到了更对的人，但没有更快证明价值。",
+      "subheadline": "用户愿意点进来，却没有在注册前看到足够真实、具体、可信的成果样例。",
+      "proofs": [
+        { "label": "曝光", "value": "+8%", "detail": "搜索和内容渠道贡献" },
+        { "label": "点击率", "value": "+12%", "detail": "高意向词表现更好" },
+        { "label": "注册转化", "value": "-4%", "detail": "第一步填写流失增加" }
+      ]
+    },
+    {
+      "id": "funnel",
+      "type": "data-story",
+      "title": "漏斗数据说明问题发生在试用前",
+      "subtitle": "不是用户质量变差，而是价值证据出现得太晚。",
+      "headline": "高意向流量进入后，最先遇到的是理解成本。",
+      "metrics": [
+        { "label": "曝光", "value": "+8%", "detail": "搜索和内容渠道" },
+        { "label": "点击率", "value": "+12%", "detail": "高意向词增长" },
+        { "label": "注册转化", "value": "-4%", "detail": "第一步流失增加" },
+        { "label": "激活率", "value": "+3%", "detail": "完成试用用户质量更高" }
+      ],
+      "takeaway": "能进入试用的人质量不错，问题在于更多人没能走到试用。"
+    },
+    {
+      "id": "before-after",
+      "type": "tension-resolution",
+      "title": "先证明价值，再要求注册",
+      "subtitle": "下周不要扩大投放，先降低用户理解成本。",
+      "tension": {
+        "label": "现在",
+        "headline": "承诺来得快，证据来得晚",
+        "points": ["首屏强调效率", "真实样例位置偏后", "注册前缺少预览"]
+      },
+      "resolution": {
+        "label": "下周",
+        "headline": "证据前置，行动变短",
+        "points": ["首屏展示真实样例", "一键预览替代解释", "注册第一步减少字段"]
+      }
+    },
+    {
+      "id": "plan",
+      "type": "system-architecture",
+      "title": "下周增长动作拆成三条链路",
+      "subtitle": "每条链路都直接对应一个流失点。",
+      "layers": [
+        {
+          "label": "首屏证据",
+          "description": "把真实样例和结果截图放到第一屏，减少抽象承诺。",
+          "tools": ["case", "preview", "proof"]
+        },
+        {
+          "label": "试用预览",
+          "description": "让用户在注册前先看到一个可交互样例。",
+          "tools": ["demo", "sample", "sandbox"]
+        },
+        {
+          "label": "注册减负",
+          "description": "第一步只保留必要字段，后续信息延后收集。",
+          "tools": ["email", "role", "intent"]
+        }
+      ],
+      "callout": "下周目标不是带来更多点击，而是让已有点击更快相信。"
+    },
+    {
+      "id": "quote",
+      "type": "quote-break",
+      "eyebrow": "用户访谈",
+      "quote": "我想先看到一个真实生成结果，再决定要不要注册。",
+      "attribution": "高意向试用用户",
+      "context": "这句话解释了为什么点击率提升没有同步带来注册提升。"
+    },
+    {
+      "id": "ask",
+      "type": "final-ask",
+      "title": "下周只打一场仗：缩短信任路径",
+      "subtitle": "先把高意向点击转成试用，再考虑加大投放。",
+      "ask": "冻结新增投放 1 周，优先上线首屏样例、试用预览和注册减字段。",
+      "actions": ["首屏样例改版", "新增试用前预览", "注册第一步减字段"],
+      "contact": "growth@example.com"
+    }
+  ]
+}

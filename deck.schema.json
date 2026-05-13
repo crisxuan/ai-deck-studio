@@ -29,7 +29,15 @@
       "maxLength": 160
     },
     "theme": {
-      "enum": ["consulting-clean", "tech-dark", "xiaohongshu-editorial", "premium-keynote"]
+      "enum": [
+        "consulting-clean",
+        "tech-dark",
+        "xiaohongshu-editorial",
+        "premium-keynote",
+        "technical-blueprint",
+        "founder-editorial",
+        "executive-dashboard"
+      ]
     },
     "aspectRatio": {
       "enum": ["16:9", "4:3", "3:4"]

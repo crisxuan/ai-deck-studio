@@ -25,6 +25,9 @@ Recommended fields:
 - Technical talk: `tech-dark`
 - Social carousel: `xiaohongshu-editorial`
 - Product launch or premium showcase: `premium-keynote`
+- AI infrastructure or architecture keynote: `technical-blueprint`
+- Founder pitch or investor story: `founder-editorial`
+- KPI-heavy operating review: `executive-dashboard`
 
 ## Language Switching
 

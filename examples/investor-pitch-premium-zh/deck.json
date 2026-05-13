@@ -1,0 +1,106 @@
+{
+  "version": "0.2.0",
+  "title": "Northstar Ops 高级投资人路演",
+  "audience": "早期投资人和战略合作伙伴",
+  "goal": "用更高级的叙事和视觉展示 Northstar Ops 的市场机会与产品路径",
+  "tone": "克制、高级、商业可信",
+  "theme": "founder-editorial",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "story": {
+    "thesis": "运营团队需要一个 AI 原生指挥层，把分散信号转化为可执行、可追踪的业务动作。",
+    "arc": [
+      "企业运营越来越复杂，但仍靠人手动拼接信息。",
+      "AI 能总结信息，但只有闭环执行和验证才能创造商业价值。",
+      "Northstar Ops 成为团队每周运营节奏的 AI command layer。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "type": "narrative-opener",
+      "eyebrow": "Seed Pitch",
+      "title": "AI 原生运营指挥层",
+      "subtitle": "Northstar Ops 把指标、会议、任务和负责人连接成一个可执行的运营系统。",
+      "chips": ["Operating Brief", "Action Owner", "Evidence Trail", "Weekly Cadence"],
+      "stat": {
+        "label": "周会准备时间",
+        "value": "-62%",
+        "detail": "设计伙伴平均节省"
+      }
+    },
+    {
+      "id": "problem",
+      "type": "hero-statement",
+      "eyebrow": "问题",
+      "headline": "现代团队不是缺数据，而是缺一个能把数据变成行动的系统。",
+      "subheadline": "指标在 dashboard，判断在会议，行动在任务系统，责任在聊天记录里。",
+      "proofs": [
+        { "label": "工具数量", "value": "9+", "detail": "运营团队每周切换的核心工具" },
+        { "label": "状态同步", "value": "6h", "detail": "管理者每周平均整理时间" },
+        { "label": "动作追踪", "value": "弱", "detail": "缺少跨系统证据链" }
+      ]
+    },
+    {
+      "id": "solution",
+      "type": "product-showcase",
+      "title": "Northstar 把运营节奏变成 AI 工作流",
+      "subtitle": "它不是 dashboard，而是从信号到行动的指挥层。",
+      "productName": "Northstar Ops",
+      "tagline": "从信号到行动，再到证据。",
+      "features": [
+        { "title": "运营简报", "description": "自动汇总指标、异常、风险和需要决策的问题。" },
+        { "title": "行动分派", "description": "把会议结论转成负责人、截止时间和下一步。" },
+        { "title": "证据回收", "description": "跟踪任务完成证据，形成可复盘的运营记录。" }
+      ],
+      "metrics": [
+        { "label": "设计伙伴", "value": "8" },
+        { "label": "每周动作", "value": "240+" }
+      ]
+    },
+    {
+      "id": "market",
+      "type": "market-map",
+      "title": "运营软件正在从记录系统转向行动系统",
+      "subtitle": "AI 让过去难以闭环的运营动作第一次可以自动化。",
+      "segments": [
+        { "label": "BI 工具", "description": "看见问题，但不负责推动行动。", "signal": "成熟" },
+        { "label": "项目管理", "description": "记录任务，但不理解业务信号。", "signal": "拥挤" },
+        { "label": "会议工具", "description": "捕捉讨论，但无法追踪结果。", "signal": "碎片" },
+        { "label": "AI 运营层", "description": "从信号到行动再到证据，形成闭环。", "signal": "机会" }
+      ],
+      "insight": "Northstar 的机会在于成为每周运营节奏的默认入口。"
+    },
+    {
+      "id": "traction",
+      "type": "data-story",
+      "title": "早期数据说明强需求",
+      "subtitle": "设计伙伴愿意把 Northstar 放进每周固定会议流程。",
+      "headline": "当 AI 输出直接进入运营节奏，产品留存会自然变强。",
+      "metrics": [
+        { "label": "设计伙伴", "value": "8", "detail": "SaaS、物流和 marketplace 团队" },
+        { "label": "准备时间", "value": "-62%", "detail": "周会 brief 生成" },
+        { "label": "席位扩张", "value": "3x", "detail": "试点四周后的中位数" },
+        { "label": "动作追踪", "value": "240+", "detail": "每周生成并跟进" }
+      ],
+      "takeaway": "最强信号不是用户觉得新奇，而是愿意把它放进固定运营节奏。"
+    },
+    {
+      "id": "quote",
+      "type": "quote-break",
+      "eyebrow": "Customer Signal",
+      "quote": "它让我们的周会从同步状态，变成真正推进业务。",
+      "attribution": "设计伙伴 COO",
+      "context": "高频运营会议是最明确的初始切入点。"
+    },
+    {
+      "id": "ask",
+      "type": "final-ask",
+      "title": "融资用于占领 AI 运营层入口",
+      "subtitle": "这轮资金将投入产品深度、核心集成和第一个可复制销售动作。",
+      "ask": "开启下一轮 partner meeting，并安排产品 deep dive。",
+      "actions": ["展示设计伙伴工作流", "提供客户 reference", "讨论 go-to-market 节奏"],
+      "contact": "founders@northstar.example"
+    }
+  ]
+}

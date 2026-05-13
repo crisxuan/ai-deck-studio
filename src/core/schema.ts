@@ -1,4 +1,12 @@
-export const THEMES = ["consulting-clean", "tech-dark", "xiaohongshu-editorial", "premium-keynote"] as const;
+export const THEMES = [
+  "consulting-clean",
+  "tech-dark",
+  "xiaohongshu-editorial",
+  "premium-keynote",
+  "technical-blueprint",
+  "founder-editorial",
+  "executive-dashboard"
+] as const;
 export const ASPECT_RATIOS = ["16:9", "4:3", "3:4"] as const;
 export const SLIDE_TYPES = [
   "cover",

@@ -20,13 +20,13 @@ This repository is a runnable MVP. It currently supports:
 - Rendering static HTML decks from `deck.json`
 - Validating deck specs with `deck.schema.json`
 - 10 core slide layouts + 9 premium composition layouts
-- 4 themes, including `premium-keynote`
+- 7 themes, including `premium-keynote`, `technical-blueprint`, `founder-editorial`, and `executive-dashboard`
 - Keyboard navigation and slide controls
 - Speaker notes fields
 - Playwright screenshot verification
 - PDF export
 - Per-slide PNG export
-- 3 complete example decks
+- 8 complete example decks, including 3 premium Chinese showcase decks
 
 ## Why This Exists
 
@@ -260,6 +260,9 @@ Premium composition layouts:
 | `tech-dark` | Technical talks, architecture reviews, developer demos |
 | `xiaohongshu-editorial` | Mobile-first explainers and social carousel posts |
 | `premium-keynote` | Product launches, premium pitch decks, showcase decks |
+| `technical-blueprint` | AI infrastructure launches, system architecture, engineering strategy |
+| `founder-editorial` | Founder pitches, investor narratives, market opportunity stories |
+| `executive-dashboard` | Business reviews, growth readouts, KPI-heavy decision meetings |
 
 Themes change the visual language without changing the deck content contract.
 
@@ -269,6 +272,9 @@ Themes change the visual language without changing the deck content contract.
 | --- | --- | --- | --- |
 | Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
 | Product Launch Chinese | `premium-keynote` | `16:9` | `examples/product-launch-zh/deck.json` |
+| AI Infrastructure Architecture Keynote | `technical-blueprint` | `16:9` | `examples/architecture-keynote-zh/deck.json` |
+| Northstar Ops Premium Investor Pitch | `founder-editorial` | `16:9` | `examples/investor-pitch-premium-zh/deck.json` |
+| Premium Growth Business Review | `executive-dashboard` | `16:9` | `examples/business-review-premium-zh/deck.json` |
 | Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
 | Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
 | Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |

@@ -1,0 +1,361 @@
+body.theme-technical-blueprint {
+  --deck-page-bg: #050706;
+  --slide-bg: #070a08;
+  --text: #f2fbf7;
+  --muted: #9aa9a4;
+  --subtle: rgba(242, 251, 247, 0.1);
+  --line: rgba(95, 255, 214, 0.22);
+  --panel: rgba(8, 18, 15, 0.84);
+  --panel-strong: rgba(22, 45, 38, 0.92);
+  --accent: #5fffd6;
+  --accent-2: #b7ff5f;
+  --accent-3: #f6c95f;
+  --shadow: 0 36px 90px rgba(0, 0, 0, 0.46);
+  color-scheme: dark;
+}
+
+body.theme-technical-blueprint .slide-canvas {
+  border-color: rgba(95, 255, 214, 0.26);
+  background:
+    linear-gradient(rgba(95, 255, 214, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 255, 214, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(93, 92, 255, 0.24), transparent 36%),
+    linear-gradient(180deg, #080b09 0%, #101611 100%);
+  background-size: 52px 52px, 52px 52px, auto, auto;
+  box-shadow: 0 34px 84px rgba(0, 0, 0, 0.58);
+}
+
+body.theme-technical-blueprint .slide-canvas::before {
+  position: absolute;
+  top: 34px;
+  bottom: 34px;
+  left: 34px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-3));
+  content: "";
+  pointer-events: none;
+}
+
+body.theme-technical-blueprint .slide-canvas::after {
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  width: 180px;
+  height: 28px;
+  border: 1px solid rgba(95, 255, 214, 0.26);
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(95, 255, 214, 0.52) 0 10px,
+    transparent 10px 18px
+  );
+  content: "";
+  opacity: 0.52;
+  pointer-events: none;
+}
+
+body.theme-technical-blueprint .cover-layout,
+body.theme-technical-blueprint .agenda-layout,
+body.theme-technical-blueprint .two-column-layout,
+body.theme-technical-blueprint .comparison-layout,
+body.theme-technical-blueprint .timeline-layout,
+body.theme-technical-blueprint .metric-grid-layout,
+body.theme-technical-blueprint .code-layout,
+body.theme-technical-blueprint .closing-layout,
+body.theme-technical-blueprint .composition {
+  position: relative;
+  z-index: 1;
+}
+
+body.theme-technical-blueprint h1 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+body.theme-technical-blueprint h2 {
+  color: var(--text);
+}
+
+body.theme-technical-blueprint .eyebrow,
+body.theme-technical-blueprint .comparison-label,
+body.theme-technical-blueprint .timeline-label,
+body.theme-technical-blueprint .metric-tile p,
+body.theme-technical-blueprint .ask-label {
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  letter-spacing: 0;
+}
+
+body.theme-technical-blueprint .slide-subtitle,
+body.theme-technical-blueprint .composition-subtitle,
+body.theme-technical-blueprint .cover-subtitle,
+body.theme-technical-blueprint .section-kicker {
+  color: var(--muted);
+}
+
+body.theme-technical-blueprint .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 52px;
+  align-items: end;
+}
+
+body.theme-technical-blueprint .narrative-copy h1 {
+  max-width: 900px;
+  font-size: 4.55rem;
+  line-height: 0.94;
+}
+
+body.theme-technical-blueprint .chip-row,
+body.theme-technical-blueprint .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.theme-technical-blueprint .chip-row {
+  margin-top: 30px;
+}
+
+body.theme-technical-blueprint .chip-row span,
+body.theme-technical-blueprint .tool-row span {
+  border: 1px solid rgba(95, 255, 214, 0.34);
+  border-radius: 4px;
+  background: rgba(95, 255, 214, 0.08);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 8px 10px;
+}
+
+body.theme-technical-blueprint .spotlight-metric,
+body.theme-technical-blueprint .proof-strip article,
+body.theme-technical-blueprint .showcase-feature,
+body.theme-technical-blueprint .market-segment,
+body.theme-technical-blueprint .architecture-layer,
+body.theme-technical-blueprint .data-metric,
+body.theme-technical-blueprint .tension-card,
+body.theme-technical-blueprint .ask-panel,
+body.theme-technical-blueprint .metric-tile,
+body.theme-technical-blueprint .comparison-side,
+body.theme-technical-blueprint .content-panel,
+body.theme-technical-blueprint .closing-actions {
+  border: 1px solid rgba(95, 255, 214, 0.24);
+  border-radius: 6px;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px rgba(242, 251, 247, 0.03);
+}
+
+body.theme-technical-blueprint .spotlight-metric {
+  padding: 26px;
+}
+
+body.theme-technical-blueprint .spotlight-metric p,
+body.theme-technical-blueprint .spotlight-metric span,
+body.theme-technical-blueprint .proof-strip p,
+body.theme-technical-blueprint .proof-strip span,
+body.theme-technical-blueprint .market-segment p,
+body.theme-technical-blueprint .architecture-layer p,
+body.theme-technical-blueprint .data-takeaway,
+body.theme-technical-blueprint .showcase-feature p {
+  color: var(--muted);
+}
+
+body.theme-technical-blueprint .spotlight-metric strong {
+  display: block;
+  margin: 12px 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  line-height: 0.94;
+}
+
+body.theme-technical-blueprint .hero-statement-layout {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 36px;
+}
+
+body.theme-technical-blueprint .hero-statement-copy {
+  display: flex;
+  max-width: 980px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-technical-blueprint .hero-statement-copy h1 {
+  font-size: 4rem;
+  line-height: 0.98;
+}
+
+body.theme-technical-blueprint .proof-strip,
+body.theme-technical-blueprint .data-dashboard,
+body.theme-technical-blueprint .product-metrics {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-technical-blueprint .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-technical-blueprint .proof-strip article,
+body.theme-technical-blueprint .data-metric {
+  min-height: 126px;
+  padding: 20px;
+}
+
+body.theme-technical-blueprint .proof-strip strong,
+body.theme-technical-blueprint .data-metric strong,
+body.theme-technical-blueprint .metric-tile strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+body.theme-technical-blueprint .proof-strip strong {
+  display: block;
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+body.theme-technical-blueprint .product-showcase-layout,
+body.theme-technical-blueprint .market-map-layout,
+body.theme-technical-blueprint .system-architecture-layout,
+body.theme-technical-blueprint .data-story-layout,
+body.theme-technical-blueprint .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+body.theme-technical-blueprint .architecture-stack {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-technical-blueprint .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.82fr 1fr;
+  gap: 22px;
+  align-items: center;
+  padding: 18px 22px;
+  background:
+    linear-gradient(90deg, rgba(95, 255, 214, 0.12), transparent 30%),
+    rgba(8, 18, 15, 0.9);
+}
+
+body.theme-technical-blueprint .architecture-layer h2 {
+  margin-bottom: 6px;
+}
+
+body.theme-technical-blueprint .architecture-callout,
+body.theme-technical-blueprint .map-insight {
+  margin: 0;
+  border-left: 4px solid var(--accent-2);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.98rem;
+  font-weight: 760;
+  padding-left: 16px;
+}
+
+body.theme-technical-blueprint .data-story-layout {
+  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+body.theme-technical-blueprint .data-story-copy h2 {
+  margin-top: 34px;
+  font-size: 3.1rem;
+  line-height: 1.02;
+}
+
+body.theme-technical-blueprint .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-technical-blueprint .data-metric strong {
+  display: block;
+  margin: 8px 0 14px;
+  font-size: 3rem;
+  line-height: 0.96;
+}
+
+body.theme-technical-blueprint .tension-grid {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+body.theme-technical-blueprint .tension-card {
+  min-height: 346px;
+  padding: 28px;
+}
+
+body.theme-technical-blueprint .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(95, 255, 214, 0.34);
+  border-radius: 6px;
+  background: rgba(95, 255, 214, 0.1);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+body.theme-technical-blueprint .quote-break-layout {
+  display: flex;
+  max-width: 980px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-technical-blueprint .quote-break-layout blockquote {
+  margin: 0;
+  color: var(--text);
+  font-size: 3.65rem;
+  font-weight: 850;
+  line-height: 1.04;
+}
+
+body.theme-technical-blueprint .quote-attribution,
+body.theme-technical-blueprint .contact {
+  color: var(--accent);
+  font-weight: 850;
+}
+
+body.theme-technical-blueprint .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.86fr;
+  gap: 44px;
+  align-items: end;
+}
+
+body.theme-technical-blueprint .ask-panel {
+  padding: 30px;
+  background: linear-gradient(180deg, rgba(95, 255, 214, 0.14), rgba(8, 18, 15, 0.92));
+}
+
+body.theme-technical-blueprint .ask-panel strong {
+  display: block;
+  margin-bottom: 24px;
+  color: var(--text);
+  font-size: 1.9rem;
+  line-height: 1.08;
+}
+
+body.theme-technical-blueprint .code-window {
+  border-color: rgba(95, 255, 214, 0.3);
+  border-radius: 6px;
+  background: rgba(5, 8, 7, 0.94);
+}
+
+body.theme-technical-blueprint pre {
+  color: #d8fff2;
+}

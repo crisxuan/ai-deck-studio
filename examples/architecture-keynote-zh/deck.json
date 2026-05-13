@@ -1,0 +1,121 @@
+{
+  "version": "0.2.0",
+  "title": "AI 基础设施架构发布",
+  "audience": "CTO、平台负责人和 AI 工程团队",
+  "goal": "说明新一代 AI 工作流基础设施的架构、价值和落地路径",
+  "tone": "技术可信、发布会质感、结构清晰",
+  "theme": "technical-blueprint",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "story": {
+    "thesis": "AI 应用的关键不再只是模型调用，而是把生成、工具、权限、验证和交付闭成一个可靠系统。",
+    "arc": [
+      "团队已经能快速构建 AI demo，但很难稳定进入生产。",
+      "缺失的是围绕模型的基础设施层：上下文、权限、验证、恢复和审计。",
+      "新的架构把每次 agent 运行变成可观测、可验证、可复用的工作流。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "eyebrow": "Architecture Keynote",
+      "title": "让 AI 工作流进入生产级运行",
+      "subtitle": "一个面向 agent 时代的基础设施层：上下文可控、工具可审计、输出可验证。",
+      "chips": ["Agent Runtime", "Permissioning", "Visual QA", "Workflow Replay"],
+      "stat": {
+        "label": "生产事故回溯时间",
+        "value": "-72%",
+        "detail": "来自内部平台试点"
+      }
+    },
+    {
+      "id": "category-shift",
+      "type": "hero-statement",
+      "eyebrow": "核心判断",
+      "headline": "真正难的不是调用模型，而是让每次调用都能被系统接住。",
+      "subheadline": "上下文、工具、权限、验证和恢复路径，决定了 AI 工作流能否从 demo 走向生产。",
+      "proofs": [
+        { "label": "工具调用失败恢复", "value": "3.1x", "detail": "通过结构化运行记录加速定位" },
+        { "label": "人工复核时间", "value": "-54%", "detail": "验证报告减少重复检查" },
+        { "label": "可复用流程", "value": "68%", "detail": "沉淀为团队标准 playbook" }
+      ]
+    },
+    {
+      "id": "architecture",
+      "type": "system-architecture",
+      "title": "生产级 Agent Runtime 的四层架构",
+      "subtitle": "把不稳定的生成过程拆成可治理的系统边界。",
+      "layers": [
+        {
+          "label": "Context Plane",
+          "description": "收集、裁剪和标记上下文，避免模型看到不该看的信息。",
+          "tools": ["retrieval", "scoping", "redaction"]
+        },
+        {
+          "label": "Tool Plane",
+          "description": "所有工具调用都经过权限、确认和运行记录。",
+          "tools": ["approval", "audit", "sandbox"]
+        },
+        {
+          "label": "Verification Plane",
+          "description": "对生成结果做截图、schema、导出和质量检查。",
+          "tools": ["schema", "screenshots", "checks"]
+        },
+        {
+          "label": "Recovery Plane",
+          "description": "失败不是终点，而是进入可解释的修复流程。",
+          "tools": ["report", "repair", "replay"]
+        }
+      ],
+      "callout": "平台的职责，是让模型输出变成可以被团队信任的系统事件。"
+    },
+    {
+      "id": "before-after",
+      "type": "tension-resolution",
+      "title": "从 prompt 工程，到工作流工程",
+      "subtitle": "把注意力从一次回答，转移到完整运行闭环。",
+      "tension": {
+        "label": "旧模式",
+        "headline": "提示词越写越长，系统还是不稳定",
+        "points": ["上下文边界模糊", "工具调用缺少审计", "产物质量依赖人工目测"]
+      },
+      "resolution": {
+        "label": "新模式",
+        "headline": "运行时负责治理，模型专注判断",
+        "points": ["上下文可追踪", "工具权限可控", "验证报告驱动修复"]
+      }
+    },
+    {
+      "id": "data",
+      "type": "data-story",
+      "title": "试点数据证明：治理层会直接提升交付效率",
+      "subtitle": "当验证和恢复路径内置，团队就敢把更多任务交给 agent。",
+      "headline": "稳定性提升不是来自更长提示词，而是来自更好的运行系统。",
+      "metrics": [
+        { "label": "失败定位时间", "value": "-72%", "detail": "运行记录和截图报告联动" },
+        { "label": "二次返工", "value": "-46%", "detail": "输出进入交付前先验证" },
+        { "label": "可复用流程", "value": "2.8x", "detail": "高频任务变成 playbook" },
+        { "label": "人工确认点", "value": "100%", "detail": "高风险操作显式授权" }
+      ],
+      "takeaway": "系统不只是让 agent 更快，而是让团队敢把它放进真实流程。"
+    },
+    {
+      "id": "quote",
+      "type": "quote-break",
+      "eyebrow": "Platform Team Signal",
+      "quote": "我们第一次能解释一次 agent 运行为什么成功，也能解释为什么失败。",
+      "attribution": "AI 平台负责人",
+      "context": "可观测性让 agent 从黑盒能力变成可运营系统。"
+    },
+    {
+      "id": "ask",
+      "type": "final-ask",
+      "title": "把 Agent Runtime 作为平台能力建设",
+      "subtitle": "从单点 demo 升级为可治理、可验证、可复用的工作流基础设施。",
+      "ask": "批准 6 周试点，把三个高频内部工作流迁移到新 runtime。",
+      "actions": ["选择首批试点流程", "接入权限和审计", "建立验证报告标准"],
+      "contact": "ai-platform@example.com"
+    }
+  ]
+}
