@@ -31,6 +31,12 @@ export type StoryPlan = {
   arc: string[];
 };
 
+export type DeckAlternate = {
+  label: string;
+  language?: string;
+  href: string;
+};
+
 export type DeckSpec = {
   version: string;
   title: string;
@@ -40,6 +46,7 @@ export type DeckSpec = {
   theme: ThemeName;
   aspectRatio: AspectRatio;
   language?: string;
+  alternates?: DeckAlternate[];
   story?: StoryPlan;
   slides: SlideSpec[];
 };

@@ -69,6 +69,13 @@ Render the technical sharing example:
 npm run render -- examples/tech-sharing/deck.json
 ```
 
+Render the premium product launch example with English / Chinese switching:
+
+```bash
+npm run render -- examples/product-launch/deck.json
+npm run render -- examples/product-launch-zh/deck.json
+```
+
 Open the generated HTML:
 
 ```txt
@@ -261,12 +268,14 @@ Themes change the visual language without changing the deck content contract.
 | Example | Theme | Ratio | Path |
 | --- | --- | --- | --- |
 | Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
+| Product Launch Chinese | `premium-keynote` | `16:9` | `examples/product-launch-zh/deck.json` |
 | Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
 | Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
 | Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |
 
 The technical sharing example covers all 10 MVP layouts and is useful for regression checks.
 The product launch example covers the premium composition layouts and is useful for evaluating the visual ceiling.
+The English and Chinese product launch decks are linked with `alternates`, so the rendered HTML shows a language switcher in the top-right corner.
 
 ## Output Artifacts
 
@@ -343,6 +352,7 @@ ppt-html-studio/
 ├── examples/
 │   ├── investor-pitch/
 │   ├── product-launch/
+│   ├── product-launch-zh/
 │   ├── tech-sharing/
 │   └── weekly-report/
 ├── src/

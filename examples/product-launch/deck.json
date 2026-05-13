@@ -7,6 +7,13 @@
   "theme": "premium-keynote",
   "aspectRatio": "16:9",
   "language": "en",
+  "alternates": [
+    {
+      "label": "中文",
+      "language": "zh-CN",
+      "href": "../../product-launch-zh/output/index.html"
+    }
+  ],
   "story": {
     "thesis": "AI work becomes valuable when every output can be reviewed, verified, and reused.",
     "arc": [

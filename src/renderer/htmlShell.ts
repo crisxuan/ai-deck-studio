@@ -13,6 +13,7 @@ export async function htmlShell(deck: DeckSpec, slidesHtml: string): Promise<str
   const story = deck.story
     ? `<script type="application/json" id="deck-story">${escapeHtml(JSON.stringify(deck.story))}</script>`
     : "";
+  const languageSwitcher = renderLanguageSwitcher(deck);
 
   return `<!doctype html>
 <html lang="${escapeHtml(deck.language ?? "en")}">
@@ -34,12 +35,41 @@ ${themeCss}
     <span data-deck-progress>1 / ${deck.slides.length}</span>
     <button type="button" data-deck-next aria-label="Next slide">&rsaquo;</button>
   </nav>
+  ${languageSwitcher}
   ${story}
   <script>
 ${runtime}
   </script>
 </body>
 </html>`;
+}
+
+function renderLanguageSwitcher(deck: DeckSpec): string {
+  if (!deck.alternates?.length) {
+    return "";
+  }
+
+  const current = deck.language ? `<span class="is-current">${escapeHtml(languageLabel(deck.language))}</span>` : "";
+  const links = deck.alternates
+    .map((alternate) => {
+      const lang = alternate.language ? ` lang="${escapeHtml(alternate.language)}"` : "";
+      return `<a href="${escapeHtml(alternate.href)}"${lang}>${escapeHtml(alternate.label)}</a>`;
+    })
+    .join("");
+
+  return `<nav class="language-switcher" aria-label="Language switcher">${current}${links}</nav>`;
+}
+
+function languageLabel(language: string): string {
+  if (language.toLowerCase().startsWith("zh")) {
+    return "中文";
+  }
+
+  if (language.toLowerCase().startsWith("en")) {
+    return "EN";
+  }
+
+  return language;
 }
 
 async function loadTextAsset(folder: string, fileName: string): Promise<string> {

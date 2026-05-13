@@ -69,6 +69,13 @@ npx playwright install chromium
 npm run render -- examples/tech-sharing/deck.json
 ```
 
+渲染带中/英文切换的高级产品发布示例：
+
+```bash
+npm run render -- examples/product-launch/deck.json
+npm run render -- examples/product-launch-zh/deck.json
+```
+
 打开生成的 HTML：
 
 ```txt
@@ -261,12 +268,14 @@ deck.schema.json
 | 示例 | 主题 | 比例 | 路径 |
 | --- | --- | --- | --- |
 | Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
+| Product Launch 中文版 | `premium-keynote` | `16:9` | `examples/product-launch-zh/deck.json` |
 | Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
 | Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
 | Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |
 
 技术分享示例覆盖了全部 10 个 MVP layout，适合用来做回归验证。
 Product Launch 示例覆盖高级 composition layout，适合用来评估视觉上限。
+Product Launch 和 Product Launch 中文版互相配置了 `alternates`，渲染后可以在页面右上角一键切换语言。
 
 ## 输出产物
 
@@ -343,6 +352,7 @@ ppt-html-studio/
 ├── examples/
 │   ├── investor-pitch/
 │   ├── product-launch/
+│   ├── product-launch-zh/
 │   ├── tech-sharing/
 │   └── weekly-report/
 ├── src/

@@ -26,6 +26,25 @@ Recommended fields:
 - Social carousel: `xiaohongshu-editorial`
 - Product launch or premium showcase: `premium-keynote`
 
+## Language Switching
+
+Use top-level `alternates` to connect rendered decks in different languages:
+
+```json
+{
+  "language": "zh-CN",
+  "alternates": [
+    {
+      "label": "English",
+      "language": "en",
+      "href": "../../product-launch/output/index.html"
+    }
+  ]
+}
+```
+
+The renderer adds a language switcher when `alternates` is present.
+
 ## Content Rules
 
 - Prefer one main idea per slide.

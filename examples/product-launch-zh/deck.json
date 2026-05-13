@@ -1,0 +1,230 @@
+{
+  "version": "0.2.0",
+  "title": "LumaGrid 产品发布",
+  "audience": "产品负责人、运营团队和 AI 平台采购者",
+  "goal": "发布 LumaGrid，并说明它如何成为经过验证的 AI 工作交付层",
+  "tone": "高级、清晰、有发布会感",
+  "theme": "premium-keynote",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "alternates": [
+    {
+      "label": "English",
+      "language": "en",
+      "href": "../../product-launch/output/index.html"
+    }
+  ],
+  "story": {
+    "thesis": "AI 工作真正产生价值的时刻，是每个输出都可以被审阅、验证和复用的时候。",
+    "arc": [
+      "团队已经拥有大量 AI 生成内容，但很难放心交付。",
+      "下一代产品层不是另一个聊天框，而是可验证的工作系统。",
+      "LumaGrid 把 agent 输出变成带有证据链的可交付成果。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "eyebrow": "产品发布",
+      "title": "经过验证的 AI 工作交付层",
+      "subtitle": "LumaGrid 帮助团队把 agent 运行结果转化为高质量成果、证据链和可复用工作流。",
+      "chips": ["成果交付", "视觉验证", "复用流程", "高层汇报"],
+      "stat": {
+        "label": "从初稿到交付物",
+        "value": "4.8x",
+        "detail": "设计伙伴发布流程提速"
+      },
+      "presenterNotes": "开场强调从 AI 辅助到 AI 工作系统的变化。"
+    },
+    {
+      "id": "shift",
+      "type": "hero-statement",
+      "eyebrow": "品类转折",
+      "headline": "下一代 AI 平台，将由最终交付质量来定义。",
+      "subheadline": "团队不缺更多原始生成结果。真正缺的是能规划、渲染、验证并交付的可靠系统。",
+      "proofs": [
+        {
+          "label": "已生成成果",
+          "value": "12k+",
+          "detail": "覆盖发布、报告和销售赋能场景"
+        },
+        {
+          "label": "人工清理",
+          "value": "-61%",
+          "detail": "引入验证流程后的中位数下降"
+        },
+        {
+          "label": "可复用流程",
+          "value": "74%",
+          "detail": "转化为团队可重复使用的 playbook"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "type": "product-showcase",
+      "title": "LumaGrid 打包完整交付闭环",
+      "subtitle": "它不是另一个通用聊天界面，而是面向 agent 成果交付的高级工作台。",
+      "productName": "LumaGrid",
+      "tagline": "规划、生成、验证、交付。",
+      "features": [
+        {
+          "title": "叙事规划",
+          "description": "每个成果都从受众、目标、论点和结构化故事线开始。"
+        },
+        {
+          "title": "视觉渲染",
+          "description": "布局、字体和主题由系统统一负责，而不是每次提示词临场发挥。"
+        },
+        {
+          "title": "证据链",
+          "description": "截图、检查、导出和修复说明会跟随每个输出一起保存。"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "成果类型",
+          "value": "18"
+        },
+        {
+          "label": "验证检查",
+          "value": "42"
+        }
+      ]
+    },
+    {
+      "id": "market-map",
+      "type": "market-map",
+      "title": "市场正在从 Copilot 转向工作系统",
+      "subtitle": "真正的机会出现在生成、验证和交付的交汇处。",
+      "segments": [
+        {
+          "label": "聊天式 Copilot",
+          "description": "适合快速想法生成，但交付保障薄弱。",
+          "signal": "拥挤"
+        },
+        {
+          "label": "自动化工具",
+          "description": "执行可重复，但面对内容质量时容易脆弱。",
+          "signal": "成熟"
+        },
+        {
+          "label": "创意套件",
+          "description": "视觉精致，但人工成本高，也和 agent 工作流割裂。",
+          "signal": "手动"
+        },
+        {
+          "label": "可验证工作系统",
+          "description": "结构化生成、视觉质检、导出和复用在一个闭环里完成。",
+          "signal": "机会"
+        }
+      ],
+      "insight": "LumaGrid 面向的是 AI 输出成为运营基础设施的那个时刻。"
+    },
+    {
+      "id": "architecture",
+      "type": "system-architecture",
+      "title": "面向高质量成果的闭环架构",
+      "subtitle": "产品把模型判断和系统保障拆开，各自承担清晰职责。",
+      "layers": [
+        {
+          "label": "意图层",
+          "description": "明确受众、目标、限制条件和质量标准。",
+          "tools": ["brief", "audience", "goal"]
+        },
+        {
+          "label": "规格层",
+          "description": "把故事和内容变成结构化、可检查的成果规格。",
+          "tools": ["schema", "limits", "notes"]
+        },
+        {
+          "label": "渲染层",
+          "description": "用可复用 composition 生成一致的视觉系统。",
+          "tools": ["themes", "layouts", "runtime"]
+        },
+        {
+          "label": "验证层",
+          "description": "生成截图、检测失败，并把报告反馈给修复流程。",
+          "tools": ["screenshots", "checks", "report"]
+        }
+      ],
+      "callout": "模型负责写计划，系统负责证明成果已经准备好。"
+    },
+    {
+      "id": "data-story",
+      "type": "data-story",
+      "title": "设计伙伴更快交付更干净的成果",
+      "subtitle": "当团队不再手动清理 AI 输出，价值会立刻体现出来。",
+      "headline": "验证成为生成的一部分时，工作流才真正变强。",
+      "metrics": [
+        {
+          "label": "Deck 生产时间",
+          "value": "-68%",
+          "detail": "从 brief 到导出"
+        },
+        {
+          "label": "视觉 QA 失败",
+          "value": "-81%",
+          "detail": "使用结构化布局之后"
+        },
+        {
+          "label": "成果复用",
+          "value": "3.4x",
+          "detail": "更多流程在验证后被重复使用"
+        },
+        {
+          "label": "格式类修改",
+          "value": "-47%",
+          "detail": "更少纯格式反馈"
+        }
+      ],
+      "takeaway": "它不只是生成更快，而是减少了让 AI 生成显得廉价的后期清理工作。"
+    },
+    {
+      "id": "tension",
+      "type": "tension-resolution",
+      "title": "过去承诺速度，现在承诺可信。",
+      "subtitle": "更好的输出，来自模型周围系统的升级。",
+      "tension": {
+        "label": "过去",
+        "headline": "很快的初稿，但仍然需要人工救场",
+        "points": [
+          "自由生成页面导致视觉漂移",
+          "没有成果级质量报告",
+          "导出能力经常只是最后补上"
+        ]
+      },
+      "resolution": {
+        "label": "现在",
+        "headline": "结构化成果自带验证证据",
+        "points": [
+          "Composition 承载设计质量",
+          "验证成为生成流程的一部分",
+          "PDF 和 PNG 导出是一等能力"
+        ]
+      }
+    },
+    {
+      "id": "quote",
+      "type": "quote-break",
+      "eyebrow": "设计伙伴反馈",
+      "quote": "最大的不同是，设计师介入之前，我们团队就已经敢相信这个成果。",
+      "attribution": "某私测客户 VP Product",
+      "context": "最强的采用信号来自那些已经每天使用 AI、但缺少可靠交付层的团队。"
+    },
+    {
+      "id": "ask",
+      "type": "final-ask",
+      "title": "构建可验证的 AI 工作层",
+      "subtitle": "LumaGrid 把 AI 生成转化为高级、可检查、可复用的成果。",
+      "ask": "批准发布计划，并把设计伙伴计划扩展到 20 个团队。",
+      "actions": [
+        "发布 premium keynote 工作流",
+        "增加成果画廊和视觉点评闭环",
+        "打包产品、GTM 和高层汇报模板"
+      ],
+      "contact": "launch@lumagrid.example"
+    }
+  ]
+}
