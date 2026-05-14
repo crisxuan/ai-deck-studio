@@ -20,8 +20,11 @@ AI Deck Studio 是一个面向 AI Agent 的演示文稿生成系统。它不是�
 - 从 `deck.json` 渲染静态 HTML 演示文稿
 - 使用 `deck.schema.json` 做结构校验
 - 10 种核心 slide layout + 9 种高级 composition layout
-- 7 套主题，其中包含 `premium-keynote`、`technical-blueprint`、`founder-editorial`、`executive-dashboard`
+- 17 套主题，其中包含 10 套 TypeUI-inspired 设计风格主题
 - 键盘翻页和页面导航
+- `S` 键演讲者模式：当前页、下一页、speaker notes、计时器
+- `O` 键页面总览，`N` 键临时讲稿抽屉，`F` 键全屏
+- 一键生成 live showcase gallery
 - speaker notes 字段支持
 - Playwright 截图验证
 - PDF 导出
@@ -82,6 +85,13 @@ npm run render -- examples/product-launch-zh/deck.json
 examples/tech-sharing/output/index.html
 ```
 
+生成全部示例和 showcase 画廊：
+
+```bash
+npm run showcase
+open showcase/index.html
+```
+
 运行视觉验证：
 
 ```bash
@@ -99,6 +109,23 @@ npm run export -- examples/tech-sharing/output/index.html --format pdf
 ```bash
 npm run export -- examples/tech-sharing/output/index.html --format png
 ```
+
+## Showcase 画廊
+
+`npm run showcase` 会做两件事：
+
+- 渲染 `examples/*/deck.json` 下的全部示例。
+- 生成 `showcase/index.html`，用 live iframe 展示高级中文 showcase、主题画廊和完整示例 deck。
+
+打开任意 deck 后可以使用这些快捷键：
+
+| 快捷键 | 功能 |
+| --- | --- |
+| `←` / `→` / `Space` | 翻页 |
+| `S` | 打开演讲者模式 |
+| `N` | 打开当前页 speaker notes |
+| `O` | 打开页面总览 |
+| `F` | 全屏 |
 
 ## CLI 命令
 
@@ -263,6 +290,16 @@ deck.schema.json
 | `technical-blueprint` | AI 基础设施发布、系统架构、工程战略 |
 | `founder-editorial` | 创始人路演、投资人叙事、市场机会表达 |
 | `executive-dashboard` | 经营复盘、增长周报、KPI 决策会议 |
+| `minimal` | 极简汇报、清晰观点表达、低干扰信息展示 |
+| `editorial` | 杂志感叙事、观点型内容、长阅读式 deck |
+| `luxury` | 高端品牌、发布会、精品 pitch |
+| `corporate` | 企业级汇报、正式商务材料、品牌化方案 |
+| `dashboard` | 深色数据看板、运营监控、平台型汇报 |
+| `bento` | 产品功能矩阵、模块化展示、结构化内容 |
+| `glassmorphism` | 玻璃拟态科技感、现代产品展示 |
+| `neobrutalism` | 强视觉表达、年轻品牌、活动型内容 |
+| `futuristic` | AI 发布、未来感技术演示 |
+| `paper` | 研究报告、课程材料、知识型内容 |
 
 主题只改变视觉语言，不改变 deck 内容结构。
 
@@ -282,6 +319,8 @@ deck.schema.json
 技术分享示例覆盖了全部 10 个 MVP layout，适合用来做回归验证。
 Product Launch 示例覆盖高级 composition layout，适合用来评估视觉上限。
 Product Launch 和 Product Launch 中文版互相配置了 `alternates`，渲染后可以在页面右上角一键切换语言。
+新增的三套高级中文 showcase 分别使用 `technical-blueprint`、`founder-editorial`、`executive-dashboard`，用于展示不同场景下的视觉差异。
+`minimal` 到 `paper` 这 10 套主题来自 TypeUI design skills 的 PPT 适配，`npm run showcase` 会为每个主题自动生成真实 deck 预览。
 
 ## 输出产物
 

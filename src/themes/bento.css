@@ -1,0 +1,226 @@
+body.theme-bento {
+  --deck-page-bg: #eadfce;
+  --slide-bg: #fff5e6;
+  --text: #111827;
+  --muted: #667085;
+  --subtle: #ffe8d8;
+  --line: rgba(17, 24, 39, 0.12);
+  --panel: rgba(255, 255, 255, 0.76);
+  --panel-strong: #fad4c0;
+  --accent: #d96f45;
+  --accent-2: #80a1c1;
+  --accent-3: #16a34a;
+  --shadow: 0 26px 72px rgba(70, 48, 30, 0.18);
+}
+
+body.theme-bento .slide-canvas {
+  border-color: rgba(17, 24, 39, 0.1);
+  background:
+    linear-gradient(135deg, rgba(250, 212, 192, 0.55), transparent 38%),
+    linear-gradient(315deg, rgba(128, 161, 193, 0.28), transparent 34%),
+    var(--slide-bg);
+  background-color: var(--slide-bg);
+}
+
+body.theme-bento h1,
+body.theme-bento h2 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+body.theme-bento .eyebrow,
+body.theme-bento .comparison-label,
+body.theme-bento .timeline-label,
+body.theme-bento .metric-tile p,
+body.theme-bento .ask-label {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+body.theme-bento .slide-subtitle,
+body.theme-bento .cover-subtitle,
+body.theme-bento .composition-subtitle,
+body.theme-bento .section-kicker,
+body.theme-bento .panel-body,
+body.theme-bento .market-segment p,
+body.theme-bento .architecture-layer p,
+body.theme-bento .data-takeaway {
+  color: var(--muted);
+}
+
+body.theme-bento .content-panel,
+body.theme-bento .comparison-side,
+body.theme-bento .metric-tile,
+body.theme-bento .closing-actions,
+body.theme-bento .proof-strip article,
+body.theme-bento .showcase-feature,
+body.theme-bento .market-segment,
+body.theme-bento .architecture-layer,
+body.theme-bento .data-metric,
+body.theme-bento .tension-card,
+body.theme-bento .ask-panel,
+body.theme-bento .spotlight-metric {
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 18px 46px rgba(70, 48, 30, 0.1);
+}
+
+body.theme-bento .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 34px;
+  align-items: end;
+}
+
+body.theme-bento .narrative-copy h1,
+body.theme-bento .hero-statement-copy h1 {
+  max-width: 940px;
+  font-size: 4rem;
+  line-height: 0.98;
+}
+
+body.theme-bento .chip-row,
+body.theme-bento .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+body.theme-bento .chip-row span,
+body.theme-bento .tool-row span,
+body.theme-bento .market-segment span {
+  border: 1px solid rgba(128, 161, 193, 0.36);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #35556f;
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 8px 10px;
+}
+
+body.theme-bento .spotlight-metric,
+body.theme-bento .data-metric:nth-child(1) {
+  background: #111827;
+  color: #ffffff;
+}
+
+body.theme-bento .spotlight-metric p,
+body.theme-bento .spotlight-metric span,
+body.theme-bento .data-metric:nth-child(1) p,
+body.theme-bento .data-metric:nth-child(1) span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.theme-bento .spotlight-metric strong,
+body.theme-bento .data-metric strong,
+body.theme-bento .proof-strip strong,
+body.theme-bento .metric-tile strong {
+  display: block;
+  color: inherit;
+  font-size: 2.9rem;
+  line-height: 1;
+}
+
+body.theme-bento .hero-statement-layout,
+body.theme-bento .product-showcase-layout,
+body.theme-bento .market-map-layout,
+body.theme-bento .system-architecture-layout,
+body.theme-bento .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+}
+
+body.theme-bento .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-bento .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-bento .proof-strip,
+body.theme-bento .data-dashboard,
+body.theme-bento .market-map {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-bento .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-bento .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.theme-bento .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-bento .proof-strip article,
+body.theme-bento .data-metric,
+body.theme-bento .market-segment,
+body.theme-bento .showcase-feature {
+  padding: 20px;
+}
+
+body.theme-bento .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 30px;
+  align-items: center;
+}
+
+body.theme-bento .data-story-copy h2 {
+  margin-top: 30px;
+  font-size: 3rem;
+  line-height: 1.04;
+}
+
+body.theme-bento .architecture-stack,
+body.theme-bento .product-feature-stack {
+  display: grid;
+  gap: 10px;
+}
+
+body.theme-bento .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 18px;
+}
+
+body.theme-bento .tension-grid,
+body.theme-bento .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 62px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+body.theme-bento .final-ask-layout {
+  grid-template-columns: 1fr 0.86fr;
+}
+
+body.theme-bento .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 8px;
+  background: var(--accent-2);
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+
+body.theme-bento .ask-panel {
+  padding: 26px;
+}

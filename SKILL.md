@@ -18,6 +18,19 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
    - business deck: `consulting-clean`
    - technical talk: `tech-dark`
    - social carousel: `xiaohongshu-editorial`
+   - architecture keynote: `technical-blueprint`
+   - founder or investor pitch: `founder-editorial`
+   - KPI-heavy business review: `executive-dashboard`
+   - minimal executive brief: `minimal`
+   - editorial narrative: `editorial`
+   - luxury or premium launch: `luxury`
+   - formal enterprise deck: `corporate`
+   - dark data-heavy deck: `dashboard`
+   - modular product story: `bento`
+   - glassy modern tech deck: `glassmorphism`
+   - expressive campaign deck: `neobrutalism`
+   - futuristic AI launch: `futuristic`
+   - research or education deck: `paper`
 3. Draft the story before slides:
    - thesis
    - narrative arc
@@ -53,6 +66,14 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
    npm run export -- path/to/output/index.html --format png
    ```
 
+10. For a visual gallery or demo handoff, build the showcase:
+
+   ```bash
+   npm run showcase
+   ```
+
+   Then open `showcase/index.html`.
+
 ## Quality Bar
 
 - Every deck has a clear audience, goal, thesis, and arc.
@@ -61,3 +82,5 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
 - No slide-level browser console errors.
 - No body scrollbars in presentation view.
 - Exported PDF/PNG files match the browser rendering closely.
+- Showcase pages use live rendered decks, not mock screenshots.
+- Speaker notes stay hidden from the audience view and are available through `S` presenter mode or `N` notes drawer.

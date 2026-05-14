@@ -28,6 +28,16 @@ Recommended fields:
 - AI infrastructure or architecture keynote: `technical-blueprint`
 - Founder pitch or investor story: `founder-editorial`
 - KPI-heavy operating review: `executive-dashboard`
+- Minimal executive brief: `minimal`
+- Editorial thought-leadership deck: `editorial`
+- Luxury or high-end launch: `luxury`
+- Formal enterprise deck: `corporate`
+- Dark product metrics dashboard: `dashboard`
+- Modular product story: `bento`
+- Modern glassy technology deck: `glassmorphism`
+- High-impact campaign deck: `neobrutalism`
+- Futuristic AI launch: `futuristic`
+- Research or education deck: `paper`
 
 ## Language Switching
 

@@ -12,6 +12,7 @@
     "render": "tsx src/cli/index.ts render",
     "verify": "tsx src/cli/index.ts verify",
     "export": "tsx src/cli/index.ts export",
+    "showcase": "tsx scripts/build-showcase.ts",
     "example:render": "tsx scripts/render-example.ts",
     "example:verify": "tsx scripts/verify-example.ts",
     "example:export": "tsx scripts/export-example.ts"

@@ -1,0 +1,239 @@
+body.theme-corporate {
+  --deck-page-bg: #dfe6ef;
+  --slide-bg: #ffffff;
+  --text: #111827;
+  --muted: #637083;
+  --subtle: #eef4ff;
+  --line: rgba(17, 24, 39, 0.12);
+  --panel: #ffffff;
+  --panel-strong: #eef4ff;
+  --accent: #3b82f6;
+  --accent-2: #8b5cf6;
+  --accent-3: #16a34a;
+  --shadow: 0 28px 76px rgba(17, 24, 39, 0.16);
+}
+
+body.theme-corporate .slide-canvas {
+  border-color: rgba(17, 24, 39, 0.12);
+  background:
+    linear-gradient(115deg, transparent 0 63%, rgba(59, 130, 246, 0.08) 63% 80%, transparent 80%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  background-color: #ffffff;
+}
+
+body.theme-corporate .slide-canvas::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 7px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  content: "";
+}
+
+body.theme-corporate h1,
+body.theme-corporate h2 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+body.theme-corporate .eyebrow,
+body.theme-corporate .comparison-label,
+body.theme-corporate .timeline-label,
+body.theme-corporate .metric-tile p,
+body.theme-corporate .ask-label {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+body.theme-corporate .slide-subtitle,
+body.theme-corporate .cover-subtitle,
+body.theme-corporate .composition-subtitle,
+body.theme-corporate .section-kicker,
+body.theme-corporate .panel-body,
+body.theme-corporate .market-segment p,
+body.theme-corporate .architecture-layer p,
+body.theme-corporate .data-takeaway {
+  color: var(--muted);
+}
+
+body.theme-corporate .content-panel,
+body.theme-corporate .comparison-side,
+body.theme-corporate .metric-tile,
+body.theme-corporate .closing-actions,
+body.theme-corporate .proof-strip article,
+body.theme-corporate .showcase-feature,
+body.theme-corporate .market-segment,
+body.theme-corporate .architecture-layer,
+body.theme-corporate .data-metric,
+body.theme-corporate .tension-card,
+body.theme-corporate .ask-panel,
+body.theme-corporate .spotlight-metric {
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.08);
+}
+
+body.theme-corporate .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: end;
+}
+
+body.theme-corporate .narrative-copy h1,
+body.theme-corporate .hero-statement-copy h1 {
+  max-width: 940px;
+  font-size: 4.15rem;
+  line-height: 0.98;
+}
+
+body.theme-corporate .chip-row,
+body.theme-corporate .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+body.theme-corporate .chip-row span,
+body.theme-corporate .tool-row span,
+body.theme-corporate .market-segment span {
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 8px 10px;
+}
+
+body.theme-corporate .spotlight-metric,
+body.theme-corporate .data-metric:nth-child(1),
+body.theme-corporate .ask-panel {
+  background: #111827;
+  color: #ffffff;
+}
+
+body.theme-corporate .spotlight-metric p,
+body.theme-corporate .spotlight-metric span,
+body.theme-corporate .data-metric:nth-child(1) p,
+body.theme-corporate .data-metric:nth-child(1) span,
+body.theme-corporate .ask-panel .point-list li,
+body.theme-corporate .ask-panel .contact {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.theme-corporate .spotlight-metric strong,
+body.theme-corporate .data-metric strong,
+body.theme-corporate .proof-strip strong,
+body.theme-corporate .metric-tile strong {
+  display: block;
+  color: inherit;
+  font-size: 2.85rem;
+  line-height: 1;
+}
+
+body.theme-corporate .hero-statement-layout,
+body.theme-corporate .product-showcase-layout,
+body.theme-corporate .market-map-layout,
+body.theme-corporate .system-architecture-layout,
+body.theme-corporate .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+body.theme-corporate .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-corporate .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-corporate .proof-strip,
+body.theme-corporate .data-dashboard,
+body.theme-corporate .market-map {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-corporate .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-corporate .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.theme-corporate .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-corporate .proof-strip article,
+body.theme-corporate .data-metric,
+body.theme-corporate .market-segment,
+body.theme-corporate .showcase-feature {
+  padding: 22px;
+}
+
+body.theme-corporate .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 38px;
+  align-items: center;
+}
+
+body.theme-corporate .data-story-copy h2 {
+  margin-top: 34px;
+  font-size: 3rem;
+  line-height: 1.04;
+}
+
+body.theme-corporate .architecture-stack,
+body.theme-corporate .product-feature-stack {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-corporate .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 20px;
+}
+
+body.theme-corporate .tension-grid,
+body.theme-corporate .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 66px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+body.theme-corporate .final-ask-layout {
+  grid-template-columns: 1fr 0.82fr;
+}
+
+body.theme-corporate .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.85rem;
+  font-weight: 900;
+}
+
+body.theme-corporate .ask-panel {
+  padding: 30px;
+}

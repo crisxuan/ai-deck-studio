@@ -1,0 +1,241 @@
+body.theme-editorial {
+  --deck-page-bg: #d9d9d2;
+  --slide-bg: #ffffff;
+  --text: #111111;
+  --muted: #5d6470;
+  --subtle: #f1f1f1;
+  --line: rgba(17, 17, 17, 0.18);
+  --panel: #ffffff;
+  --panel-strong: #f1f1f1;
+  --accent: #111111;
+  --accent-2: #9f2f2f;
+  --accent-3: #16a34a;
+  --shadow: 0 30px 76px rgba(17, 17, 17, 0.16);
+  --font-sans: Georgia, "Times New Roman", serif;
+}
+
+body.theme-editorial .slide-canvas {
+  border-color: rgba(17, 17, 17, 0.22);
+  background:
+    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  background-size: 96px 100%, auto;
+  background-color: #ffffff;
+}
+
+body.theme-editorial .slide-canvas::before {
+  position: absolute;
+  top: 44px;
+  right: 64px;
+  left: 64px;
+  height: 3px;
+  background: #111111;
+  content: "";
+}
+
+body.theme-editorial h1 {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+body.theme-editorial h2 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body.theme-editorial .eyebrow,
+body.theme-editorial .comparison-label,
+body.theme-editorial .timeline-label,
+body.theme-editorial .metric-tile p {
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+body.theme-editorial .slide-subtitle,
+body.theme-editorial .cover-subtitle,
+body.theme-editorial .composition-subtitle,
+body.theme-editorial .section-kicker,
+body.theme-editorial .panel-body,
+body.theme-editorial .market-segment p,
+body.theme-editorial .architecture-layer p,
+body.theme-editorial .data-takeaway {
+  color: var(--muted);
+}
+
+body.theme-editorial .content-panel,
+body.theme-editorial .comparison-side,
+body.theme-editorial .metric-tile,
+body.theme-editorial .closing-actions,
+body.theme-editorial .proof-strip article,
+body.theme-editorial .showcase-feature,
+body.theme-editorial .market-segment,
+body.theme-editorial .architecture-layer,
+body.theme-editorial .data-metric,
+body.theme-editorial .tension-card,
+body.theme-editorial .ask-panel {
+  border: 0;
+  border-top: 2px solid #111111;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: none;
+}
+
+body.theme-editorial .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 0.86fr 0.42fr;
+  gap: 58px;
+  align-items: end;
+}
+
+body.theme-editorial .narrative-copy h1,
+body.theme-editorial .hero-statement-copy h1 {
+  max-width: 920px;
+  font-size: 4.45rem;
+  line-height: 0.96;
+}
+
+body.theme-editorial .composition-subtitle {
+  max-width: 780px;
+  font-size: 1.18rem;
+}
+
+body.theme-editorial .chip-row,
+body.theme-editorial .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+body.theme-editorial .chip-row span,
+body.theme-editorial .tool-row span,
+body.theme-editorial .market-segment span {
+  border: 1px solid #111111;
+  border-radius: 0;
+  background: #ffffff;
+  color: #111111;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 850;
+  padding: 7px 9px;
+}
+
+body.theme-editorial .spotlight-metric {
+  border: 0;
+  border-top: 4px solid #111111;
+  background: #f1f1f1;
+  padding: 28px;
+}
+
+body.theme-editorial .spotlight-metric strong,
+body.theme-editorial .data-metric strong,
+body.theme-editorial .proof-strip strong {
+  display: block;
+  color: #111111;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+body.theme-editorial .hero-statement-layout,
+body.theme-editorial .product-showcase-layout,
+body.theme-editorial .market-map-layout,
+body.theme-editorial .system-architecture-layout,
+body.theme-editorial .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 26px;
+}
+
+body.theme-editorial .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-editorial .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-editorial .proof-strip,
+body.theme-editorial .data-dashboard,
+body.theme-editorial .market-map {
+  display: grid;
+  gap: 18px;
+}
+
+body.theme-editorial .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-editorial .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.theme-editorial .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-editorial .proof-strip article,
+body.theme-editorial .data-metric,
+body.theme-editorial .market-segment,
+body.theme-editorial .showcase-feature {
+  padding: 22px;
+}
+
+body.theme-editorial .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 44px;
+  align-items: center;
+}
+
+body.theme-editorial .data-story-copy h2,
+body.theme-editorial .quote-break-layout blockquote {
+  margin-top: 34px;
+  font-size: 3.55rem;
+  line-height: 1.02;
+}
+
+body.theme-editorial .architecture-stack,
+body.theme-editorial .product-feature-stack {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-editorial .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 20px;
+  padding: 18px 20px;
+}
+
+body.theme-editorial .tension-grid,
+body.theme-editorial .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+body.theme-editorial .final-ask-layout {
+  grid-template-columns: 1fr 0.82fr;
+}
+
+body.theme-editorial .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #111111;
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
+body.theme-editorial .ask-panel {
+  padding: 30px;
+}

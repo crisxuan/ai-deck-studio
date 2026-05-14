@@ -5,7 +5,17 @@ export const THEMES = [
   "premium-keynote",
   "technical-blueprint",
   "founder-editorial",
-  "executive-dashboard"
+  "executive-dashboard",
+  "minimal",
+  "editorial",
+  "luxury",
+  "corporate",
+  "dashboard",
+  "bento",
+  "glassmorphism",
+  "neobrutalism",
+  "futuristic",
+  "paper"
 ] as const;
 export const ASPECT_RATIOS = ["16:9", "4:3", "3:4"] as const;
 export const SLIDE_TYPES = [

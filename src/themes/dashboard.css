@@ -1,0 +1,243 @@
+body.theme-dashboard {
+  --deck-page-bg: #050507;
+  --slide-bg: #09090b;
+  --text: #fafafa;
+  --muted: #a1a1aa;
+  --subtle: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.12);
+  --panel: rgba(24, 24, 27, 0.82);
+  --panel-strong: rgba(39, 39, 42, 0.92);
+  --accent: #0c5cab;
+  --accent-2: #10b981;
+  --accent-3: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 36px 92px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+body.theme-dashboard .slide-canvas {
+  padding: 48px;
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 86% 18%, rgba(12, 92, 171, 0.36), transparent 28%),
+    #09090b;
+  background-size: 34px 34px, 34px 34px, auto, auto;
+  background-color: #09090b;
+}
+
+body.theme-dashboard .slide-canvas::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3), var(--danger));
+  content: "";
+}
+
+body.theme-dashboard h1,
+body.theme-dashboard h2 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+body.theme-dashboard .slide-header h1 {
+  font-size: 2.25rem;
+}
+
+body.theme-dashboard .eyebrow,
+body.theme-dashboard .comparison-label,
+body.theme-dashboard .timeline-label,
+body.theme-dashboard .metric-tile p,
+body.theme-dashboard .ask-label {
+  color: var(--accent-2);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+body.theme-dashboard .slide-subtitle,
+body.theme-dashboard .cover-subtitle,
+body.theme-dashboard .composition-subtitle,
+body.theme-dashboard .section-kicker,
+body.theme-dashboard .panel-body,
+body.theme-dashboard .market-segment p,
+body.theme-dashboard .architecture-layer p,
+body.theme-dashboard .data-takeaway {
+  color: var(--muted);
+}
+
+body.theme-dashboard .content-panel,
+body.theme-dashboard .comparison-side,
+body.theme-dashboard .metric-tile,
+body.theme-dashboard .closing-actions,
+body.theme-dashboard .proof-strip article,
+body.theme-dashboard .showcase-feature,
+body.theme-dashboard .market-segment,
+body.theme-dashboard .architecture-layer,
+body.theme-dashboard .data-metric,
+body.theme-dashboard .tension-card,
+body.theme-dashboard .ask-panel,
+body.theme-dashboard .spotlight-metric {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+body.theme-dashboard .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: end;
+}
+
+body.theme-dashboard .narrative-copy h1,
+body.theme-dashboard .hero-statement-copy h1 {
+  max-width: 960px;
+  font-size: 3.8rem;
+  line-height: 1;
+}
+
+body.theme-dashboard .chip-row,
+body.theme-dashboard .tool-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 28px;
+}
+
+body.theme-dashboard .chip-row span,
+body.theme-dashboard .tool-row span,
+body.theme-dashboard .market-segment span {
+  border: 1px solid rgba(16, 185, 129, 0.26);
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  color: #7dd3fc;
+  font-size: 0.8rem;
+  font-weight: 850;
+  padding: 8px 9px;
+}
+
+body.theme-dashboard .spotlight-metric,
+body.theme-dashboard .data-metric:nth-child(1),
+body.theme-dashboard .ask-panel {
+  background: linear-gradient(180deg, rgba(12, 92, 171, 0.4), rgba(24, 24, 27, 0.92));
+}
+
+body.theme-dashboard .spotlight-metric strong,
+body.theme-dashboard .data-metric strong,
+body.theme-dashboard .proof-strip strong,
+body.theme-dashboard .metric-tile strong {
+  display: block;
+  color: #ffffff;
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+body.theme-dashboard .metric-tile:nth-child(3) strong,
+body.theme-dashboard .data-metric:nth-child(3) strong {
+  color: var(--danger);
+}
+
+body.theme-dashboard .hero-statement-layout,
+body.theme-dashboard .product-showcase-layout,
+body.theme-dashboard .market-map-layout,
+body.theme-dashboard .system-architecture-layout,
+body.theme-dashboard .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+}
+
+body.theme-dashboard .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-dashboard .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-dashboard .proof-strip,
+body.theme-dashboard .data-dashboard,
+body.theme-dashboard .market-map {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-dashboard .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-dashboard .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.theme-dashboard .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-dashboard .proof-strip article,
+body.theme-dashboard .data-metric,
+body.theme-dashboard .market-segment,
+body.theme-dashboard .showcase-feature {
+  padding: 20px;
+}
+
+body.theme-dashboard .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 28px;
+  align-items: center;
+}
+
+body.theme-dashboard .data-story-copy h2 {
+  margin-top: 30px;
+  font-size: 2.75rem;
+  line-height: 1.05;
+}
+
+body.theme-dashboard .architecture-stack,
+body.theme-dashboard .product-feature-stack {
+  display: grid;
+  gap: 10px;
+}
+
+body.theme-dashboard .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.86fr 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 18px;
+}
+
+body.theme-dashboard .tension-grid,
+body.theme-dashboard .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+body.theme-dashboard .final-ask-layout {
+  grid-template-columns: 1fr 0.86fr;
+}
+
+body.theme-dashboard .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+
+body.theme-dashboard .ask-panel {
+  padding: 26px;
+}

@@ -36,7 +36,17 @@
         "premium-keynote",
         "technical-blueprint",
         "founder-editorial",
-        "executive-dashboard"
+        "executive-dashboard",
+        "minimal",
+        "editorial",
+        "luxury",
+        "corporate",
+        "dashboard",
+        "bento",
+        "glassmorphism",
+        "neobrutalism",
+        "futuristic",
+        "paper"
       ]
     },
     "aspectRatio": {

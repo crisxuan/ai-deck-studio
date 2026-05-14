@@ -4,6 +4,7 @@ dist/
 examples/**/output/
 output/
 artifacts/
+showcase/
 
 .DS_Store
 *.log

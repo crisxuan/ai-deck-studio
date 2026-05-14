@@ -1,0 +1,234 @@
+body.theme-futuristic {
+  --deck-page-bg: #080b17;
+  --slide-bg: #0d1224;
+  --text: #f8fbff;
+  --muted: #9eb0ca;
+  --subtle: rgba(59, 130, 246, 0.12);
+  --line: rgba(99, 102, 241, 0.28);
+  --panel: rgba(13, 18, 36, 0.82);
+  --panel-strong: rgba(59, 130, 246, 0.16);
+  --accent: #3b82f6;
+  --accent-2: #8b5cf6;
+  --accent-3: #16a34a;
+  --shadow: 0 36px 96px rgba(5, 10, 28, 0.56);
+  color-scheme: dark;
+}
+
+body.theme-futuristic .slide-canvas {
+  border-color: rgba(99, 102, 241, 0.32);
+  background:
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 78% 22%, rgba(139, 92, 246, 0.34), transparent 30%),
+    #0d1224;
+  background-size: 46px 46px, 46px 46px, auto, auto;
+  background-color: #0d1224;
+}
+
+body.theme-futuristic .slide-canvas::before {
+  position: absolute;
+  top: 36px;
+  right: 52px;
+  left: 52px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+  content: "";
+}
+
+body.theme-futuristic h1,
+body.theme-futuristic h2 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+body.theme-futuristic .eyebrow,
+body.theme-futuristic .comparison-label,
+body.theme-futuristic .timeline-label,
+body.theme-futuristic .metric-tile p,
+body.theme-futuristic .ask-label {
+  color: #93c5fd;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+body.theme-futuristic .slide-subtitle,
+body.theme-futuristic .cover-subtitle,
+body.theme-futuristic .composition-subtitle,
+body.theme-futuristic .section-kicker,
+body.theme-futuristic .panel-body,
+body.theme-futuristic .market-segment p,
+body.theme-futuristic .architecture-layer p,
+body.theme-futuristic .data-takeaway {
+  color: var(--muted);
+}
+
+body.theme-futuristic .content-panel,
+body.theme-futuristic .comparison-side,
+body.theme-futuristic .metric-tile,
+body.theme-futuristic .closing-actions,
+body.theme-futuristic .proof-strip article,
+body.theme-futuristic .showcase-feature,
+body.theme-futuristic .market-segment,
+body.theme-futuristic .architecture-layer,
+body.theme-futuristic .data-metric,
+body.theme-futuristic .tension-card,
+body.theme-futuristic .ask-panel,
+body.theme-futuristic .spotlight-metric {
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.04), 0 20px 52px rgba(5, 10, 28, 0.32);
+}
+
+body.theme-futuristic .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 46px;
+  align-items: end;
+}
+
+body.theme-futuristic .narrative-copy h1,
+body.theme-futuristic .hero-statement-copy h1 {
+  max-width: 960px;
+  font-size: 4.05rem;
+  line-height: 0.96;
+}
+
+body.theme-futuristic .chip-row,
+body.theme-futuristic .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+body.theme-futuristic .chip-row span,
+body.theme-futuristic .tool-row span,
+body.theme-futuristic .market-segment span {
+  border: 1px solid rgba(147, 197, 253, 0.36);
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #bfdbfe;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 850;
+  padding: 8px 10px;
+}
+
+body.theme-futuristic .spotlight-metric,
+body.theme-futuristic .data-metric:nth-child(1),
+body.theme-futuristic .ask-panel {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.32), rgba(139, 92, 246, 0.24));
+}
+
+body.theme-futuristic .spotlight-metric strong,
+body.theme-futuristic .data-metric strong,
+body.theme-futuristic .proof-strip strong,
+body.theme-futuristic .metric-tile strong {
+  display: block;
+  color: #ffffff;
+  font-size: 2.9rem;
+  line-height: 1;
+}
+
+body.theme-futuristic .hero-statement-layout,
+body.theme-futuristic .product-showcase-layout,
+body.theme-futuristic .market-map-layout,
+body.theme-futuristic .system-architecture-layout,
+body.theme-futuristic .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+body.theme-futuristic .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-futuristic .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-futuristic .proof-strip,
+body.theme-futuristic .data-dashboard,
+body.theme-futuristic .market-map {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-futuristic .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-futuristic .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.theme-futuristic .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-futuristic .proof-strip article,
+body.theme-futuristic .data-metric,
+body.theme-futuristic .market-segment,
+body.theme-futuristic .showcase-feature {
+  padding: 22px;
+}
+
+body.theme-futuristic .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 38px;
+  align-items: center;
+}
+
+body.theme-futuristic .data-story-copy h2 {
+  margin-top: 34px;
+  font-size: 3rem;
+  line-height: 1.04;
+}
+
+body.theme-futuristic .architecture-stack,
+body.theme-futuristic .product-feature-stack {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-futuristic .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 20px;
+}
+
+body.theme-futuristic .tension-grid,
+body.theme-futuristic .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 66px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+body.theme-futuristic .final-ask-layout {
+  grid-template-columns: 1fr 0.84fr;
+}
+
+body.theme-futuristic .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border: 1px solid rgba(147, 197, 253, 0.42);
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.18);
+  color: #bfdbfe;
+  font-size: 1.85rem;
+}
+
+body.theme-futuristic .ask-panel {
+  padding: 30px;
+}

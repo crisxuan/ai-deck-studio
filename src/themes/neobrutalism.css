@@ -1,0 +1,234 @@
+body.theme-neobrutalism {
+  --deck-page-bg: #e0ddd2;
+  --slide-bg: #fbfbf9;
+  --text: #1c293c;
+  --muted: #596372;
+  --subtle: #fdc800;
+  --line: #1c293c;
+  --panel: #ffffff;
+  --panel-strong: #fdc800;
+  --accent: #fdc800;
+  --accent-2: #432dd7;
+  --accent-3: #16a34a;
+  --shadow: 12px 12px 0 rgba(28, 41, 60, 0.2);
+  --radius: 4px;
+}
+
+body.theme-neobrutalism .slide-canvas {
+  border: 3px solid #1c293c;
+  background:
+    linear-gradient(90deg, rgba(253, 200, 0, 0.88) 0 18px, transparent 18px),
+    linear-gradient(180deg, #fbfbf9 0%, #f6f3e8 100%);
+  background-color: #fbfbf9;
+  box-shadow: 18px 18px 0 rgba(28, 41, 60, 0.22);
+}
+
+body.theme-neobrutalism .slide-canvas::after {
+  position: absolute;
+  top: 34px;
+  right: 44px;
+  width: 160px;
+  height: 18px;
+  border: 2px solid #1c293c;
+  background: var(--accent-2);
+  content: "";
+}
+
+body.theme-neobrutalism h1,
+body.theme-neobrutalism h2 {
+  color: var(--text);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+body.theme-neobrutalism .eyebrow,
+body.theme-neobrutalism .comparison-label,
+body.theme-neobrutalism .timeline-label,
+body.theme-neobrutalism .metric-tile p,
+body.theme-neobrutalism .ask-label {
+  color: var(--accent-2);
+  font-size: 0.8rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+body.theme-neobrutalism .slide-subtitle,
+body.theme-neobrutalism .cover-subtitle,
+body.theme-neobrutalism .composition-subtitle,
+body.theme-neobrutalism .section-kicker,
+body.theme-neobrutalism .panel-body,
+body.theme-neobrutalism .market-segment p,
+body.theme-neobrutalism .architecture-layer p,
+body.theme-neobrutalism .data-takeaway {
+  color: var(--muted);
+}
+
+body.theme-neobrutalism .content-panel,
+body.theme-neobrutalism .comparison-side,
+body.theme-neobrutalism .metric-tile,
+body.theme-neobrutalism .closing-actions,
+body.theme-neobrutalism .proof-strip article,
+body.theme-neobrutalism .showcase-feature,
+body.theme-neobrutalism .market-segment,
+body.theme-neobrutalism .architecture-layer,
+body.theme-neobrutalism .data-metric,
+body.theme-neobrutalism .tension-card,
+body.theme-neobrutalism .ask-panel,
+body.theme-neobrutalism .spotlight-metric {
+  border: 3px solid #1c293c;
+  border-radius: 4px;
+  background: var(--panel);
+  box-shadow: 7px 7px 0 rgba(28, 41, 60, 0.22);
+}
+
+body.theme-neobrutalism .narrative-opener-layout {
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 46px;
+  align-items: end;
+}
+
+body.theme-neobrutalism .narrative-copy h1,
+body.theme-neobrutalism .hero-statement-copy h1 {
+  max-width: 950px;
+  font-size: 4.2rem;
+  line-height: 0.94;
+}
+
+body.theme-neobrutalism .chip-row,
+body.theme-neobrutalism .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+body.theme-neobrutalism .chip-row span,
+body.theme-neobrutalism .tool-row span,
+body.theme-neobrutalism .market-segment span {
+  border: 2px solid #1c293c;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1c293c;
+  font-size: 0.76rem;
+  font-weight: 950;
+  padding: 8px 10px;
+}
+
+body.theme-neobrutalism .spotlight-metric,
+body.theme-neobrutalism .data-metric:nth-child(1),
+body.theme-neobrutalism .ask-panel {
+  background: var(--accent);
+}
+
+body.theme-neobrutalism .spotlight-metric strong,
+body.theme-neobrutalism .data-metric strong,
+body.theme-neobrutalism .proof-strip strong,
+body.theme-neobrutalism .metric-tile strong {
+  display: block;
+  color: var(--text);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+body.theme-neobrutalism .hero-statement-layout,
+body.theme-neobrutalism .product-showcase-layout,
+body.theme-neobrutalism .market-map-layout,
+body.theme-neobrutalism .system-architecture-layout,
+body.theme-neobrutalism .tension-resolution-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 22px;
+}
+
+body.theme-neobrutalism .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-neobrutalism .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-neobrutalism .proof-strip,
+body.theme-neobrutalism .data-dashboard,
+body.theme-neobrutalism .market-map {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-neobrutalism .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-neobrutalism .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.theme-neobrutalism .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-neobrutalism .proof-strip article,
+body.theme-neobrutalism .data-metric,
+body.theme-neobrutalism .market-segment,
+body.theme-neobrutalism .showcase-feature {
+  padding: 20px;
+}
+
+body.theme-neobrutalism .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 34px;
+  align-items: center;
+}
+
+body.theme-neobrutalism .data-story-copy h2 {
+  margin-top: 32px;
+  font-size: 3.1rem;
+  line-height: 1.02;
+}
+
+body.theme-neobrutalism .architecture-stack,
+body.theme-neobrutalism .product-feature-stack {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-neobrutalism .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 18px;
+}
+
+body.theme-neobrutalism .tension-grid,
+body.theme-neobrutalism .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 66px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+body.theme-neobrutalism .final-ask-layout {
+  grid-template-columns: 1fr 0.84fr;
+}
+
+body.theme-neobrutalism .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border: 3px solid #1c293c;
+  border-radius: 4px;
+  background: var(--accent-2);
+  color: #ffffff;
+  font-size: 1.85rem;
+  box-shadow: 5px 5px 0 rgba(28, 41, 60, 0.22);
+}
+
+body.theme-neobrutalism .ask-panel {
+  padding: 28px;
+}

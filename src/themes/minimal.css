@@ -1,0 +1,225 @@
+body.theme-minimal {
+  --deck-page-bg: #e7e7e2;
+  --slide-bg: #f4f4f1;
+  --text: #0c0c09;
+  --muted: #5f5f58;
+  --subtle: #e7e7df;
+  --line: rgba(12, 12, 9, 0.14);
+  --panel: rgba(255, 255, 255, 0.62);
+  --panel-strong: #ffffff;
+  --accent: #312c85;
+  --accent-2: #0c0c09;
+  --accent-3: #16a34a;
+  --shadow: 0 24px 70px rgba(12, 12, 9, 0.12);
+}
+
+body.theme-minimal .slide-canvas {
+  border-color: rgba(12, 12, 9, 0.13);
+  background: linear-gradient(180deg, #fbfbf8 0%, var(--slide-bg) 100%);
+  background-color: var(--slide-bg);
+  padding: 72px;
+}
+
+body.theme-minimal .slide-canvas::after {
+  position: absolute;
+  right: 72px;
+  bottom: 56px;
+  left: 72px;
+  height: 1px;
+  background: rgba(12, 12, 9, 0.18);
+  content: "";
+}
+
+body.theme-minimal h1 {
+  color: var(--text);
+  font-size: 3.7rem;
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+body.theme-minimal .eyebrow,
+body.theme-minimal .comparison-label,
+body.theme-minimal .timeline-label,
+body.theme-minimal .metric-tile p {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+body.theme-minimal .slide-subtitle,
+body.theme-minimal .cover-subtitle,
+body.theme-minimal .composition-subtitle,
+body.theme-minimal .section-kicker {
+  color: var(--muted);
+}
+
+body.theme-minimal .content-panel,
+body.theme-minimal .comparison-side,
+body.theme-minimal .metric-tile,
+body.theme-minimal .closing-actions,
+body.theme-minimal .proof-strip article,
+body.theme-minimal .showcase-feature,
+body.theme-minimal .market-segment,
+body.theme-minimal .architecture-layer,
+body.theme-minimal .data-metric,
+body.theme-minimal .tension-card,
+body.theme-minimal .ask-panel,
+body.theme-minimal .spotlight-metric {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  box-shadow: none;
+}
+
+body.theme-minimal .metric-tile strong,
+body.theme-minimal .proof-strip strong,
+body.theme-minimal .data-metric strong {
+  color: var(--text);
+}
+
+body.theme-minimal .point-list li::before {
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+body.theme-minimal .chip-row,
+body.theme-minimal .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+body.theme-minimal .chip-row span,
+body.theme-minimal .tool-row span {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 850;
+  padding: 8px 10px;
+}
+
+body.theme-minimal .narrative-opener-layout,
+body.theme-minimal .hero-statement-layout,
+body.theme-minimal .product-showcase-layout,
+body.theme-minimal .market-map-layout,
+body.theme-minimal .system-architecture-layout,
+body.theme-minimal .tension-resolution-layout {
+  display: grid;
+  gap: 28px;
+}
+
+body.theme-minimal .narrative-opener-layout {
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: end;
+}
+
+body.theme-minimal .narrative-copy h1 {
+  max-width: 920px;
+  font-size: 4.15rem;
+  line-height: 0.98;
+}
+
+body.theme-minimal .spotlight-metric {
+  padding: 26px;
+  background: #0c0c09;
+  color: #ffffff;
+}
+
+body.theme-minimal .spotlight-metric p,
+body.theme-minimal .spotlight-metric span {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+body.theme-minimal .spotlight-metric strong {
+  display: block;
+  margin: 12px 0;
+  color: #ffffff;
+  font-size: 3.1rem;
+}
+
+body.theme-minimal .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-minimal .hero-statement-copy {
+  display: flex;
+  max-width: 960px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-minimal .proof-strip,
+body.theme-minimal .data-dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.theme-minimal .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-minimal .proof-strip article,
+body.theme-minimal .data-metric {
+  padding: 22px;
+}
+
+body.theme-minimal .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  gap: 40px;
+  align-items: center;
+}
+
+body.theme-minimal .data-story-copy h2 {
+  margin-top: 36px;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+body.theme-minimal .architecture-stack,
+body.theme-minimal .product-feature-stack {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-minimal .architecture-layer {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+}
+
+body.theme-minimal .tension-grid,
+body.theme-minimal .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1fr 68px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+body.theme-minimal .final-ask-layout {
+  grid-template-columns: 1fr 0.82fr;
+}
+
+body.theme-minimal .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #ffffff;
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+body.theme-minimal .ask-panel {
+  padding: 30px;
+}

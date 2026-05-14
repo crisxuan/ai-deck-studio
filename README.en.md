@@ -20,8 +20,11 @@ This repository is a runnable MVP. It currently supports:
 - Rendering static HTML decks from `deck.json`
 - Validating deck specs with `deck.schema.json`
 - 10 core slide layouts + 9 premium composition layouts
-- 7 themes, including `premium-keynote`, `technical-blueprint`, `founder-editorial`, and `executive-dashboard`
+- 17 themes, including 10 TypeUI-inspired design style themes
 - Keyboard navigation and slide controls
+- `S` presenter mode with current slide, next slide, speaker notes, and timer
+- `O` slide overview, `N` notes drawer, and `F` fullscreen
+- One-command live showcase gallery
 - Speaker notes fields
 - Playwright screenshot verification
 - PDF export
@@ -82,6 +85,13 @@ Open the generated HTML:
 examples/tech-sharing/output/index.html
 ```
 
+Generate every example and the showcase gallery:
+
+```bash
+npm run showcase
+open showcase/index.html
+```
+
 Run visual verification:
 
 ```bash
@@ -99,6 +109,23 @@ Export PNG:
 ```bash
 npm run export -- examples/tech-sharing/output/index.html --format png
 ```
+
+## Showcase Gallery
+
+`npm run showcase` does two things:
+
+- Renders every example under `examples/*/deck.json`.
+- Generates `showcase/index.html` with live iframe previews for premium Chinese showcases, the theme gallery, and all example decks.
+
+Open any deck and use these shortcuts:
+
+| Shortcut | Action |
+| --- | --- |
+| `←` / `→` / `Space` | Navigate slides |
+| `S` | Open presenter mode |
+| `N` | Open current-slide speaker notes |
+| `O` | Open slide overview |
+| `F` | Fullscreen |
 
 ## CLI
 
@@ -263,6 +290,16 @@ Premium composition layouts:
 | `technical-blueprint` | AI infrastructure launches, system architecture, engineering strategy |
 | `founder-editorial` | Founder pitches, investor narratives, market opportunity stories |
 | `executive-dashboard` | Business reviews, growth readouts, KPI-heavy decision meetings |
+| `minimal` | Minimal briefings, clear argument decks, low-noise communication |
+| `editorial` | Magazine-style narratives, opinion decks, reading-first presentations |
+| `luxury` | High-end brand decks, launches, premium pitches |
+| `corporate` | Enterprise briefings, formal business material, branded proposals |
+| `dashboard` | Dark data dashboards, operating reviews, platform updates |
+| `bento` | Product feature matrices, modular stories, structured content |
+| `glassmorphism` | Frosted glass technology decks and modern product showcases |
+| `neobrutalism` | High-impact youth brand, campaign, and expressive decks |
+| `futuristic` | AI launches and future-facing technical presentations |
+| `paper` | Research reports, course material, and knowledge decks |
 
 Themes change the visual language without changing the deck content contract.
 
@@ -282,6 +319,8 @@ Themes change the visual language without changing the deck content contract.
 The technical sharing example covers all 10 MVP layouts and is useful for regression checks.
 The product launch example covers the premium composition layouts and is useful for evaluating the visual ceiling.
 The English and Chinese product launch decks are linked with `alternates`, so the rendered HTML shows a language switcher in the top-right corner.
+The three premium Chinese showcase decks use `technical-blueprint`, `founder-editorial`, and `executive-dashboard` to demonstrate visibly different deck styles.
+The 10 themes from `minimal` through `paper` are PPT adaptations of TypeUI design skills; `npm run showcase` generates live deck previews for every theme.
 
 ## Output Artifacts
 
