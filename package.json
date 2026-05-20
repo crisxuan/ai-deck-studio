@@ -1,8 +1,25 @@
 {
-  "name": "ppt-html-studio",
+  "name": "ai-deck-studio",
   "version": "0.1.0",
   "description": "Narrative-first, schema-driven, visually verified HTML presentation generator for AI agents.",
+  "license": "MIT",
   "type": "module",
+  "homepage": "https://github.com/crisxuan/ai-deck-studio#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisxuan/ai-deck-studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/crisxuan/ai-deck-studio/issues"
+  },
+  "keywords": [
+    "ai",
+    "deck",
+    "presentation",
+    "html",
+    "pptx",
+    "slides"
+  ],
   "bin": {
     "ai-deck": "./dist/cli/index.js"
   },

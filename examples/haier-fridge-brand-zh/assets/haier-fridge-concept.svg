@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Smart refrigerator showroom concept</title>
+  <desc id="desc">An original showroom-style illustration of a modern refrigerator.</desc>
+  <rect width="1200" height="1200" fill="#eef7f5"/>
+  <rect x="118" y="116" width="964" height="968" rx="44" fill="#ffffff" opacity="0.86"/>
+  <rect x="382" y="160" width="440" height="880" rx="38" fill="#dfe9ec"/>
+  <path d="M602 160v880M382 512h440" stroke="#f8fbfb" stroke-width="18"/>
+  <rect x="424" y="212" width="136" height="236" rx="22" fill="#f8fbfb"/>
+  <rect x="644" y="212" width="136" height="236" rx="22" fill="#f8fbfb"/>
+  <rect x="424" y="574" width="356" height="168" rx="24" fill="#f8fbfb"/>
+  <rect x="424" y="790" width="356" height="168" rx="24" fill="#f8fbfb"/>
+  <circle cx="908" cy="340" r="88" fill="#1267ff" opacity="0.14"/>
+  <path d="M864 340h88M908 296v88" stroke="#1267ff" stroke-width="20" stroke-linecap="round"/>
+  <rect x="178" y="824" width="204" height="28" rx="14" fill="#142023"/>
+  <rect x="178" y="884" width="142" height="20" rx="10" fill="#142023" opacity="0.52"/>
+  <rect x="178" y="930" width="172" height="20" rx="10" fill="#142023" opacity="0.36"/>
+</svg>

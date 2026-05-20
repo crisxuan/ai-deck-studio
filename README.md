@@ -11,9 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://crisxuan.github.io/ai-deck-studio/">在线展示</a>
+  <a href="https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/index.html">在线预览</a>
   ·
-  <a href="https://crisxuan.github.io/ai-deck-studio/cxuanai-wechat-promo-zh/">cxuanAI 示例</a>
+  <a href="https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html">cxuanAI 示例</a>
+  ·
+  <a href="./LICENSE">MIT License</a>
   ·
   <a href="./docs/authoring-guide.md">创作指南</a>
   ·
@@ -26,11 +28,11 @@ AI Deck Studio 是一个面向 AI Agent 的 HTML 演示文稿生成框架。它�
 
 ## 在线预览
 
-- 项目展示页：https://crisxuan.github.io/ai-deck-studio/
-- cxuanAI 公众号推广轮播：https://crisxuan.github.io/ai-deck-studio/cxuanai-wechat-promo-zh/
-- GitHub HTML Preview 备用链接：https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html
+- 项目展示页：https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/index.html
+- cxuanAI 公众号推广轮播：https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html
+- GitHub Pages 预留地址：https://crisxuan.github.io/ai-deck-studio/
 
-> 如果 GitHub Pages 还没有在仓库设置里启用，请先到 `Settings -> Pages` 将 Source 设置为 `GitHub Actions`。
+> GitHub Pages 需要在仓库设置中启用后才会生效；在此之前，上面的 HTML Preview 链接可直接打开。
 
 ## 能力概览
 
@@ -40,7 +42,7 @@ AI Deck Studio 是一个面向 AI Agent 的 HTML 演示文稿生成框架。它�
 - 支持中文 / 英文 README 与示例中的语言切换。
 - Playwright 截图验证、visual QA 和 contact sheet 总览图。
 - 支持 HTML、逐页 PNG、PDF 和图片型 PPTX 导出。
-- 可生成 GitHub Pages 可分享页面。
+- 可生成适合 GitHub Pages 或静态托管的可分享页面。
 
 ## 快速开始
 
@@ -86,7 +88,14 @@ open showcase/index.html
 - 主题指南：[`docs/theme-guide.md`](./docs/theme-guide.md)
 - 视觉质量标准：[`docs/visual-quality-bar.md`](./docs/visual-quality-bar.md)
 - 架构说明：[`docs/architecture.md`](./docs/architecture.md)
+- 贡献指南：[`CONTRIBUTING.md`](./CONTRIBUTING.md)
+- 安全策略：[`SECURITY.md`](./SECURITY.md)
+- 开源声明：[`NOTICE.md`](./NOTICE.md)
 
 ## 项目定位
 
 AI Deck Studio 是一个本地优先的 deck 生成引擎，目标是帮助 AI Agent 产出更稳定、更可验证、更容易分享的演示文稿。它不是在线编辑器，也不是万能设计工具；它更像一个“结构化内容 -> 高质量 HTML deck”的工程化流水线。
+
+## 开源说明
+
+本项目采用 [`MIT License`](./LICENSE)。示例 deck 可能以指称性方式提到真实品牌或产品，商标归各自权利方所有；仓库内示例图片使用原创示意素材，正式商业交付时请替换为你拥有使用权的素材和文案。

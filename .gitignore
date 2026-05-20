@@ -6,6 +6,7 @@ benchmarks/output/
 output/
 artifacts/
 showcase/
+html-anything-*/
 
 .DS_Store
 *.log

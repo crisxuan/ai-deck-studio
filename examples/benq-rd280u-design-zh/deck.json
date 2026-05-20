@@ -49,8 +49,8 @@
         "detail": "28.2 英寸 4K+ 3:2"
       },
       "media": {
-        "src": "../assets/rd280u-hero.jpg",
-        "alt": "BenQ RD280U 官方产品图",
+        "src": "../assets/rd280u-concept.svg",
+        "alt": "RD280U 编程显示器开源示意图",
         "fit": "cover",
         "position": "76% center"
       },
@@ -87,7 +87,7 @@
       "id": "product-language",
       "type": "media-feature",
       "layoutVariant": "captioned-proof",
-      "visualIntent": "让官方产品图和证据说明共同解释代码工作台体验。",
+      "visualIntent": "让产品示意图和证据说明共同解释代码工作台体验。",
       "title": "产品语言：从一块屏到一套代码工作台",
       "subtitle": "RD280U 的设计不是单点功能堆叠，而是围绕程序员场景形成一致体验。",
       "features": [
@@ -121,9 +121,9 @@
         }
       ],
       "media": {
-        "src": "../assets/rd280u-hero.jpg",
-        "alt": "BenQ RD280U 官方产品图",
-        "caption": "官方产品视觉：3:2 编程显示器与代码工作场景",
+        "src": "../assets/rd280u-concept.svg",
+        "alt": "RD280U 编程显示器开源示意图",
+        "caption": "开源示意视觉：3:2 编程显示器与代码工作场景",
         "fit": "cover",
         "position": "78% center"
       },

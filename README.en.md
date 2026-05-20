@@ -11,9 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://crisxuan.github.io/ai-deck-studio/">Live Showcase</a>
+  <a href="https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/index.html">Live Preview</a>
   ·
-  <a href="https://crisxuan.github.io/ai-deck-studio/cxuanai-wechat-promo-zh/">cxuanAI Example</a>
+  <a href="https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html">cxuanAI Example</a>
+  ·
+  <a href="./LICENSE">MIT License</a>
   ·
   <a href="./docs/authoring-guide.md">Authoring Guide</a>
   ·
@@ -26,11 +28,11 @@ It is useful for brand strategy decks, product stories, technical talks, review 
 
 ## Preview
 
-- Project showcase: https://crisxuan.github.io/ai-deck-studio/
-- cxuanAI social carousel: https://crisxuan.github.io/ai-deck-studio/cxuanai-wechat-promo-zh/
-- GitHub HTML Preview fallback: https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html
+- Project showcase: https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/index.html
+- cxuanAI social carousel: https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html
+- Reserved GitHub Pages URL: https://crisxuan.github.io/ai-deck-studio/
 
-> If GitHub Pages is not enabled yet, open `Settings -> Pages` and set Source to `GitHub Actions`.
+> GitHub Pages works after it is enabled in repository settings. Until then, the HTML Preview links above open directly.
 
 ## Features
 
@@ -40,7 +42,7 @@ It is useful for brand strategy decks, product stories, technical talks, review 
 - Chinese / English README switching and language-switchable examples.
 - Playwright screenshot verification, visual QA, and contact-sheet previews.
 - HTML, per-slide PNG, PDF, and image-based PPTX export.
-- GitHub Pages-ready shareable output.
+- Shareable output for GitHub Pages or any static host.
 
 ## Quick Start
 
@@ -86,7 +88,14 @@ Brief
 - Theme guide: [`docs/theme-guide.md`](./docs/theme-guide.md)
 - Visual quality bar: [`docs/visual-quality-bar.md`](./docs/visual-quality-bar.md)
 - Architecture: [`docs/architecture.md`](./docs/architecture.md)
+- Contributing: [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+- Security: [`SECURITY.md`](./SECURITY.md)
+- Notice: [`NOTICE.md`](./NOTICE.md)
 
 ## Positioning
 
 AI Deck Studio is a local-first deck generation engine for AI agents. Its goal is to make generated presentations more stable, verifiable, and shareable. It is not a web editor or an all-purpose design tool; it is an engineering pipeline from structured content to polished HTML decks.
+
+## Open Source
+
+AI Deck Studio is released under the [`MIT License`](./LICENSE). Example decks may refer to real brands or products nominatively; trademarks belong to their respective owners. Bundled example images are original illustrative placeholders, and commercial work should replace sample assets and copy with material you have the right to use.

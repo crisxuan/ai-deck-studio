@@ -65,21 +65,21 @@ Recommended variants:
 
 ## Media Assets
 
-Use `media` when the slide needs a real product, brand, or scene visual. Do not leave a generic mockup in place when a brand/product page needs inspection.
+Use `media` when the slide needs a product, brand, or scene visual. In this repository, commit only original, generated, public-domain, or explicitly redistributable media.
 
 ```json
 {
   "media": {
-    "src": "../assets/product.jpg",
-    "alt": "Official product image",
-    "caption": "Official product visual",
+    "src": "../assets/product-concept.svg",
+    "alt": "Product concept illustration",
+    "caption": "Illustrative product visual",
     "fit": "cover",
     "position": "70% center"
   }
 }
 ```
 
-Prefer `media-feature` for brand/product analysis pages that need one dominant image and a small number of design takeaways.
+Prefer `media-feature` for brand/product analysis pages that need one dominant image and a small number of design takeaways. For commercial work, replace illustrative placeholders with approved product assets.
 
 ## Practical Defaults
 

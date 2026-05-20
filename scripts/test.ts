@@ -58,7 +58,7 @@ async function assertMediaFeatureFixture(): Promise<void> {
   const html = await renderDeck(deck);
 
   assert.match(html, /media-feature-layout/, "expected RD280U example to use the media-feature layout");
-  assert.match(html, /rd280u-hero\.jpg/, "expected RD280U example to render its local product image");
+  assert.match(html, /rd280u-concept\.svg/, "expected RD280U example to render its local product image");
 }
 
 void main().catch((error) => {

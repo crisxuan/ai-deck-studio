@@ -24,7 +24,7 @@
     "thesis": "海尔冰箱的品牌机会，不只是讲容量和参数，而是把新鲜、健康、智慧和厨居美学组织成家庭生活的确定性。",
     "arc": [
       "先建立品牌判断：冰箱正在从储物电器变成家庭新鲜管理系统。",
-      "再用官方产品信息拆解设计语言：嵌入式、全空间保鲜、EPP 超净系统和三档变温。",
+      "再用公开产品信息拆解设计语言：嵌入式、全空间保鲜、EPP 超净系统和三档变温。",
       "最后收束传播主张：为家的新鲜秩序而设计。"
     ]
   },
@@ -49,8 +49,8 @@
         "detail": "BCD-460WGHTD14S9U1 十字对开门"
       },
       "media": {
-        "src": "../assets/haier-fridge-hero.png",
-        "alt": "海尔 460 升十字对开门冰箱官方产品图",
+        "src": "../assets/haier-fridge-concept.svg",
+        "alt": "海尔冰箱展厅开源示意图",
         "fit": "contain",
         "position": "center center"
       },
@@ -89,7 +89,7 @@
       "layoutVariant": "product-plinth",
       "visualIntent": "让产品图成为页面主角，卖点卡作为辅助证据。",
       "title": "产品语言：克制的外观，强秩序的内部体验",
-      "subtitle": "官方产品信息显示，这款冰箱把家居一体化、分区储鲜、健康净化和灵活场景组合在一起。",
+      "subtitle": "公开产品信息显示，这款冰箱把家居一体化、分区储鲜、健康净化和灵活场景组合在一起。",
       "productName": "海尔 460 升十字对开门冰箱",
       "tagline": "从厨房边缘走向家庭新鲜管理中心",
       "features": [
@@ -110,7 +110,7 @@
         {
           "label": "总容积",
           "value": "460L",
-          "detail": "官方产品页标注"
+          "detail": "公开产品信息"
         },
         {
           "label": "箱门结构",
@@ -119,9 +119,9 @@
         }
       ],
       "media": {
-        "src": "../assets/haier-fridge-hero.png",
-        "alt": "海尔 460 升十字对开门冰箱官方产品图",
-        "caption": "官方产品图：BCD-460WGHTD14S9U1",
+        "src": "../assets/haier-fridge-concept.svg",
+        "alt": "海尔冰箱展厅开源示意图",
+        "caption": "开源示意视觉：十字对开门冰箱展厅表达",
         "fit": "contain",
         "position": "center center"
       },
@@ -165,9 +165,9 @@
         }
       ],
       "media": {
-        "src": "../assets/haier-fridge-freshness.jpg",
-        "alt": "海尔冰箱官方全空间保鲜科技示意图",
-        "caption": "官方功能视觉：冷藏分储、冷冻恒温、智慧除菌",
+        "src": "../assets/haier-freshness-concept.svg",
+        "alt": "冰箱全空间保鲜开源示意图",
+        "caption": "开源示意视觉：冷藏分储、冷冻恒温、智慧除菌",
         "fit": "cover",
         "position": "center center"
       },

@@ -36,7 +36,8 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
    - narrative arc
    - role of each slide
 4. Write `deck.json` against `deck.schema.json`.
-   - For brand/product decks, prefer `media-feature` or `media` fields with real sourced images instead of generic mockups.
+   - For brand/product decks, prefer `media-feature` or `media` fields with licensed, user-provided, or original illustrative images.
+   - Do not commit third-party product photos or brand assets unless their redistribution rights are clear.
 5. Run validation:
 
    ```bash

@@ -46,8 +46,8 @@
         "夜间专注"
       ],
       "media": {
-        "src": "../assets/rd280u-cover-crop.jpg",
-        "alt": "BenQ RD280U 官方产品图",
+        "src": "../assets/rd280u-workstation-concept.svg",
+        "alt": "RD280U 代码工作台开源示意图",
         "fit": "cover",
         "position": "center center"
       },
@@ -143,7 +143,7 @@
       "id": "product-proof",
       "type": "media-feature",
       "layoutVariant": "image-led",
-      "visualIntent": "让官方产品图成为主角，右侧只保留与品牌定位相关的证据。",
+      "visualIntent": "让产品示意图成为主角，右侧只保留与品牌定位相关的证据。",
       "title": "产品证据：把“代码工作台”落到可感知功能",
       "subtitle": "每个卖点都必须回到同一个品牌问题：它如何帮助用户更快进入深度工作。",
       "features": [
@@ -165,9 +165,9 @@
         }
       ],
       "media": {
-        "src": "../assets/rd280u-hero.jpg",
-        "alt": "BenQ RD280U 官方产品图",
-        "caption": "官方产品视觉：RD280U Programming Monitor",
+        "src": "../assets/rd280u-workstation-wide.svg",
+        "alt": "RD280U 代码工作台开源宽幅示意图",
+        "caption": "开源示意视觉：RD280U Programming Monitor 概念表达",
         "fit": "cover",
         "position": "78% center"
       },
@@ -324,9 +324,9 @@
         }
       ],
       "media": {
-        "src": "../assets/rd280u-hero.jpg",
-        "alt": "BenQ RD280U 官方产品图",
-        "caption": "建议把官方暗色代码场景作为品牌世界观锚点",
+        "src": "../assets/rd280u-workstation-wide.svg",
+        "alt": "RD280U 代码工作台开源宽幅示意图",
+        "caption": "建议把暗色代码工作台场景作为品牌世界观锚点",
         "fit": "cover",
         "position": "72% center"
       },

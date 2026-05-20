@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Wide code workstation concept</title>
+  <desc id="desc">An original wide-format coding workstation concept illustration.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.52" stop-color="#16213a"/>
+      <stop offset="1" stop-color="#f4efe6"/>
+    </linearGradient>
+  </defs>
+  <rect width="3840" height="1600" fill="url(#bg)"/>
+  <rect x="358" y="214" width="1690" height="1060" rx="54" fill="#f8fafc"/>
+  <rect x="430" y="286" width="1546" height="860" rx="28" fill="#111827"/>
+  <g stroke-linecap="round" stroke-width="34" fill="none">
+    <path d="M566 456h432M566 582h690M566 708h548" stroke="#6ea8ff"/>
+    <path d="M1118 456h476M1360 582h332M1214 708h286" stroke="#85f3d3"/>
+    <path d="M566 900h888M566 1026h620" stroke="#e8eef8" opacity="0.62"/>
+  </g>
+  <rect x="1046" y="1274" width="310" height="132" rx="30" fill="#273246"/>
+  <rect x="748" y="1428" width="910" height="76" rx="38" fill="#273246"/>
+  <circle cx="2542" cy="602" r="220" fill="#2f63ff" opacity="0.14"/>
+  <circle cx="2542" cy="602" r="148" fill="none" stroke="#4d7cff" stroke-width="42"/>
+  <rect x="2390" y="954" width="560" height="54" rx="27" fill="#111827"/>
+  <rect x="2390" y="1058" width="404" height="36" rx="18" fill="#111827" opacity="0.58"/>
+  <rect x="2390" y="1138" width="482" height="36" rx="18" fill="#111827" opacity="0.4"/>
+</svg>
