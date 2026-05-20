@@ -1,487 +1,92 @@
 # AI Deck Studio
 
 <p align="center">
-  <img src="./assets/logo.svg" alt="AI Deck Studio Logo" width="760">
+  <img src="./assets/logo.svg" alt="AI Deck Studio" width="760">
 </p>
 
-<p align="right">
-  <strong>中文</strong> |
+<p align="center">
+  <strong>中文</strong>
+  ·
   <a href="./README.en.md">English</a>
 </p>
 
-AI Deck Studio 是一个面向 AI Agent 的演示文稿生成系统。它不是让模型直接手写 PPT 页面，而是让模型先设计故事，再生成结构化 `deck.json`，最后由稳定的渲染器输出经过视觉检查的 HTML / PDF / PNG 成品。
+<p align="center">
+  <a href="https://crisxuan.github.io/ai-deck-studio/">在线展示</a>
+  ·
+  <a href="https://crisxuan.github.io/ai-deck-studio/cxuanai-wechat-promo-zh/">cxuanAI 示例</a>
+  ·
+  <a href="./docs/authoring-guide.md">创作指南</a>
+  ·
+  <a href="./deck.schema.json">Deck Schema</a>
+</p>
 
-> 先规划叙事，再生成结构化 deck spec，最后稳定出片。
+AI Deck Studio 是一个面向 AI Agent 的 HTML 演示文稿生成框架。它让模型先生成结构化 `deck.json`，再由稳定的主题、布局、验证和导出流程生成可分享的 HTML / PNG / PDF / PPTX。
 
-## 当前状态
+它适合用来生成品牌策划、产品介绍、技术分享、述职报告、经营复盘和自媒体轮播等内容。项目的重点不是“让 AI 随机写页面”，而是把故事、布局、主题和质量检查拆成可控流程。
 
-这是一个可运行的 MVP，已经支持：
+## 在线预览
 
-- 从 `deck.json` 渲染静态 HTML 演示文稿
-- 使用 `deck.schema.json` 做结构校验
-- 10 种核心 slide layout + 9 种高级 composition layout
-- 17 套主题，其中包含 10 套 TypeUI-inspired 设计风格主题
-- 键盘翻页和页面导航
-- `S` 键演讲者模式：当前页、下一页、speaker notes、计时器
-- `O` 键页面总览，`N` 键临时讲稿抽屉，`F` 键全屏
-- 一键生成 live showcase gallery
-- speaker notes 字段支持
-- Playwright 截图验证
-- PDF 导出
-- PNG 逐页导出
-- 8 份完整示例 deck，其中包含 3 套高级中文 showcase
+- 项目展示页：https://crisxuan.github.io/ai-deck-studio/
+- cxuanAI 公众号推广轮播：https://crisxuan.github.io/ai-deck-studio/cxuanai-wechat-promo-zh/
+- GitHub HTML Preview 备用链接：https://htmlpreview.github.io/?https://github.com/crisxuan/ai-deck-studio/blob/main/docs/cxuanai-wechat-promo-zh/index.html
 
-## 为什么需要它
+> 如果 GitHub Pages 还没有在仓库设置里启用，请先到 `Settings -> Pages` 将 Source 设置为 `GitHub Actions`。
 
-很多 AI 生成幻灯片的流程会遇到三个问题：
+## 能力概览
 
-- 页面由模型自由写 HTML，视觉风格容易不一致。
-- 按页生成内容，缺少清晰故事线。
-- 最终产物没有自动视觉检查，交付前需要大量人工清理。
-
-AI Deck Studio 的设计把职责拆开：
-
-- LLM 负责意图理解、内容组织、故事规划和结构化 spec。
-- 渲染系统负责布局、字体、主题和一致性。
-- 验证系统负责截图、溢出、空白页、控制台错误等质量检查。
-- 导出系统负责生成 HTML、PDF 和 PNG 等交付物。
-
-## 适合谁
-
-- 使用 Codex、Claude Code、Cursor 等工具生成演示文稿的 AI coding agent
-- 想把 deck 生成能力集成进工作流的开发者
-- 需要快速生成 pitch deck、技术分享、周报、课程材料或社媒轮播图的人
-
-## 安装
-
-```bash
-npm install
-```
-
-如果需要运行 `verify` 或 `export`，第一次使用 Playwright 时可能还需要安装 Chromium：
-
-```bash
-npx playwright install chromium
-```
+- 结构化 `deck.json` 创作，不直接手写最终 HTML。
+- 多种 slide layout 和 composition layout。
+- 多主题系统，覆盖发布会、技术蓝图、经营看板、品牌提案和社媒轮播。
+- 支持中文 / 英文 README 与示例中的语言切换。
+- Playwright 截图验证、visual QA 和 contact sheet 总览图。
+- 支持 HTML、逐页 PNG、PDF 和图片型 PPTX 导出。
+- 可生成 GitHub Pages 可分享页面。
 
 ## 快速开始
 
-渲染技术分享示例：
-
 ```bash
-npm run render -- examples/tech-sharing/deck.json
+npm install
+npm run render -- examples/cxuanai-wechat-promo-zh/deck.json
+npm run verify -- examples/cxuanai-wechat-promo-zh/output/index.html --visual
+npm run export -- examples/cxuanai-wechat-promo-zh/output/index.html --format png
 ```
 
-渲染带中/英文切换的高级产品发布示例：
-
-```bash
-npm run render -- examples/product-launch/deck.json
-npm run render -- examples/product-launch-zh/deck.json
-```
-
-打开生成的 HTML：
-
-```txt
-examples/tech-sharing/output/index.html
-```
-
-生成全部示例和 showcase 画廊：
+生成全部示例和本地 showcase：
 
 ```bash
 npm run showcase
 open showcase/index.html
 ```
 
-运行视觉验证：
-
-```bash
-npm run verify -- examples/tech-sharing/output/index.html
-```
-
-导出 PDF：
-
-```bash
-npm run export -- examples/tech-sharing/output/index.html --format pdf
-```
-
-导出 PNG：
-
-```bash
-npm run export -- examples/tech-sharing/output/index.html --format png
-```
-
-## Showcase 画廊
-
-`npm run showcase` 会做两件事：
-
-- 渲染 `examples/*/deck.json` 下的全部示例。
-- 生成 `showcase/index.html`，用 live iframe 展示高级中文 showcase、主题画廊和完整示例 deck。
-
-打开任意 deck 后可以使用这些快捷键：
-
-| 快捷键 | 功能 |
-| --- | --- |
-| `←` / `→` / `Space` | 翻页 |
-| `S` | 打开演讲者模式 |
-| `N` | 打开当前页 speaker notes |
-| `O` | 打开页面总览 |
-| `F` | 全屏 |
-
-## CLI 命令
-
-开发时推荐使用 npm scripts：
-
-```bash
-npm run validate -- examples/tech-sharing/deck.json
-npm run render -- examples/tech-sharing/deck.json
-npm run verify -- examples/tech-sharing/output/index.html
-npm run export -- examples/tech-sharing/output/index.html --format pdf
-npm run export -- examples/tech-sharing/output/index.html --format png
-```
-
-构建后或作为包安装后，可以使用 `ai-deck`：
-
-```bash
-ai-deck init my-deck
-ai-deck validate examples/tech-sharing/deck.json
-ai-deck render examples/tech-sharing/deck.json
-ai-deck verify examples/tech-sharing/output/index.html
-ai-deck export examples/tech-sharing/output/index.html --format pdf
-ai-deck export examples/tech-sharing/output/index.html --format png
-```
-
-| 命令 | 作用 |
-| --- | --- |
-| `init <directory>` | 创建一个 starter `deck.json` |
-| `validate <deck.json>` | 校验 deck schema 和内容长度建议 |
-| `render <deck.json>` | 输出静态 HTML 到 `output/index.html` |
-| `verify <index.html\|url>` | 截图每一页并生成验证报告 |
-| `export <index.html\|url> --format pdf` | 导出单个 PDF |
-| `export <index.html\|url> --format png` | 导出逐页 PNG |
-
-## 生成流程
-
-推荐的 agent 工作流：
+## 推荐工作流
 
 ```txt
-用户需求
-  -> 明确或推断受众、目标、页数、风格
-  -> 规划故事线
-  -> 生成 deck.json
-  -> 校验 schema 和内容限制
-  -> 渲染静态 HTML
-  -> 截图验证
-  -> 根据验证报告修复 deck.json 或布局
-  -> 导出 HTML / PDF / PNG
+需求 brief
+  -> 规划受众、目标和故事线
+  -> 编写 deck.json
+  -> 渲染 HTML
+  -> 运行视觉验证
+  -> 修复内容或布局
+  -> 导出 / 发布 / 分享
 ```
 
-核心原则：
+## 示例
 
-- 先写故事，再写 slide。
-- 先写 `deck.json`，不要直接手写 HTML。
-- 先验证，再导出。
-- 修复问题时优先改内容长度，其次改 layout 或主题。
+| 示例 | 类型 | 路径 |
+| --- | --- | --- |
+| cxuanAI 公众号推广 | 自媒体轮播 | [`examples/cxuanai-wechat-promo-zh`](./examples/cxuanai-wechat-promo-zh/deck.json) |
+| 明基 RD280U 品牌策划 | 品牌提案 | [`examples/benq-rd280u-brand-strategy-zh`](./examples/benq-rd280u-brand-strategy-zh/deck.json) |
+| 海尔冰箱品牌介绍 | 家电品牌 | [`examples/haier-fridge-brand-zh`](./examples/haier-fridge-brand-zh/deck.json) |
+| 程序员年终述职 | 技术述职 | [`examples/developer-year-end-review-zh`](./examples/developer-year-end-review-zh/deck.json) |
 
-## Deck Schema
+## 文档
 
-核心 schema 文件：
+- 创作指南：[`docs/authoring-guide.md`](./docs/authoring-guide.md)
+- 布局指南：[`docs/layout-guide.md`](./docs/layout-guide.md)
+- 主题指南：[`docs/theme-guide.md`](./docs/theme-guide.md)
+- 视觉质量标准：[`docs/visual-quality-bar.md`](./docs/visual-quality-bar.md)
+- 架构说明：[`docs/architecture.md`](./docs/architecture.md)
 
-```txt
-deck.schema.json
-```
+## 项目定位
 
-顶层必填字段：
-
-- `version`
-- `title`
-- `audience`
-- `goal`
-- `theme`
-- `aspectRatio`
-- `slides`
-
-推荐字段：
-
-- `tone`
-- `language`
-- `story.thesis`
-- `story.arc`
-
-最小示例：
-
-```json
-{
-  "version": "0.1.0",
-  "title": "AI Agent Product Roadmap",
-  "audience": "technical executives",
-  "goal": "explain the roadmap and secure alignment",
-  "theme": "consulting-clean",
-  "aspectRatio": "16:9",
-  "language": "en",
-  "story": {
-    "thesis": "The hard part is not model capability, but workflow closure.",
-    "arc": [
-      "AI demos are impressive but fragile.",
-      "The missing layer is orchestration and verification.",
-      "A staged roadmap can turn experiments into production workflows."
-    ]
-  },
-  "slides": [
-    {
-      "id": "cover",
-      "type": "cover",
-      "title": "AI Agent Product Roadmap",
-      "subtitle": "From capability demos to production workflows"
-    },
-    {
-      "id": "core-insight",
-      "type": "key-insight",
-      "eyebrow": "Core insight",
-      "headline": "The bottleneck is workflow closure, not raw model intelligence.",
-      "points": [
-        "Context must be collected safely.",
-        "Tool calls must be permissioned.",
-        "Outputs must be verified."
-      ]
-    }
-  ]
-}
-```
-
-## 支持的布局
-
-基础 layout：
-
-| Layout | 用途 |
-| --- | --- |
-| `cover` | 封面 |
-| `agenda` | 议程 |
-| `section` | 章节分隔页 |
-| `key-insight` | 单个关键洞察 |
-| `two-column` | 左右两栏说明 |
-| `comparison` | 对比、前后变化、方案比较 |
-| `timeline` | 时间线、路线图、阶段计划 |
-| `metric-grid` | 指标概览 |
-| `code` | 代码或结构化片段展示 |
-| `closing` | 结尾、总结、下一步 |
-
-高级 composition layout：
-
-| Layout | 用途 |
-| --- | --- |
-| `narrative-opener` | 发布会式叙事开场 |
-| `hero-statement` | 大观点页，配关键证据 |
-| `product-showcase` | 产品展示和界面 mockup |
-| `market-map` | 市场结构、机会区和定位 |
-| `system-architecture` | 系统架构和工作流分层 |
-| `data-story` | 数据故事和关键指标叙事 |
-| `tension-resolution` | 痛点到解决方案的转折 |
-| `quote-break` | 高冲击力引用页 |
-| `final-ask` | 最终请求、行动和联系方式 |
-
-## 支持的主题
-
-| Theme | 适用场景 |
-| --- | --- |
-| `consulting-clean` | 商业汇报、战略报告、投资人材料 |
-| `tech-dark` | 技术分享、架构评审、开发者演示 |
-| `xiaohongshu-editorial` | 小红书风格、移动端轮播、轻量科普 |
-| `premium-keynote` | 产品发布会、高级 pitch、showcase deck |
-| `technical-blueprint` | AI 基础设施发布、系统架构、工程战略 |
-| `founder-editorial` | 创始人路演、投资人叙事、市场机会表达 |
-| `executive-dashboard` | 经营复盘、增长周报、KPI 决策会议 |
-| `minimal` | 极简汇报、清晰观点表达、低干扰信息展示 |
-| `editorial` | 杂志感叙事、观点型内容、长阅读式 deck |
-| `luxury` | 高端品牌、发布会、精品 pitch |
-| `corporate` | 企业级汇报、正式商务材料、品牌化方案 |
-| `dashboard` | 深色数据看板、运营监控、平台型汇报 |
-| `bento` | 产品功能矩阵、模块化展示、结构化内容 |
-| `glassmorphism` | 玻璃拟态科技感、现代产品展示 |
-| `neobrutalism` | 强视觉表达、年轻品牌、活动型内容 |
-| `futuristic` | AI 发布、未来感技术演示 |
-| `paper` | 研究报告、课程材料、知识型内容 |
-
-主题只改变视觉语言，不改变 deck 内容结构。
-
-## 示例 Deck
-
-| 示例 | 主题 | 比例 | 路径 |
-| --- | --- | --- | --- |
-| Product Launch | `premium-keynote` | `16:9` | `examples/product-launch/deck.json` |
-| Product Launch 中文版 | `premium-keynote` | `16:9` | `examples/product-launch-zh/deck.json` |
-| AI 基础设施架构发布 | `technical-blueprint` | `16:9` | `examples/architecture-keynote-zh/deck.json` |
-| Northstar Ops 高级投资人路演 | `founder-editorial` | `16:9` | `examples/investor-pitch-premium-zh/deck.json` |
-| 增长经营复盘高级版 | `executive-dashboard` | `16:9` | `examples/business-review-premium-zh/deck.json` |
-| Investor Pitch | `consulting-clean` | `16:9` | `examples/investor-pitch/deck.json` |
-| Technical Sharing | `tech-dark` | `16:9` | `examples/tech-sharing/deck.json` |
-| Weekly Report | `xiaohongshu-editorial` | `3:4` | `examples/weekly-report/deck.json` |
-
-技术分享示例覆盖了全部 10 个 MVP layout，适合用来做回归验证。
-Product Launch 示例覆盖高级 composition layout，适合用来评估视觉上限。
-Product Launch 和 Product Launch 中文版互相配置了 `alternates`，渲染后可以在页面右上角一键切换语言。
-新增的三套高级中文 showcase 分别使用 `technical-blueprint`、`founder-editorial`、`executive-dashboard`，用于展示不同场景下的视觉差异。
-`minimal` 到 `paper` 这 10 套主题来自 TypeUI design skills 的 PPT 适配，`npm run showcase` 会为每个主题自动生成真实 deck 预览。
-
-## 输出产物
-
-渲染后默认输出到 deck 同级目录下的 `output/`：
-
-```txt
-examples/tech-sharing/output/
-├── index.html
-├── deck.pdf
-├── png/
-│   ├── slide-01.png
-│   └── ...
-└── verification/
-    ├── summary.txt
-    ├── verification-report.json
-    └── screenshots/
-        ├── slide-01.png
-        └── ...
-```
-
-## 视觉验证
-
-`verify` 会使用 Playwright 打开 HTML deck，逐页截图，并生成 JSON 和文本报告。
-
-MVP 检查项：
-
-- 页面能正常渲染
-- 浏览器控制台没有 error
-- 没有资源加载失败
-- slide 数量和 deck spec 一致
-- 当前 slide 不为空白
-- presentation view 没有 body 级滚动条
-- 没有明显文字溢出
-- 字体大小不低于基础可读阈值
-- 做基础文字对比度采样
-
-报告路径：
-
-```txt
-examples/tech-sharing/output/verification/summary.txt
-examples/tech-sharing/output/verification/verification-report.json
-```
-
-## 导出
-
-PDF：
-
-```bash
-npm run export -- examples/tech-sharing/output/index.html --format pdf
-```
-
-PNG：
-
-```bash
-npm run export -- examples/tech-sharing/output/index.html --format png
-```
-
-也可以指定输出路径：
-
-```bash
-npm run export -- examples/tech-sharing/output/index.html --format pdf --out artifacts/deck.pdf
-npm run export -- examples/tech-sharing/output/index.html --format png --out artifacts/png
-```
-
-## 目录结构
-
-```txt
-ppt-html-studio/
-├── README.md
-├── README.en.md
-├── SKILL.md
-├── package.json
-├── deck.schema.json
-├── examples/
-│   ├── investor-pitch/
-│   ├── product-launch/
-│   ├── product-launch-zh/
-│   ├── tech-sharing/
-│   └── weekly-report/
-├── src/
-│   ├── cli/
-│   ├── core/
-│   ├── planner/
-│   ├── renderer/
-│   ├── layouts/
-│   ├── themes/
-│   ├── runtime/
-│   ├── verifier/
-│   └── exporters/
-├── scripts/
-└── docs/
-```
-
-## 面向 Agent 的使用方式
-
-本仓库包含 `SKILL.md`，用于指导 AI agent 按正确流程生成和修复 deck：
-
-1. 明确受众、目标、页数和风格。
-2. 选择主题。
-3. 先写故事计划。
-4. 写 `deck.json`。
-5. 运行校验。
-6. 渲染 HTML。
-7. 运行视觉验证。
-8. 根据报告修复。
-9. 导出 PDF 或 PNG。
-
-## 常见问题
-
-### Playwright 提示找不到浏览器
-
-运行：
-
-```bash
-npx playwright install chromium
-```
-
-### `validate` 通过但页面不好看
-
-先运行：
-
-```bash
-npm run verify -- path/to/output/index.html
-```
-
-然后查看：
-
-```txt
-path/to/output/verification/summary.txt
-path/to/output/verification/screenshots/
-```
-
-优先缩短可见文案，必要时再调整 layout 或主题 CSS。
-
-### 应该修改 HTML 吗
-
-通常不应该。HTML 是渲染产物。请优先修改 `deck.json`、layout renderer 或主题 CSS。
-
-## 当前限制
-
-- 暂不支持 PPTX 导出
-- 暂不包含 WYSIWYG 编辑器
-- 暂不支持云端托管、账号和多人协作
-- 视觉验证仍是基础版，还没有智能截图 diff、复杂元素重叠检测或 LLM 视觉点评
-
-## 路线图
-
-- 更强的视觉 QA：重叠检测、密度评分、截图 diff
-- 更好的 PDF 导出和讲者备注导出
-- PPTX 导出
-- 本地预览编辑器
-- 更多 deck 类型模板
-- 社媒轮播图 artifact 打包
-
-## 质量标准
-
-一个可交付 deck 至少应满足：
-
-- `deck.json` schema 无 error
-- 所有 slide 都有明确角色
-- 故事线有 thesis 和 arc
-- 验证报告无 failed check
-- 关键页面截图可读、无明显溢出
-- PDF / PNG 与浏览器渲染基本一致
+AI Deck Studio 是一个本地优先的 deck 生成引擎，目标是帮助 AI Agent 产出更稳定、更可验证、更容易分享的演示文稿。它不是在线编辑器，也不是万能设计工具；它更像一个“结构化内容 -> 高质量 HTML deck”的工程化流水线。
