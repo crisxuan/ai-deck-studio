@@ -1,0 +1,218 @@
+{
+  "version": "0.3.0",
+  "title": "cxuanAI 公众号推广轮播",
+  "audience": "AI 工具爱好者、内容创作者、产品经理、程序员和希望提升效率的知识工作者",
+  "goal": "用自媒体推广风格介绍 cxuanAI 公众号的内容定位、关注理由和传播话术。",
+  "tone": "有钩子、有网感、轻快、实用、适合公众号和社媒传播。",
+  "theme": "xiaohongshu-editorial",
+  "aspectRatio": "3:4",
+  "language": "zh-CN",
+  "visualSystem": {
+    "mood": "social-media-promo",
+    "density": "snackable",
+    "imageTreatment": "sticker-card-and-bold-headline",
+    "compositionRhythm": "hook / pain / promise / columns / proof / follow",
+    "colorIntent": "warm creator canvas with red, teal and purple highlight labels",
+    "typographyIntent": "big scroll-stopping headlines with short practical proof points",
+    "qaPriorities": [
+      "mobile carousel readability",
+      "strong follow CTA",
+      "avoid fake follower metrics",
+      "distinct self-media rhythm"
+    ]
+  },
+  "story": {
+    "thesis": "cxuanAI 的推广重点不是宣称自己懂 AI，而是让读者相信：关注之后，每天都能拿走一个可复制的 AI 用法。",
+    "arc": [
+      "先用痛点切入：AI 信息很多，但真正能落地的很少。",
+      "再定义栏目：工具、流程、提示词、案例，让读者知道会持续获得什么。",
+      "最后收束到关注动作：搜索 cxuanAI，把 AI 变成每天可用的生产力。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "visualIntent": "用强钩子开场，像一张可以直接发朋友圈的账号推广卡。",
+      "eyebrow": "公众号推荐",
+      "title": "关注 cxuanAI，把 AI 变成每天可用的生产力",
+      "subtitle": "不追热点堆名词，只拆真正能用的工具、工作流、提示词和案例。",
+      "meta": "公众号搜索：cxuanAI"
+    },
+    {
+      "id": "pain",
+      "type": "comparison",
+      "visualIntent": "把目标读者的焦虑说清楚：不是不知道 AI，而是不知道怎么落地。",
+      "title": "你缺的不是 AI 新闻，而是能照着做的方法",
+      "subtitle": "cxuanAI 的内容重点：把复杂 AI 能力翻译成今天就能用的动作。",
+      "left": {
+        "label": "常见困扰",
+        "headline": "信息很多，动作很少",
+        "points": [
+          "工具每天都在更新，但不知道哪个值得试。",
+          "教程看了很多，真正放进工作流很难。",
+          "提示词收藏一堆，轮到自己还是不会写。"
+        ]
+      },
+      "right": {
+        "label": "cxuanAI 解法",
+        "headline": "每篇都回到怎么用",
+        "points": [
+          "先判断工具适合什么场景。",
+          "再拆成可以照着做的步骤。",
+          "最后沉淀模板、清单和工作流。"
+        ]
+      }
+    },
+    {
+      "id": "promise",
+      "type": "hero-statement",
+      "layoutVariant": "proof-wall",
+      "visualIntent": "用一句核心承诺建立账号记忆点。",
+      "eyebrow": "账号主张",
+      "headline": "每天 5 分钟，少踩一个 AI 坑。",
+      "subheadline": "从工具选择到实际操作，从提示词到自动化流程，把 AI 从“看起来很强”变成“真的能帮我省时间”。",
+      "proofs": [
+        {
+          "label": "看得懂",
+          "value": "白话",
+          "detail": "少讲术语，多讲场景"
+        },
+        {
+          "label": "用得上",
+          "value": "步骤",
+          "detail": "每篇尽量给出可执行路径"
+        },
+        {
+          "label": "能复用",
+          "value": "模板",
+          "detail": "沉淀提示词和工作流"
+        }
+      ]
+    },
+    {
+      "id": "columns",
+      "type": "metric-grid",
+      "visualIntent": "把公众号栏目做成一屏可记住的内容菜单。",
+      "title": "关注后，你会持续看到什么？",
+      "subtitle": "不是泛泛聊 AI，而是围绕真实使用场景做内容栏目。",
+      "metrics": [
+        {
+          "label": "工具雷达",
+          "value": "01",
+          "detail": "新工具是否值得试，适合谁，用在哪里"
+        },
+        {
+          "label": "工作流拆解",
+          "value": "02",
+          "detail": "写作、设计、运营、开发如何接入 AI"
+        },
+        {
+          "label": "提示词模板",
+          "value": "03",
+          "detail": "给出可以直接改写的 prompt 框架"
+        },
+        {
+          "label": "案例复盘",
+          "value": "04",
+          "detail": "把热门案例拆成可复用的方法"
+        }
+      ]
+    },
+    {
+      "id": "difference",
+      "type": "comparison",
+      "visualIntent": "用对比建立差异化，避免账号看起来像普通资讯号。",
+      "title": "它不是另一个 AI 资讯号",
+      "subtitle": "cxuanAI 更适合想真正把 AI 用进工作的人。",
+      "left": {
+        "label": "普通 AI 内容",
+        "headline": "信息很多，但行动很少",
+        "points": [
+          "今天发布了什么模型",
+          "某个工具又刷屏了",
+          "结论很热闹，但步骤不清楚"
+        ]
+      },
+      "right": {
+        "label": "cxuanAI",
+        "headline": "先问这件事怎么用",
+        "points": [
+          "工具适合什么任务",
+          "怎样接进真实工作流",
+          "给出可复制的模板和清单"
+        ]
+      }
+    },
+    {
+      "id": "reader-map",
+      "type": "two-column",
+      "visualIntent": "把目标读者和实际收益讲清楚，让读者自我识别。",
+      "title": "这类人，最适合关注",
+      "subtitle": "如果你已经感到 AI 信息过载，但又不想错过真正有用的东西。",
+      "columns": [
+        {
+          "heading": "你可能是",
+          "points": [
+            "想用 AI 提升效率的职场人",
+            "需要持续产出的内容创作者",
+            "关注新工具的产品/运营/设计",
+            "希望把 AI 接进项目的开发者"
+          ]
+        },
+        {
+          "heading": "你会拿到",
+          "points": [
+            "更快判断工具是否值得用",
+            "能直接套用的提示词结构",
+            "可复制的自动化工作流",
+            "少踩坑的真实使用经验"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "journey",
+      "type": "timeline",
+      "visualIntent": "把关注后的内容体验做成短路径，强化“立刻有用”。",
+      "title": "关注后的 7 天体验",
+      "subtitle": "让新读者知道关注以后不是空等更新，而是可以马上开始用。",
+      "events": [
+        {
+          "label": "Day 1",
+          "title": "先拿一套提示词",
+          "description": "从一个常见工作场景开始，立刻试一次。"
+        },
+        {
+          "label": "Day 2-3",
+          "title": "拆一个工具用法",
+          "description": "判断它解决什么问题，不被功能列表带偏。"
+        },
+        {
+          "label": "Day 4-5",
+          "title": "搭一个小流程",
+          "description": "把 AI 放进写作、整理、分析或开发环节。"
+        },
+        {
+          "label": "Day 7",
+          "title": "复盘一个案例",
+          "description": "把别人的爆款方法拆成自己的动作清单。"
+        }
+      ]
+    },
+    {
+      "id": "follow",
+      "type": "closing",
+      "visualIntent": "用明确行动收束，让这套轮播可以直接作为推广落地页。",
+      "title": "现在搜索 cxuanAI",
+      "subtitle": "把 AI 从收藏夹里拿出来，变成每天可用的一套方法。",
+      "takeaway": "关注理由很简单：少看热闹，多拿方法。",
+      "nextSteps": [
+        "微信搜索公众号：cxuanAI",
+        "从最近一篇工具拆解开始看",
+        "收藏你能立刻复用的提示词和工作流"
+      ],
+      "contact": "公众号：cxuanAI"
+    }
+  ]
+}
