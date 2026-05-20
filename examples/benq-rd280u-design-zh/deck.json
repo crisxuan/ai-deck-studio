@@ -1,0 +1,299 @@
+{
+  "version": "0.3.0",
+  "title": "明基 RD280U 显示器设计介绍",
+  "audience": "品牌、市场、产品设计和零售内容团队",
+  "goal": "从品牌设计视角介绍明基 RD280U 的产品定位、设计语言、场景价值和传播主张。",
+  "tone": "品牌化、克制、高级、带有产品策略判断。",
+  "theme": "premium-keynote",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "visualSystem": {
+    "mood": "brand-showcase",
+    "density": "editorial",
+    "imageTreatment": "captioned-proof",
+    "compositionRhythm": "hero / proof / system / contrast / campaign",
+    "colorIntent": "premium hardware keynote with cool technical accents",
+    "typographyIntent": "large product claims, compact proof labels",
+    "qaPriorities": [
+      "strong product imagery",
+      "distinct page rhythm",
+      "low template repetition"
+    ]
+  },
+  "story": {
+    "thesis": "RD280U 的设计重点不是把显示器做得更大，而是把程序员的工作状态做得更清晰、更舒适、更可识别。",
+    "arc": [
+      "先建立核心判断：这是一台为代码工作重新定义比例和体验的显示器。",
+      "再拆解设计策略：垂直画布、低干扰表面、氛围光和快捷交互。",
+      "最后提炼品牌表达：从参数竞争转向专属工作状态的塑造。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "layoutVariant": "full-bleed-image",
+      "visualIntent": "用产品场景图铺满页面，标题压场开场。",
+      "eyebrow": "Product Design Review",
+      "title": "明基 RD280U：为代码工作重新设计一块屏",
+      "subtitle": "一台面向程序员的 28.2 英寸 3:2 4K+ 显示器，把显示比例、护眼、氛围光和快捷交互组合成明确的品牌记忆。",
+      "chips": [
+        "3:2 画布",
+        "Nano Matte",
+        "MoonHalo",
+        "Coding HotKey"
+      ],
+      "stat": {
+        "label": "核心视觉规格",
+        "value": "3840 x 2560",
+        "detail": "28.2 英寸 4K+ 3:2"
+      },
+      "media": {
+        "src": "../assets/rd280u-hero.jpg",
+        "alt": "BenQ RD280U 官方产品图",
+        "fit": "cover",
+        "position": "76% center"
+      },
+      "presenterNotes": "开场先讲设计判断：RD280U 不是泛用办公屏，而是把程序员工作方式产品化。这里可强调 3:2 画布、低反光表面和氛围光共同塑造了独特识别。"
+    },
+    {
+      "id": "main-claim",
+      "type": "hero-statement",
+      "layoutVariant": "split-proof",
+      "visualIntent": "左侧一句品牌判断，右侧用三个规格证据支撑。",
+      "eyebrow": "Brand Reading",
+      "headline": "RD280U 的品牌价值，在于把“写代码”设计成一种清晰的工作状态。",
+      "subheadline": "它把程序员一天里最常见的痛点拆成四个设计命题：看更多代码、减少视觉噪音、快速进入专注状态、多设备少打断。",
+      "proofs": [
+        {
+          "label": "画布比例",
+          "value": "3:2",
+          "detail": "更强调垂直内容和长文档阅读"
+        },
+        {
+          "label": "视觉表面",
+          "value": "Nano Matte",
+          "detail": "降低反光，减少桌面环境干扰"
+        },
+        {
+          "label": "工作氛围",
+          "value": "MoonHalo",
+          "detail": "用背光强化沉浸和桌面识别"
+        }
+      ],
+      "presenterNotes": "这一页不是讲参数，而是讲品牌定位。建议把 RD280U 定义为“程序员工作状态”的视觉入口，它用设计让目标人群一眼知道：这是为我做的。"
+    },
+    {
+      "id": "product-language",
+      "type": "media-feature",
+      "layoutVariant": "captioned-proof",
+      "visualIntent": "让官方产品图和证据说明共同解释代码工作台体验。",
+      "title": "产品语言：从一块屏到一套代码工作台",
+      "subtitle": "RD280U 的设计不是单点功能堆叠，而是围绕程序员场景形成一致体验。",
+      "features": [
+        {
+          "title": "纵向信息密度",
+          "description": "3:2 比例让代码、文档和调试信息拥有更高垂直可读性。"
+        },
+        {
+          "title": "低干扰观看",
+          "description": "Nano Matte 面板和护眼调光减少环境光、眩光和长时间观看负担。"
+        },
+        {
+          "title": "可识别氛围",
+          "description": "MoonHalo 背光把显示器从工具变成桌面氛围中心。"
+        },
+        {
+          "title": "快捷进入状态",
+          "description": "Coding HotKey 与功能栏让模式切换更像工作流入口。"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "USB-C",
+          "value": "90W",
+          "detail": "单线连接与供电"
+        },
+        {
+          "label": "色域",
+          "value": "95% P3",
+          "detail": "兼顾代码与内容视觉"
+        }
+      ],
+      "media": {
+        "src": "../assets/rd280u-hero.jpg",
+        "alt": "BenQ RD280U 官方产品图",
+        "caption": "官方产品视觉：3:2 编程显示器与代码工作场景",
+        "fit": "cover",
+        "position": "78% center"
+      },
+      "orientation": "media-left",
+      "presenterNotes": "这页可作为品牌介绍中的产品卖点页。重点不要把四个特性讲散，而要讲它们一起构成“代码工作台”的体验闭环。"
+    },
+    {
+      "id": "form-factor",
+      "type": "data-story",
+      "layoutVariant": "single-big-number",
+      "visualIntent": "让 3:2 / 4K+ 等核心规格形成大数字视觉锚点。",
+      "title": "形态设计：关键不是更宽，而是更高",
+      "subtitle": "RD280U 用少见的 3:2 比例，把程序员的阅读和编辑场景放在中心。",
+      "headline": "当内容以代码、文档和终端为主，垂直空间本身就是效率设计。",
+      "metrics": [
+        {
+          "label": "尺寸",
+          "value": "28.2\"",
+          "detail": "桌面尺寸与信息容量平衡"
+        },
+        {
+          "label": "比例",
+          "value": "3:2",
+          "detail": "更适合长内容和多行代码"
+        },
+        {
+          "label": "分辨率",
+          "value": "4K+",
+          "detail": "3840 x 2560 细腻显示"
+        },
+        {
+          "label": "像素密度",
+          "value": "164 PPI",
+          "detail": "文字边缘更清晰"
+        }
+      ],
+      "takeaway": "这是一个很有品牌差异的选择：它没有追随宽屏叙事，而是把程序员的真实内容结构放在第一位。",
+      "presenterNotes": "品牌表达上可以把 3:2 解释为“为长内容而生”。这比单纯说分辨率更有记忆点，也更容易和普通办公屏区分。"
+    },
+    {
+      "id": "design-system",
+      "type": "system-architecture",
+      "layoutVariant": "platform-map",
+      "visualIntent": "把画布、舒适、氛围、工作流组织成平台式结构。",
+      "title": "RD280U 的四层设计系统",
+      "subtitle": "从屏幕比例到桌面光环境，产品体验被组织成一套完整的工作系统。",
+      "layers": [
+        {
+          "label": "画布层",
+          "description": "28.2 英寸、3:2、4K+ 把代码、文档和浏览器并置在同一工作视野。",
+          "tools": [
+            "3:2",
+            "4K+",
+            "164 PPI"
+          ]
+        },
+        {
+          "label": "视觉舒适层",
+          "description": "Nano Matte、B.I. Gen2 和低蓝光等设计共同降低长时间观看压力。",
+          "tools": [
+            "matte",
+            "B.I. Gen2",
+            "eye-care"
+          ]
+        },
+        {
+          "label": "专注氛围层",
+          "description": "MoonHalo 用背光把屏幕边界柔化，也增强桌面上的品牌识别。",
+          "tools": [
+            "halo",
+            "ambient",
+            "focus"
+          ]
+        },
+        {
+          "label": "工作流层",
+          "description": "Coding HotKey、KVM、MST 和 USB-C 90W 减少切换设备和模式的打断。",
+          "tools": [
+            "hotkey",
+            "KVM",
+            "USB-C"
+          ]
+        }
+      ],
+      "callout": "好的产品设计不是把功能贴上去，而是让每个功能都服务同一个使用状态。",
+      "presenterNotes": "这一页用来把零散卖点收束成设计系统。品牌团队可以据此分层做内容：画布、护眼、氛围、工作流。"
+    },
+    {
+      "id": "before-after",
+      "type": "tension-resolution",
+      "layoutVariant": "diagonal-split",
+      "visualIntent": "用斜切对比强化从通用参数到专属体验的转变。",
+      "title": "从参数竞争，到场景识别",
+      "subtitle": "RD280U 的传播机会，是把“专业参数”转译成“程序员专属体验”。",
+      "tension": {
+        "label": "传统显示器叙事",
+        "headline": "大、快、亮，但人群感不强",
+        "points": [
+          "卖点容易落入通用参数表。",
+          "画面语言和办公显示器区分度不高。",
+          "用户很难感知它为何专属于自己。"
+        ]
+      },
+      "resolution": {
+        "label": "RD280U 叙事",
+        "headline": "为代码工作而重新组织体验",
+        "points": [
+          "3:2 直接回应代码和文档场景。",
+          "MoonHalo 形成桌面氛围记忆点。",
+          "HotKey 和 KVM 把切换动作变成工作流。"
+        ]
+      },
+      "presenterNotes": "这页适合讲传播策略。不要把 RD280U 只当显示器宣传，而要把它讲成一个“程序员工作场景解决方案”。"
+    },
+    {
+      "id": "day-in-life",
+      "type": "timeline",
+      "layoutVariant": "journey-segments",
+      "title": "一天中的设计触点",
+      "subtitle": "RD280U 的设计价值，需要放进程序员真实工作节奏里看。",
+      "events": [
+        {
+          "label": "09:30",
+          "title": "打开项目",
+          "description": "3:2 画布容纳更多代码、文档和任务上下文。"
+        },
+        {
+          "label": "14:00",
+          "title": "联调切换",
+          "description": "KVM 与 USB-C 减少设备切换造成的注意力中断。"
+        },
+        {
+          "label": "18:30",
+          "title": "深度排障",
+          "description": "Coding Mode 和清晰文字帮助长时间阅读复杂信息。"
+        },
+        {
+          "label": "22:00",
+          "title": "夜间专注",
+          "description": "MoonHalo 与护眼能力共同塑造更低压的桌面环境。"
+        }
+      ],
+      "presenterNotes": "品牌内容可以围绕一天的使用节奏做脚本，而不是单独展示硬件参数。这样更容易拍视频、做详情页和社媒内容。"
+    },
+    {
+      "id": "brand-quote",
+      "type": "quote-break",
+      "layoutVariant": "editorial-quote",
+      "visualIntent": "做成杂志式引语页，打断连续功能说明。",
+      "eyebrow": "Design Takeaway",
+      "quote": "RD280U 最值得讲的，不是一块更强的屏，而是一种更像程序员的工作状态。",
+      "attribution": "品牌设计视角",
+      "context": "当产品能让目标人群一眼感到“这是为我设计的”，它就拥有了超越参数表的品牌识别。",
+      "presenterNotes": "这页可以作为汇报中段的情绪页，帮助听众从规格回到品牌价值。"
+    },
+    {
+      "id": "communication",
+      "type": "final-ask",
+      "layoutVariant": "decision-slide",
+      "visualIntent": "用决策页形式明确传播主张和三条记忆点。",
+      "title": "传播主张：为代码工作而设计",
+      "subtitle": "建议把外部表达从“参数领先”转为“程序员工作状态的完整设计”。",
+      "ask": "在品牌内容中优先讲清三个记忆点：垂直画布、低干扰视觉、沉浸式代码工作台。",
+      "actions": [
+        "用 3:2 画布讲清更多代码和上下文",
+        "用 Nano Matte 与护眼讲清长时间舒适",
+        "用 MoonHalo 与 HotKey 讲清专属工作状态"
+      ],
+      "contact": "BenQ RD280U | Brand Design Brief",
+      "presenterNotes": "最后给品牌团队明确建议：把参数翻译成场景和记忆点。标题可以用于详情页、短视频或销售培训材料。"
+    }
+  ]
+}

@@ -7,6 +7,19 @@
   "theme": "executive-dashboard",
   "aspectRatio": "16:9",
   "language": "zh-CN",
+  "visualSystem": {
+    "mood": "executive-review",
+    "density": "dense",
+    "imageTreatment": "metric-led",
+    "compositionRhythm": "claim / metric wall / contrast / decision",
+    "colorIntent": "neutral operating review with crisp contrast",
+    "typographyIntent": "compact executive headings and numeric hierarchy",
+    "qaPriorities": [
+      "metrics as visual anchors",
+      "no empty-looking cards",
+      "distinct decision rhythm"
+    ]
+  },
   "story": {
     "thesis": "本周增长问题不在流量，而在用户看到价值前的信任建立不够快。",
     "arc": [
@@ -19,6 +32,7 @@
     {
       "id": "opener",
       "type": "narrative-opener",
+      "layoutVariant": "editorial-cover",
       "eyebrow": "Weekly Growth Review",
       "title": "增长卡点不是流量，而是信任建立",
       "subtitle": "高意向点击增加，但用户还没看到足够证据，就被要求注册。",
@@ -32,6 +46,7 @@
     {
       "id": "judgement",
       "type": "hero-statement",
+      "layoutVariant": "split-proof",
       "eyebrow": "本周判断",
       "headline": "我们吸引到了更对的人，但没有更快证明价值。",
       "subheadline": "用户愿意点进来，却没有在注册前看到足够真实、具体、可信的成果样例。",
@@ -44,6 +59,7 @@
     {
       "id": "funnel",
       "type": "data-story",
+      "layoutVariant": "metric-wall",
       "title": "漏斗数据说明问题发生在试用前",
       "subtitle": "不是用户质量变差，而是价值证据出现得太晚。",
       "headline": "高意向流量进入后，最先遇到的是理解成本。",
@@ -58,6 +74,7 @@
     {
       "id": "before-after",
       "type": "tension-resolution",
+      "layoutVariant": "decision-bridge",
       "title": "先证明价值，再要求注册",
       "subtitle": "下周不要扩大投放，先降低用户理解成本。",
       "tension": {
@@ -74,6 +91,7 @@
     {
       "id": "plan",
       "type": "system-architecture",
+      "layoutVariant": "blueprint-layers",
       "title": "下周增长动作拆成三条链路",
       "subtitle": "每条链路都直接对应一个流失点。",
       "layers": [
@@ -98,6 +116,7 @@
     {
       "id": "quote",
       "type": "quote-break",
+      "layoutVariant": "editorial-quote",
       "eyebrow": "用户访谈",
       "quote": "我想先看到一个真实生成结果，再决定要不要注册。",
       "attribution": "高意向试用用户",
@@ -106,6 +125,7 @@
     {
       "id": "ask",
       "type": "final-ask",
+      "layoutVariant": "next-actions",
       "title": "下周只打一场仗：缩短信任路径",
       "subtitle": "先把高意向点击转成试用，再考虑加大投放。",
       "ask": "冻结新增投放 1 周，优先上线首屏样例、试用预览和注册减字段。",

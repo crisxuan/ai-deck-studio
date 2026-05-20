@@ -1,0 +1,376 @@
+{
+  "version": "0.3.0",
+  "title": "海尔冰箱品牌策划介绍",
+  "audience": "品牌策划、市场传播、零售内容、产品和渠道团队",
+  "goal": "以海尔冰箱为对象，生成一套用于品牌策划汇报的 HTML 演示文稿，突出产品设计语言、用户心智和传播主张。",
+  "tone": "品牌化、清晰、高级、有生活方式洞察。",
+  "theme": "appliance-showroom",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "visualSystem": {
+    "mood": "brand-showcase",
+    "density": "editorial",
+    "imageTreatment": "product-plinth",
+    "compositionRhythm": "hero / proof / system / campaign",
+    "colorIntent": "cool appliance showroom with blue and teal accents",
+    "typographyIntent": "large keynote titles, restrained body copy",
+    "qaPriorities": [
+      "distinct page rhythm",
+      "strong product imagery",
+      "low template repetition"
+    ]
+  },
+  "story": {
+    "thesis": "海尔冰箱的品牌机会，不只是讲容量和参数，而是把新鲜、健康、智慧和厨居美学组织成家庭生活的确定性。",
+    "arc": [
+      "先建立品牌判断：冰箱正在从储物电器变成家庭新鲜管理系统。",
+      "再用官方产品信息拆解设计语言：嵌入式、全空间保鲜、EPP 超净系统和三档变温。",
+      "最后收束传播主张：为家的新鲜秩序而设计。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "layoutVariant": "split-product",
+      "visualIntent": "左侧建立品牌主张，右侧用大产品图形成展台感。",
+      "eyebrow": "Brand Planning Deck",
+      "title": "海尔冰箱：把新鲜感做成家的确定性",
+      "subtitle": "从一台 460 升十字对开门冰箱出发，重新组织海尔冰箱的品牌表达：不止储鲜，更是厨房秩序、健康安心和家居美学的入口。",
+      "chips": [
+        "全空间保鲜",
+        "零距离嵌入",
+        "EPP 超净系统",
+        "家庭新鲜管理"
+      ],
+      "stat": {
+        "label": "代表产品",
+        "value": "460L",
+        "detail": "BCD-460WGHTD14S9U1 十字对开门"
+      },
+      "media": {
+        "src": "../assets/haier-fridge-hero.png",
+        "alt": "海尔 460 升十字对开门冰箱官方产品图",
+        "fit": "contain",
+        "position": "center center"
+      },
+      "presenterNotes": "开场先给出品牌判断：今天不是介绍一台冰箱的全部参数，而是借代表产品提炼海尔冰箱面向家庭生活方式的品牌策划方向。"
+    },
+    {
+      "id": "brand-judgement",
+      "type": "hero-statement",
+      "layoutVariant": "split-proof",
+      "visualIntent": "强观点占主导，右侧证据条压缩成决策证明。",
+      "eyebrow": "Core Brand Reading",
+      "headline": "下一代冰箱心智，不是更能装，而是更会管理家的新鲜秩序。",
+      "subheadline": "用户真正购买的不是一组功能名，而是食材不浪费、厨房更完整、家庭饮食更安心的日常确定性。",
+      "proofs": [
+        {
+          "label": "空间",
+          "value": "嵌入",
+          "detail": "从独立家电转向厨居一体"
+        },
+        {
+          "label": "食材",
+          "value": "保鲜",
+          "detail": "从冷藏冷冻转向分区管理"
+        },
+        {
+          "label": "健康",
+          "value": "净化",
+          "detail": "从放得下转向放得安心"
+        }
+      ],
+      "presenterNotes": "这一页要把策略说清楚：海尔冰箱不应该只被解释为大容量电器，而应该被解释为家庭食材和厨房秩序的管理系统。"
+    },
+    {
+      "id": "product-language",
+      "type": "product-showcase",
+      "layoutVariant": "product-plinth",
+      "visualIntent": "让产品图成为页面主角，卖点卡作为辅助证据。",
+      "title": "产品语言：克制的外观，强秩序的内部体验",
+      "subtitle": "官方产品信息显示，这款冰箱把家居一体化、分区储鲜、健康净化和灵活场景组合在一起。",
+      "productName": "海尔 460 升十字对开门冰箱",
+      "tagline": "从厨房边缘走向家庭新鲜管理中心",
+      "features": [
+        {
+          "title": "零距离自由嵌入式",
+          "description": "强调厨居一体，让冰箱更像整体厨房的一部分。"
+        },
+        {
+          "title": "全空间保鲜科技",
+          "description": "冷藏干湿分储，冷冻智能恒温，建立食材分区秩序。"
+        },
+        {
+          "title": "EPP 超净系统",
+          "description": "围绕除菌、除异味、除病毒、降农残和防霉菌建立健康心智。"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "总容积",
+          "value": "460L",
+          "detail": "官方产品页标注"
+        },
+        {
+          "label": "箱门结构",
+          "value": "十字",
+          "detail": "十字对开门"
+        }
+      ],
+      "media": {
+        "src": "../assets/haier-fridge-hero.png",
+        "alt": "海尔 460 升十字对开门冰箱官方产品图",
+        "caption": "官方产品图：BCD-460WGHTD14S9U1",
+        "fit": "contain",
+        "position": "center center"
+      },
+      "presenterNotes": "这里把功能卖点翻译成设计语言，不建议逐条念参数。重点讲：外观融入厨房，内部管理食材，净化能力强化健康安心。"
+    },
+    {
+      "id": "freshness-system",
+      "type": "media-feature",
+      "layoutVariant": "image-led",
+      "visualIntent": "图片占主导，文案解释保鲜系统如何转译成家庭生活价值。",
+      "title": "核心心智：让食材从“被冷藏”变成“被照顾”",
+      "subtitle": "海尔冰箱的保鲜表达，可以从功能名升级为家庭饮食质量的管理叙事。",
+      "features": [
+        {
+          "title": "分区而非堆放",
+          "description": "干湿、冷藏、冷冻和变温区共同构成食材秩序。"
+        },
+        {
+          "title": "新鲜而非低温",
+          "description": "传播重点从温度控制转向口感、营养和使用节奏。"
+        },
+        {
+          "title": "安心而非囤货",
+          "description": "EPP 超净系统把健康顾虑转化为可感知卖点。"
+        },
+        {
+          "title": "日常而非炫技",
+          "description": "让用户在早餐、备餐、囤鲜和母婴场景里理解价值。"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "保鲜技术",
+          "value": "全空间",
+          "detail": "冷藏干湿分储、冷冻智能恒温"
+        },
+        {
+          "label": "变温模式",
+          "value": "3 档",
+          "detail": "珍品、零度、母婴"
+        }
+      ],
+      "media": {
+        "src": "../assets/haier-fridge-freshness.jpg",
+        "alt": "海尔冰箱官方全空间保鲜科技示意图",
+        "caption": "官方功能视觉：冷藏分储、冷冻恒温、智慧除菌",
+        "fit": "cover",
+        "position": "center center"
+      },
+      "orientation": "media-left",
+      "presenterNotes": "这页可以作为品牌内容主视觉方向：不要只拍空冰箱和食材，应该拍食材被分类、被照顾、被安排好的生活状态。"
+    },
+    {
+      "id": "brand-pillars",
+      "type": "data-story",
+      "layoutVariant": "metric-wall",
+      "visualIntent": "四个关键词形成指标墙，而不是普通列表。",
+      "title": "品牌表达的四个支点",
+      "subtitle": "把产品卖点翻译成用户能记住、渠道能复述、内容能展开的语言。",
+      "headline": "海尔冰箱要占据的，不是单点参数，而是“家的新鲜管理权”。",
+      "metrics": [
+        {
+          "label": "第一记忆点",
+          "value": "鲜",
+          "detail": "全空间保鲜，食材口感和营养更可感知"
+        },
+        {
+          "label": "第二记忆点",
+          "value": "净",
+          "detail": "EPP 超净系统承接健康安心"
+        },
+        {
+          "label": "第三记忆点",
+          "value": "融",
+          "detail": "零距离嵌入式强化厨居一体"
+        },
+        {
+          "label": "第四记忆点",
+          "value": "管",
+          "detail": "分区和变温把食材管理变得有秩序"
+        }
+      ],
+      "takeaway": "品牌文案不要堆满技术名词，而要让用户快速理解：这台冰箱让家的食材更好安排。",
+      "presenterNotes": "这一页给后续物料提供关键词：鲜、净、融、管。它们可以分别对应详情页区块、短视频脚本、导购话术和门店陈列。"
+    },
+    {
+      "id": "audience-map",
+      "type": "market-map",
+      "layoutVariant": "journey-segments",
+      "visualIntent": "把四类人群做成连续场景入口，形成传播旅程感。",
+      "title": "目标人群：从买冰箱的人，到经营家庭新鲜感的人",
+      "subtitle": "品牌策划要用不同入口讲同一个价值：让家里的食材、厨房和生活节奏更可控。",
+      "segments": [
+        {
+          "label": "新居装修家庭",
+          "description": "关注嵌入效果、厨房整体感和空间利用，希望家电不破坏装修秩序。",
+          "signal": "厨居一体"
+        },
+        {
+          "label": "精细备餐家庭",
+          "description": "关注一周食材管理、分类储鲜和减少浪费，需要清晰的分区叙事。",
+          "signal": "分区储鲜"
+        },
+        {
+          "label": "母婴与健康家庭",
+          "description": "关注食材安全、净味和细分温区，对安心感有更高期待。",
+          "signal": "健康安心"
+        },
+        {
+          "label": "品质升级家庭",
+          "description": "关注外观材质、生活方式和长期使用体验，希望冰箱成为厨房门面。",
+          "signal": "品质升级"
+        }
+      ],
+      "insight": "同一套产品能力，要按人群翻译成不同购买理由，但最终都回到“家的新鲜秩序”。",
+      "presenterNotes": "这页适合讲投放和内容分层。每类人群不需要换一套主张，只需要换入口：装修、备餐、健康、品质。"
+    },
+    {
+      "id": "experience-system",
+      "type": "system-architecture",
+      "layoutVariant": "blueprint-layers",
+      "visualIntent": "用分层蓝图表达从产品证据到销售转化的闭环。",
+      "title": "品牌体验系统：从产品到内容的四层闭环",
+      "subtitle": "让产品能力在门店、详情页、视频和导购话术里保持同一种品牌逻辑。",
+      "layers": [
+        {
+          "label": "产品证据层",
+          "description": "用 460L、十字对开门、变频、全空间保鲜和 EPP 超净系统建立可信事实。",
+          "tools": [
+            "460L",
+            "全空间",
+            "EPP"
+          ]
+        },
+        {
+          "label": "场景体验层",
+          "description": "把功能放进新居装修、周末囤鲜、母婴储存和晚餐备菜场景中表达。",
+          "tools": [
+            "装修",
+            "备餐",
+            "母婴"
+          ]
+        },
+        {
+          "label": "视觉资产层",
+          "description": "用嵌入式厨房、食材悬浮分区和材质细节建立高级、清洁、可信的视觉语言。",
+          "tools": [
+            "嵌入",
+            "食材",
+            "材质"
+          ]
+        },
+        {
+          "label": "销售转化层",
+          "description": "导购话术从参数罗列变成家庭问题解决：不串味、会分类、能融入、好打理。",
+          "tools": [
+            "话术",
+            "对比",
+            "试用"
+          ]
+        }
+      ],
+      "callout": "品牌策划的关键，是让每个触点都在证明同一个主张。",
+      "presenterNotes": "这一页是落地路径。可以直接指导门店 KV、详情页模块、短视频脚本和导购口径如何统一。"
+    },
+    {
+      "id": "before-after",
+      "type": "tension-resolution",
+      "layoutVariant": "decision-bridge",
+      "visualIntent": "强化从参数表传播到生活秩序传播的转折。",
+      "title": "从参数表传播，到生活秩序传播",
+      "subtitle": "传统冰箱表达容易陷入同质化；海尔可以把技术优势转译成更强的家庭场景心智。",
+      "tension": {
+        "label": "常见传播",
+        "headline": "容量、能效、分区，信息完整但缺少心智",
+        "points": [
+          "卖点多，用户难以记住主线。",
+          "技术名词强，生活感相对弱。",
+          "详情页和短视频容易各讲各的。"
+        ]
+      },
+      "resolution": {
+        "label": "建议传播",
+        "headline": "以“家的新鲜秩序”统领全部卖点",
+        "points": [
+          "嵌入式讲厨房秩序。",
+          "全空间保鲜讲食材秩序。",
+          "EPP 超净系统讲健康秩序。"
+        ]
+      },
+      "presenterNotes": "这页用于推动内部对齐。传播不是少讲卖点，而是让卖点被一个更强的品牌主张统领。"
+    },
+    {
+      "id": "touchpoint-journey",
+      "type": "timeline",
+      "layoutVariant": "journey-segments",
+      "title": "一天里的内容触点",
+      "subtitle": "把冰箱卖点放进真实生活节奏，用户才会觉得它和自己有关。",
+      "events": [
+        {
+          "label": "07:30",
+          "title": "早餐取材",
+          "description": "强调分区清楚、拿取顺手、食材状态可控。"
+        },
+        {
+          "label": "12:00",
+          "title": "午间补货",
+          "description": "用清单式内容展示一周食材如何被安排。"
+        },
+        {
+          "label": "18:30",
+          "title": "晚餐备菜",
+          "description": "讲全空间保鲜如何让肉类、蔬果、珍品各有位置。"
+        },
+        {
+          "label": "21:00",
+          "title": "厨房收束",
+          "description": "用嵌入式画面表达厨房整洁和家居美学。"
+        }
+      ],
+      "presenterNotes": "这页可以直接变成短视频脚本结构：一天四个场景，每个场景只讲一个清晰价值。"
+    },
+    {
+      "id": "brand-quote",
+      "type": "quote-break",
+      "layoutVariant": "full-bleed-quote",
+      "visualIntent": "用大引语作为情绪收束页，打破连续信息页节奏。",
+      "eyebrow": "Brand Takeaway",
+      "quote": "用户记住的不是一台冰箱有多少参数，而是它让家里的食材、厨房和生活节奏变得更有秩序。",
+      "attribution": "海尔冰箱品牌策划视角",
+      "context": "把功能优势收束成家庭生活价值，品牌表达才会从产品介绍变成购买理由。",
+      "presenterNotes": "这页作为情绪收束。它帮助听众从功能列表回到品牌主张，并为最后的传播建议做铺垫。"
+    },
+    {
+      "id": "campaign-idea",
+      "type": "final-ask",
+      "layoutVariant": "campaign-brief",
+      "visualIntent": "以 campaign brief 方式收束传播主张和执行动作。",
+      "title": "传播主张：为家的新鲜秩序而设计",
+      "subtitle": "建议把海尔冰箱的核心表达从“先进冰箱”升级为“家庭新鲜管理系统”。",
+      "ask": "围绕“新鲜秩序”统一海尔冰箱的详情页、短视频、门店陈列和导购话术。",
+      "actions": [
+        "详情页首屏讲清一个主张",
+        "短视频围绕一天四个场景",
+        "门店用嵌入式厨房做强视觉",
+        "导购话术从参数转向家庭问题"
+      ],
+      "contact": "Brand Planning Draft",
+      "presenterNotes": "结尾给出可执行建议。下一步可把这一套内容扩展为门店 KV、详情页首屏和短视频脚本。"
+    }
+  ]
+}

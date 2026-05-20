@@ -2,6 +2,7 @@ node_modules/
 dist/
 
 examples/**/output/
+benchmarks/output/
 output/
 artifacts/
 showcase/

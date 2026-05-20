@@ -19,7 +19,8 @@ The MVP layouts are intentionally constrained so agents can produce reliable dec
 
 - `narrative-opener`: cinematic opener with chips and a spotlight metric.
 - `hero-statement`: oversized thesis with proof metrics.
-- `product-showcase`: product mockup with feature stack and compact metrics.
+- `product-showcase`: product mockup or media-backed showcase with feature stack and compact metrics.
+- `media-feature`: real image plus feature/design analysis for brand and product decks.
 - `market-map`: market segments and positioning insight.
 - `system-architecture`: layered system map with tool tags.
 - `data-story`: headline narrative with metric dashboard.
@@ -32,4 +33,5 @@ The MVP layouts are intentionally constrained so agents can produce reliable dec
 1. Shorten content.
 2. Move supporting context into `presenterNotes`.
 3. Choose a better layout.
-4. Adjust layout CSS only when realistic content still fails.
+4. Use `media-feature` or a `media` field for product/brand decks that need real visuals.
+5. Adjust layout CSS only when realistic content still fails.

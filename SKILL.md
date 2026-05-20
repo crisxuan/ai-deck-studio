@@ -36,6 +36,7 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
    - narrative arc
    - role of each slide
 4. Write `deck.json` against `deck.schema.json`.
+   - For brand/product decks, prefer `media-feature` or `media` fields with real sourced images instead of generic mockups.
 5. Run validation:
 
    ```bash
@@ -46,6 +47,12 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
 
    ```bash
    npm run render -- path/to/deck.json
+   ```
+
+   For local iteration, use preview mode:
+
+   ```bash
+   npm run preview -- path/to/deck.json --watch
    ```
 
 7. Verify:
@@ -64,6 +71,7 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
    ```bash
    npm run export -- path/to/output/index.html --format pdf
    npm run export -- path/to/output/index.html --format png
+   npm run export -- path/to/output/index.html --format pptx
    ```
 
 10. For a visual gallery or demo handoff, build the showcase:
@@ -79,8 +87,9 @@ Do not write raw slide HTML for deck content. Write or repair `deck.json`, valid
 - Every deck has a clear audience, goal, thesis, and arc.
 - Every slide has a purposeful role in the story.
 - No visible text overflow in screenshots.
+- No empty content placeholders or broken visible images.
 - No slide-level browser console errors.
 - No body scrollbars in presentation view.
-- Exported PDF/PNG files match the browser rendering closely.
+- Exported PDF/PNG/PPTX files match the browser rendering closely.
 - Showcase pages use live rendered decks, not mock screenshots.
 - Speaker notes stay hidden from the audience view and are available through `S` presenter mode or `N` notes drawer.

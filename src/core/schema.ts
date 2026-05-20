@@ -2,6 +2,8 @@ export const THEMES = [
   "consulting-clean",
   "tech-dark",
   "xiaohongshu-editorial",
+  "wedding-editorial",
+  "appliance-showroom",
   "premium-keynote",
   "technical-blueprint",
   "founder-editorial",
@@ -32,6 +34,7 @@ export const SLIDE_TYPES = [
   "narrative-opener",
   "hero-statement",
   "product-showcase",
+  "media-feature",
   "market-map",
   "system-architecture",
   "data-story",
@@ -47,6 +50,17 @@ export type SlideType = (typeof SLIDE_TYPES)[number];
 export type StoryPlan = {
   thesis: string;
   arc: string[];
+};
+
+export type VisualSystem = {
+  mood?: string;
+  density?: string;
+  imageTreatment?: string;
+  compositionRhythm?: string;
+  colorIntent?: string;
+  typographyIntent?: string;
+  qaPriorities?: string[];
+  reference?: string;
 };
 
 export type DeckAlternate = {
@@ -66,12 +80,14 @@ export type DeckSpec = {
   language?: string;
   alternates?: DeckAlternate[];
   story?: StoryPlan;
+  visualSystem?: VisualSystem;
   slides: SlideSpec[];
 };
 
 export type BaseSlide = {
   id: string;
   type: SlideType;
+  layoutVariant?: string;
   presenterNotes?: string;
   visualIntent?: string;
 };
@@ -188,6 +204,14 @@ export type FeatureCard = {
   description: string;
 };
 
+export type MediaAsset = {
+  src: string;
+  alt?: string;
+  caption?: string;
+  fit?: "cover" | "contain";
+  position?: string;
+};
+
 export type NarrativeOpenerSlide = BaseSlide & {
   type: "narrative-opener";
   eyebrow?: string;
@@ -195,6 +219,7 @@ export type NarrativeOpenerSlide = BaseSlide & {
   subtitle?: string;
   chips?: string[];
   stat?: MiniMetric;
+  media?: MediaAsset;
 };
 
 export type HeroStatementSlide = BaseSlide & {
@@ -213,6 +238,17 @@ export type ProductShowcaseSlide = BaseSlide & {
   tagline?: string;
   features: FeatureCard[];
   metrics?: MiniMetric[];
+  media?: MediaAsset;
+};
+
+export type MediaFeatureSlide = BaseSlide & {
+  type: "media-feature";
+  title: string;
+  subtitle?: string;
+  media: MediaAsset;
+  features: FeatureCard[];
+  metrics?: MiniMetric[];
+  orientation?: "media-left" | "media-right";
 };
 
 export type MarketSegment = {
@@ -291,6 +327,7 @@ export type SlideSpec =
   | NarrativeOpenerSlide
   | HeroStatementSlide
   | ProductShowcaseSlide
+  | MediaFeatureSlide
   | MarketMapSlide
   | SystemArchitectureSlide
   | DataStorySlide

@@ -10,8 +10,12 @@
     "build": "tsc",
     "validate": "tsx src/cli/index.ts validate",
     "render": "tsx src/cli/index.ts render",
+    "preview": "tsx src/cli/index.ts preview",
     "verify": "tsx src/cli/index.ts verify",
+    "contact-sheet": "tsx src/cli/index.ts contact-sheet",
     "export": "tsx src/cli/index.ts export",
+    "test": "tsx scripts/test.ts",
+    "benchmark": "tsx scripts/benchmark.ts",
     "showcase": "tsx scripts/build-showcase.ts",
     "example:render": "tsx scripts/render-example.ts",
     "example:verify": "tsx scripts/verify-example.ts",
@@ -19,7 +23,8 @@
   },
   "dependencies": {
     "ajv": "^8.17.1",
-    "playwright": "^1.53.0"
+    "playwright": "^1.53.0",
+    "pptxgenjs": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.15.17",

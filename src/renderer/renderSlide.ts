@@ -8,6 +8,7 @@ import {
   renderFinalAsk,
   renderHeroStatement,
   renderMarketMap,
+  renderMediaFeature,
   renderNarrativeOpener,
   renderProductShowcase,
   renderQuoteBreak,
@@ -24,13 +25,15 @@ import { renderTwoColumn } from "../layouts/twoColumn.js";
 
 export function renderSlide(slide: SlideSpec, deck: DeckSpec, index: number): string {
   const body = renderSlideBody(slide, deck);
+  const variantClass = slide.layoutVariant ? ` variant-${cssToken(slide.layoutVariant)}` : "";
+  const variantData = slide.layoutVariant ? ` data-layout-variant="${escapeHtml(slide.layoutVariant)}"` : "";
   const notes = slide.presenterNotes
     ? `<aside class="speaker-notes" data-notes-for="${escapeHtml(slide.id)}">${escapeHtml(slide.presenterNotes)}</aside>`
     : "";
 
   return `
     <section class="slide" data-slide-index="${index}" data-slide-id="${escapeHtml(slide.id)}" data-slide-type="${slide.type}" aria-label="${escapeHtml(slideLabel(slide, index))}">
-      <div class="slide-canvas layout-${slide.type}">
+      <div class="slide-canvas layout-${slide.type}${variantClass}"${variantData}>
         ${body}
       </div>
       ${notes}
@@ -66,6 +69,8 @@ function renderSlideBody(slide: SlideSpec, deck: DeckSpec): string {
       return renderHeroStatement(slide);
     case "product-showcase":
       return renderProductShowcase(slide);
+    case "media-feature":
+      return renderMediaFeature(slide);
     case "market-map":
       return renderMarketMap(slide);
     case "system-architecture":
@@ -91,4 +96,12 @@ function slideLabel(slide: SlideSpec, index: number): string {
   }
 
   return `Slide ${index + 1}`;
+}
+
+function cssToken(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }

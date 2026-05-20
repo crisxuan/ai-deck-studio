@@ -1,0 +1,314 @@
+body.theme-wedding-editorial {
+  --deck-page-bg: #f1e8e8;
+  --slide-bg: #fffafb;
+  --text: #35212c;
+  --muted: #735f68;
+  --subtle: #f5e4e8;
+  --line: rgba(53, 33, 44, 0.14);
+  --panel: rgba(255, 255, 255, 0.76);
+  --panel-strong: #f8e9ee;
+  --accent: #b94f68;
+  --accent-2: #718a72;
+  --accent-3: #b78a50;
+  --shadow: 0 30px 76px rgba(87, 55, 68, 0.16);
+}
+
+body.theme-wedding-editorial .slide-canvas {
+  border-color: rgba(53, 33, 44, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(185, 79, 104, 0.16), transparent 24%),
+    radial-gradient(circle at 15% 78%, rgba(113, 138, 114, 0.14), transparent 26%),
+    linear-gradient(135deg, #fffafb 0%, #f9eff2 58%, #f3ebe2 100%);
+  background-color: var(--slide-bg);
+}
+
+body.theme-wedding-editorial .slide-canvas::before {
+  position: absolute;
+  inset: 26px;
+  border: 1px solid rgba(183, 138, 80, 0.28);
+  border-radius: 6px;
+  content: "";
+  pointer-events: none;
+}
+
+body.theme-wedding-editorial .slide-canvas::after {
+  position: absolute;
+  right: 112px;
+  bottom: 116px;
+  width: 132px;
+  height: 132px;
+  border: 1px solid rgba(185, 79, 104, 0.18);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), transparent 40%),
+    conic-gradient(from 20deg, rgba(185, 79, 104, 0.18), rgba(113, 138, 114, 0.12), rgba(183, 138, 80, 0.18), rgba(185, 79, 104, 0.18));
+  content: "";
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+body.theme-wedding-editorial h1,
+body.theme-wedding-editorial h2 {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+body.theme-wedding-editorial .eyebrow,
+body.theme-wedding-editorial .comparison-label,
+body.theme-wedding-editorial .timeline-label,
+body.theme-wedding-editorial .metric-tile p,
+body.theme-wedding-editorial .ask-label {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+body.theme-wedding-editorial .slide-subtitle,
+body.theme-wedding-editorial .cover-subtitle,
+body.theme-wedding-editorial .composition-subtitle,
+body.theme-wedding-editorial .section-kicker,
+body.theme-wedding-editorial .panel-body,
+body.theme-wedding-editorial .market-segment p,
+body.theme-wedding-editorial .architecture-layer p,
+body.theme-wedding-editorial .data-takeaway,
+body.theme-wedding-editorial .showcase-feature p {
+  color: var(--muted);
+}
+
+body.theme-wedding-editorial .content-panel,
+body.theme-wedding-editorial .comparison-side,
+body.theme-wedding-editorial .metric-tile,
+body.theme-wedding-editorial .closing-actions,
+body.theme-wedding-editorial .proof-strip article,
+body.theme-wedding-editorial .showcase-feature,
+body.theme-wedding-editorial .market-segment,
+body.theme-wedding-editorial .architecture-layer,
+body.theme-wedding-editorial .data-metric,
+body.theme-wedding-editorial .tension-card,
+body.theme-wedding-editorial .ask-panel,
+body.theme-wedding-editorial .spotlight-metric,
+body.theme-wedding-editorial .product-media,
+body.theme-wedding-editorial .feature-media {
+  border: 1px solid rgba(53, 33, 44, 0.12);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 18px 52px rgba(87, 55, 68, 0.1);
+}
+
+body.theme-wedding-editorial .narrative-opener-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(430px, 0.58fr);
+  gap: 48px;
+  align-items: end;
+}
+
+body.theme-wedding-editorial .narrative-copy {
+  min-width: 0;
+}
+
+body.theme-wedding-editorial .narrative-copy h1,
+body.theme-wedding-editorial .hero-statement-copy h1 {
+  max-width: 980px;
+  font-size: 4.12rem;
+  line-height: 0.98;
+}
+
+body.theme-wedding-editorial .composition-subtitle {
+  max-width: 760px;
+  font-size: 1.14rem;
+  line-height: 1.5;
+}
+
+body.theme-wedding-editorial .chip-row,
+body.theme-wedding-editorial .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 28px;
+}
+
+body.theme-wedding-editorial .chip-row span,
+body.theme-wedding-editorial .tool-row span,
+body.theme-wedding-editorial .market-segment span {
+  border: 1px solid rgba(185, 79, 104, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 8px 11px;
+}
+
+body.theme-wedding-editorial .spotlight-metric,
+body.theme-wedding-editorial .data-metric:nth-child(1),
+body.theme-wedding-editorial .ask-panel {
+  background: #35212c;
+  color: #ffffff;
+}
+
+body.theme-wedding-editorial .spotlight-metric p,
+body.theme-wedding-editorial .spotlight-metric span,
+body.theme-wedding-editorial .data-metric:nth-child(1) p,
+body.theme-wedding-editorial .data-metric:nth-child(1) span,
+body.theme-wedding-editorial .ask-panel .point-list li,
+body.theme-wedding-editorial .ask-panel .contact {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.theme-wedding-editorial .spotlight-metric strong,
+body.theme-wedding-editorial .data-metric strong,
+body.theme-wedding-editorial .proof-strip strong,
+body.theme-wedding-editorial .metric-tile strong {
+  display: block;
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  line-height: 0.95;
+}
+
+body.theme-wedding-editorial .hero-statement-layout,
+body.theme-wedding-editorial .product-showcase-layout,
+body.theme-wedding-editorial .market-map-layout,
+body.theme-wedding-editorial .system-architecture-layout,
+body.theme-wedding-editorial .tension-resolution-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 26px;
+}
+
+body.theme-wedding-editorial .hero-statement-layout {
+  grid-template-rows: 1fr auto;
+}
+
+body.theme-wedding-editorial .hero-statement-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-wedding-editorial .proof-strip,
+body.theme-wedding-editorial .data-dashboard,
+body.theme-wedding-editorial .market-map {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-wedding-editorial .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.theme-wedding-editorial .market-map {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-wedding-editorial .data-dashboard {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-wedding-editorial .composition.variant-journey-segments .market-map {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.theme-wedding-editorial .composition.variant-journey-segments .market-segment {
+  min-height: 190px;
+}
+
+body.theme-wedding-editorial .composition.variant-journey-segments .market-segment:not(:last-child)::after {
+  display: none;
+}
+
+body.theme-wedding-editorial .composition.variant-before-after-cards .tension-grid {
+  gap: 18px;
+}
+
+body.theme-wedding-editorial .composition.variant-before-after-cards .resolution-arrow {
+  display: none;
+}
+
+body.theme-wedding-editorial .composition.variant-before-after-cards .tension-card {
+  display: grid;
+  min-height: 190px;
+  grid-template-columns: 0.42fr 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 24px 28px;
+}
+
+body.theme-wedding-editorial .composition.variant-before-after-cards .comparison-label,
+body.theme-wedding-editorial .composition.variant-before-after-cards .tension-card h2 {
+  grid-column: 1;
+}
+
+body.theme-wedding-editorial .composition.variant-before-after-cards .tension-card h2 {
+  align-self: start;
+  margin: 0;
+  font-size: 1.74rem;
+  line-height: 1.12;
+}
+
+body.theme-wedding-editorial .composition.variant-before-after-cards .point-list {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  margin: 0;
+}
+
+body.theme-wedding-editorial .proof-strip article,
+body.theme-wedding-editorial .market-segment,
+body.theme-wedding-editorial .architecture-layer,
+body.theme-wedding-editorial .data-metric {
+  padding: 24px;
+}
+
+body.theme-wedding-editorial .market-segment:nth-child(2),
+body.theme-wedding-editorial .architecture-layer:nth-child(2),
+body.theme-wedding-editorial .data-metric:nth-child(2) {
+  background: rgba(113, 138, 114, 0.1);
+}
+
+body.theme-wedding-editorial .market-segment:nth-child(3),
+body.theme-wedding-editorial .architecture-layer:nth-child(3),
+body.theme-wedding-editorial .data-metric:nth-child(3) {
+  background: rgba(183, 138, 80, 0.12);
+}
+
+body.theme-wedding-editorial .quote-break-layout {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+}
+
+body.theme-wedding-editorial blockquote {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.3rem;
+  line-height: 0.98;
+}
+
+body.theme-wedding-editorial .quote-context,
+body.theme-wedding-editorial .quote-attribution {
+  color: var(--muted);
+}
+
+body.theme-wedding-editorial .timeline-track {
+  position: relative;
+  z-index: 1;
+}
+
+body.theme-wedding-editorial .timeline-event::before {
+  border-color: rgba(185, 79, 104, 0.3);
+  background: #fffafb;
+}
+
+body.theme-wedding-editorial .final-ask-layout {
+  position: relative;
+  z-index: 1;
+}

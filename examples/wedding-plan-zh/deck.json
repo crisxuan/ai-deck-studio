@@ -1,0 +1,307 @@
+{
+  "version": "0.3.0",
+  "title": "婚礼当天安排与统筹方案",
+  "audience": "新人、双方家人、婚礼策划、司仪、摄影摄像和宴会执行团队",
+  "goal": "策划一套清晰、体面、可执行的婚礼当天安排，确保仪式顺畅、宾客体验稳定、关键瞬间不遗漏。",
+  "tone": "温暖、克制、优雅、执行清晰。",
+  "theme": "wedding-editorial",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "visualSystem": {
+    "mood": "wedding-planning",
+    "density": "editorial",
+    "imageTreatment": "ceremony-moodboard",
+    "compositionRhythm": "hero / roles / timeline / ceremony / risk control / final checklist",
+    "colorIntent": "warm garden ceremony palette with blush, sage, ivory, and restrained champagne accents",
+    "typographyIntent": "large elegant headlines with compact operational details",
+    "qaPriorities": [
+      "clear day-of flow",
+      "distinct page rhythm",
+      "low operational ambiguity"
+    ]
+  },
+  "story": {
+    "thesis": "好的婚礼安排不是把流程排满，而是让重要的人、重要的话和重要的瞬间都在正确时间自然发生。",
+    "arc": [
+      "先确定婚礼主题和整体节奏。",
+      "再拆解宾客、人员、仪式、宴会和影像安排。",
+      "最后收束到当天时间表、风险预案和执行清单。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "layoutVariant": "editorial-cover",
+      "visualIntent": "用优雅封面建立婚礼调性，右侧用抽象仪式主视觉承载氛围。",
+      "eyebrow": "Wedding Day Plan",
+      "title": "把婚礼安排成一场自然发生的郑重告白",
+      "subtitle": "从清晨接亲到晚宴送客，所有流程都围绕三个目标：新人从容、家人安心、宾客舒服。",
+      "chips": [
+        "仪式流程",
+        "宾客动线",
+        "人员分工",
+        "风险预案"
+      ],
+      "stat": {
+        "label": "执行窗口",
+        "value": "12h",
+        "detail": "08:00 接亲准备 / 20:00 晚宴收束"
+      },
+      "presenterNotes": "开场先说明这不是婚礼灵感板，而是一套当天执行方案。重点是减少临场混乱，让新人和家人把注意力留给仪式本身。"
+    },
+    {
+      "id": "core-principle",
+      "type": "hero-statement",
+      "layoutVariant": "proof-wall",
+      "visualIntent": "用一句统筹原则和三条判断标准建立执行方向。",
+      "eyebrow": "Planning Principle",
+      "headline": "婚礼当天最珍贵的不是环节多，而是每个环节都不慌。",
+      "subheadline": "所有安排以动线清晰、角色明确、情绪连贯为优先级。",
+      "proofs": [
+        {
+          "label": "动线",
+          "value": "不逆流",
+          "detail": "新人、家人、宾客和供应商各有路线"
+        },
+        {
+          "label": "角色",
+          "value": "不重叠",
+          "detail": "每件事只有一个主负责人和一个备份"
+        },
+        {
+          "label": "情绪",
+          "value": "不打断",
+          "detail": "仪式、致辞、敬酒和影像节奏自然衔接"
+        }
+      ],
+      "presenterNotes": "这一页用于和双方家人以及策划团队对齐：流程不是越细越好，而是关键节点有人负责、有人提醒、有人兜底。"
+    },
+    {
+      "id": "guest-groups",
+      "type": "market-map",
+      "layoutVariant": "journey-segments",
+      "visualIntent": "把不同宾客群体做成接待入口，减少现场临时问询。",
+      "title": "宾客分层：不同的人需要不同的照顾方式",
+      "subtitle": "婚礼现场的体验很大程度来自接待是否准确，而不是装饰是否复杂。",
+      "segments": [
+        {
+          "label": "双方长辈",
+          "description": "优先安排近门座位、清晰引导和专人陪同，避免等待和找人。",
+          "signal": "尊重"
+        },
+        {
+          "label": "亲密好友",
+          "description": "安排互动、合影和 after party 信息，是现场气氛的重要来源。",
+          "signal": "热度"
+        },
+        {
+          "label": "同事同学",
+          "description": "需要清楚签到、桌号、停车和返程信息，减少社交尴尬。",
+          "signal": "秩序"
+        },
+        {
+          "label": "儿童家庭",
+          "description": "预留儿童椅、安静角落和简餐备选，避免仪式中途频繁进出。",
+          "signal": "体贴"
+        }
+      ],
+      "insight": "宾客安排的目标不是平均照顾，而是让每类人都能顺利进入这场婚礼。",
+      "presenterNotes": "这一页可以转成迎宾组和签到组的执行说明。每类宾客提前设置接待口径。"
+    },
+    {
+      "id": "experience-pillars",
+      "type": "data-story",
+      "layoutVariant": "metric-wall",
+      "visualIntent": "用四个关键词形成婚礼体验的视觉支点。",
+      "title": "婚礼体验的四个支点",
+      "subtitle": "所有预算和人力都应优先服务这四件事。",
+      "headline": "一场好婚礼，记住的是誓言、家人、笑声和被照顾的细节。",
+      "metrics": [
+        {
+          "label": "仪式感",
+          "value": "礼",
+          "detail": "入场、誓言、交换戒指和退场必须完整"
+        },
+        {
+          "label": "亲密感",
+          "value": "情",
+          "detail": "父母致辞、好友互动和合影安排要留白"
+        },
+        {
+          "label": "流畅感",
+          "value": "顺",
+          "detail": "时间表、主持词和音乐点位提前对齐"
+        },
+        {
+          "label": "安心感",
+          "value": "稳",
+          "detail": "天气、交通、设备和人员都有备选方案"
+        }
+      ],
+      "takeaway": "不要为了增加环节牺牲从容感，婚礼当天最怕的是赶流程。",
+      "presenterNotes": "这页帮助团队判断取舍。遇到临时变化时，优先保证礼、情、顺、稳。"
+    },
+    {
+      "id": "theme-line",
+      "type": "quote-break",
+      "layoutVariant": "citation-band",
+      "visualIntent": "用主题语作为情绪页，连接执行方案和婚礼感受。",
+      "eyebrow": "Wedding Theme",
+      "quote": "今天不是盛大的表演，而是我们认真走向彼此。",
+      "attribution": "婚礼主题建议",
+      "context": "这句主题适合用于迎宾牌、誓言册、电子请柬和现场短片开头。",
+      "presenterNotes": "主题语应简短克制，不需要过度煽情。它要能统一视觉、主持词和影像。"
+    },
+    {
+      "id": "day-system",
+      "type": "system-architecture",
+      "layoutVariant": "blueprint-layers",
+      "visualIntent": "把婚礼当天拆成四个执行层，明确每层负责人。",
+      "title": "当天执行系统：四层团队协作",
+      "subtitle": "每层都需要主负责人、备份联系人和确认时间点。",
+      "layers": [
+        {
+          "label": "新人支持层",
+          "description": "伴郎伴娘负责服装、随身物、补妆、饮水、手机和情绪状态。",
+          "tools": [
+            "伴郎",
+            "伴娘",
+            "随身包"
+          ]
+        },
+        {
+          "label": "家庭接待层",
+          "description": "双方家人接待各自亲友，协调长辈座位、合影和敬茶安排。",
+          "tools": [
+            "长辈",
+            "亲友",
+            "合影"
+          ]
+        },
+        {
+          "label": "仪式控制层",
+          "description": "策划、司仪、DJ、灯光和摄影对齐音乐、走位、发言和戒指点位。",
+          "tools": [
+            "司仪",
+            "音乐",
+            "戒指"
+          ]
+        },
+        {
+          "label": "宴会运营层",
+          "description": "酒店和统筹负责上菜、敬酒、桌况、儿童椅、停车和送客。",
+          "tools": [
+            "酒店",
+            "桌况",
+            "送客"
+          ]
+        }
+      ],
+      "callout": "当天不要让新人处理执行问题，所有问题先到总统筹。",
+      "presenterNotes": "这页是执行团队最重要的组织图。建议打印给核心人员，并在群里置顶。"
+    },
+    {
+      "id": "run-of-show",
+      "type": "timeline",
+      "layoutVariant": "journey-segments",
+      "title": "当天时间表：从准备到送客",
+      "subtitle": "时间点可按酒店和仪式场地微调，但关键节点必须锁定。",
+      "events": [
+        {
+          "label": "08:00",
+          "title": "新人准备",
+          "description": "化妆、服装、戒指、手捧花和随身物确认。"
+        },
+        {
+          "label": "11:30",
+          "title": "接亲与敬茶",
+          "description": "控制游戏时长，预留长辈合影和午间补给。"
+        },
+        {
+          "label": "16:30",
+          "title": "仪式彩排",
+          "description": "新人、父母、伴郎伴娘、花童和司仪走位确认。"
+        },
+        {
+          "label": "18:08",
+          "title": "仪式开场",
+          "description": "入场、誓言、交换戒指、拥抱、退场和合影衔接。"
+        }
+      ],
+      "presenterNotes": "婚礼时间表不要排到分钟级过密。每个核心节点之间至少预留 10 到 20 分钟缓冲。"
+    },
+    {
+      "id": "risk-control",
+      "type": "tension-resolution",
+      "layoutVariant": "before-after-cards",
+      "visualIntent": "用风险对比说明预案必要性，避免现场临时决策。",
+      "title": "风险预案：把不确定性提前消化",
+      "subtitle": "婚礼当天最常见的问题不是大事故，而是小问题连续出现。",
+      "tension": {
+        "label": "如果没有预案",
+        "headline": "现场每个小问题都会找新人",
+        "points": [
+          "雨天动线、堵车、迟到宾客临时打乱流程。",
+          "音乐、话筒、投影问题影响仪式情绪。",
+          "桌号、停车和儿童需求消耗家人精力。"
+        ]
+      },
+      "resolution": {
+        "label": "建议预案",
+        "headline": "所有问题先交给对应负责人",
+        "points": [
+          "雨天、交通、设备和人员各有备选联系人。",
+          "所有供应商提前 24 小时二次确认。",
+          "新人只接收统筹过滤后的关键决定。"
+        ]
+      },
+      "presenterNotes": "这页用于降低新人当天被打扰的概率。真正的预案不是写在纸上，而是有人知道怎么执行。"
+    },
+    {
+      "id": "must-have-list",
+      "type": "data-story",
+      "layoutVariant": "single-big-number",
+      "visualIntent": "用一个大数字强化婚礼前最终检查清单。",
+      "title": "婚礼前 48 小时：只检查最关键的事",
+      "subtitle": "临近婚礼不要再改大方向，只确认会影响当天顺畅度的事项。",
+      "headline": "建议把最后检查压缩为 9 个必确认项。",
+      "metrics": [
+        {
+          "label": "必确认项",
+          "value": "9",
+          "detail": "流程、人员、物料、设备、交通、桌号、音乐、影像、应急"
+        },
+        {
+          "label": "核心联系人",
+          "value": "6",
+          "detail": "统筹、司仪、酒店、摄影、化妆、双方代表"
+        },
+        {
+          "label": "缓冲时间",
+          "value": "20m",
+          "detail": "关键节点之间预留至少二十分钟"
+        }
+      ],
+      "takeaway": "最后 48 小时的目标不是更完美，而是让既定方案稳定落地。",
+      "presenterNotes": "这页可作为婚礼前最终会议的结尾。只讨论必确认项，避免新的灵感改变执行。"
+    },
+    {
+      "id": "final-brief",
+      "type": "final-ask",
+      "layoutVariant": "campaign-brief",
+      "visualIntent": "用最终 briefing 收束为明确分工。",
+      "title": "最终执行请求：所有信息归口到总统筹",
+      "subtitle": "婚礼当天，新人只需要完成仪式和享受现场。",
+      "ask": "请在婚礼前 48 小时确认最终流程表、联系人表、物料表和应急预案，并同步给所有核心执行人。",
+      "actions": [
+        "新人确认誓言、戒指、服装和随身物",
+        "家人确认亲友接待、座位和敬茶安排",
+        "策划确认仪式走位、音乐和供应商到场",
+        "酒店确认上菜节奏、桌况、停车和送客"
+      ],
+      "contact": "婚礼当天安排与统筹方案",
+      "presenterNotes": "最后一页要让所有人知道：当天出现问题先找谁，谁来决定，谁来执行。"
+    }
+  ]
+}

@@ -1,0 +1,602 @@
+body.theme-appliance-showroom {
+  --deck-page-bg: #e9f0f2;
+  --slide-bg: #f8fbfb;
+  --text: #142023;
+  --muted: #647378;
+  --subtle: #dbeaea;
+  --line: rgba(20, 32, 35, 0.14);
+  --panel: rgba(255, 255, 255, 0.86);
+  --panel-strong: #e5f4f1;
+  --accent: #1267ff;
+  --accent-2: #00a98b;
+  --accent-3: #ff6b4a;
+  --shadow: 0 34px 96px rgba(36, 56, 62, 0.18);
+}
+
+body.theme-appliance-showroom .slide-canvas {
+  border-color: rgba(20, 32, 35, 0.1);
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0 46%, rgba(233, 247, 245, 0.78) 46% 73%, rgba(247, 251, 251, 0.96) 73%),
+    linear-gradient(180deg, #ffffff 0%, #eef6f5 100%);
+  background-color: var(--slide-bg);
+}
+
+body.theme-appliance-showroom .slide-canvas::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(20, 32, 35, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 32, 35, 0.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+  content: "";
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent 82%);
+}
+
+body.theme-appliance-showroom .slide-canvas::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 7px;
+  background: linear-gradient(90deg, #142023 0 12%, var(--accent) 12% 50%, var(--accent-2) 50% 76%, var(--accent-3) 76%);
+  content: "";
+  pointer-events: none;
+}
+
+body.theme-appliance-showroom .composition,
+body.theme-appliance-showroom .cover-layout,
+body.theme-appliance-showroom .agenda-layout,
+body.theme-appliance-showroom .two-column-layout,
+body.theme-appliance-showroom .comparison-layout,
+body.theme-appliance-showroom .timeline-layout,
+body.theme-appliance-showroom .metric-grid-layout,
+body.theme-appliance-showroom .code-layout,
+body.theme-appliance-showroom .closing-layout {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+body.theme-appliance-showroom h1,
+body.theme-appliance-showroom h2 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+body.theme-appliance-showroom .eyebrow,
+body.theme-appliance-showroom .comparison-label,
+body.theme-appliance-showroom .timeline-label,
+body.theme-appliance-showroom .metric-tile p,
+body.theme-appliance-showroom .ask-label {
+  color: var(--accent);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+body.theme-appliance-showroom .slide-subtitle,
+body.theme-appliance-showroom .cover-subtitle,
+body.theme-appliance-showroom .composition-subtitle,
+body.theme-appliance-showroom .section-kicker,
+body.theme-appliance-showroom .panel-body,
+body.theme-appliance-showroom .market-segment p,
+body.theme-appliance-showroom .architecture-layer p,
+body.theme-appliance-showroom .data-takeaway,
+body.theme-appliance-showroom .showcase-feature p {
+  color: var(--muted);
+}
+
+body.theme-appliance-showroom .content-panel,
+body.theme-appliance-showroom .comparison-side,
+body.theme-appliance-showroom .metric-tile,
+body.theme-appliance-showroom .closing-actions,
+body.theme-appliance-showroom .proof-strip article,
+body.theme-appliance-showroom .showcase-feature,
+body.theme-appliance-showroom .market-segment,
+body.theme-appliance-showroom .architecture-layer,
+body.theme-appliance-showroom .data-metric,
+body.theme-appliance-showroom .tension-card,
+body.theme-appliance-showroom .ask-panel,
+body.theme-appliance-showroom .spotlight-metric,
+body.theme-appliance-showroom .product-media,
+body.theme-appliance-showroom .feature-media {
+  border: 1px solid rgba(20, 32, 35, 0.12);
+  border-radius: 6px;
+  background: var(--panel);
+  box-shadow: 0 22px 56px rgba(36, 56, 62, 0.1);
+}
+
+body.theme-appliance-showroom .narrative-opener-layout {
+  position: relative;
+  display: block;
+}
+
+body.theme-appliance-showroom .opener-media {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  overflow: hidden;
+  margin: 0;
+  width: 42%;
+  height: 74%;
+  border: 1px solid rgba(20, 32, 35, 0.18);
+  border-radius: 6px;
+  background: #f4f8f8;
+  box-shadow: 0 28px 74px rgba(36, 56, 62, 0.18);
+}
+
+body.theme-appliance-showroom .opener-media img,
+body.theme-appliance-showroom .product-media img,
+body.theme-appliance-showroom .feature-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.theme-appliance-showroom .narrative-copy {
+  position: absolute;
+  bottom: 44px;
+  left: 0;
+  width: min(710px, 54%);
+}
+
+body.theme-appliance-showroom .narrative-copy h1 {
+  max-width: 720px;
+  margin-bottom: 24px;
+  font-size: 4.25rem;
+  line-height: 0.96;
+}
+
+body.theme-appliance-showroom .composition-subtitle {
+  max-width: 700px;
+  font-size: 1.18rem;
+  line-height: 1.48;
+}
+
+body.theme-appliance-showroom .chip-row,
+body.theme-appliance-showroom .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+body.theme-appliance-showroom .chip-row span,
+body.theme-appliance-showroom .tool-row span,
+body.theme-appliance-showroom .market-segment span {
+  border: 1px solid rgba(20, 32, 35, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #24363a;
+  font-size: 0.78rem;
+  font-weight: 850;
+  padding: 8px 12px;
+}
+
+body.theme-appliance-showroom .spotlight-metric {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 360px;
+  padding: 26px 28px;
+  background: #142023;
+  color: #ffffff;
+}
+
+body.theme-appliance-showroom .spotlight-metric p,
+body.theme-appliance-showroom .spotlight-metric span {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+body.theme-appliance-showroom .spotlight-metric strong {
+  display: block;
+  margin: 12px 0;
+  color: #ffffff;
+  font-size: 3.35rem;
+  line-height: 0.92;
+}
+
+body.theme-appliance-showroom .hero-statement-layout {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 34px;
+}
+
+body.theme-appliance-showroom .hero-statement-copy {
+  display: flex;
+  max-width: 980px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-appliance-showroom .hero-statement-copy h1 {
+  max-width: 1030px;
+  font-size: 4.45rem;
+  line-height: 0.96;
+}
+
+body.theme-appliance-showroom .proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.theme-appliance-showroom .proof-strip article {
+  min-height: 118px;
+  padding: 22px;
+}
+
+body.theme-appliance-showroom .proof-strip article:nth-child(2),
+body.theme-appliance-showroom .data-metric:nth-child(1),
+body.theme-appliance-showroom .ask-panel {
+  background: #142023;
+  color: #ffffff;
+}
+
+body.theme-appliance-showroom .proof-strip article:nth-child(2) p,
+body.theme-appliance-showroom .proof-strip article:nth-child(2) span,
+body.theme-appliance-showroom .data-metric:nth-child(1) p,
+body.theme-appliance-showroom .data-metric:nth-child(1) span,
+body.theme-appliance-showroom .ask-panel .point-list li,
+body.theme-appliance-showroom .ask-panel .contact {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+body.theme-appliance-showroom .proof-strip p,
+body.theme-appliance-showroom .product-metrics p,
+body.theme-appliance-showroom .data-metric p {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+body.theme-appliance-showroom .proof-strip strong,
+body.theme-appliance-showroom .data-metric strong,
+body.theme-appliance-showroom .product-metrics strong,
+body.theme-appliance-showroom .metric-tile strong {
+  display: block;
+  color: var(--accent);
+  font-size: 2.7rem;
+  line-height: 1;
+}
+
+body.theme-appliance-showroom .proof-strip article:nth-child(2) strong,
+body.theme-appliance-showroom .data-metric:nth-child(1) strong,
+body.theme-appliance-showroom .ask-panel strong {
+  color: #ffffff;
+}
+
+body.theme-appliance-showroom .product-showcase-layout,
+body.theme-appliance-showroom .media-feature-layout,
+body.theme-appliance-showroom .market-map-layout,
+body.theme-appliance-showroom .system-architecture-layout,
+body.theme-appliance-showroom .tension-resolution-layout,
+body.theme-appliance-showroom .timeline-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 26px;
+}
+
+body.theme-appliance-showroom .slide-header h1 {
+  max-width: 980px;
+  font-size: 2.65rem;
+  line-height: 1.06;
+}
+
+body.theme-appliance-showroom .slide-subtitle {
+  max-width: 860px;
+}
+
+body.theme-appliance-showroom .product-showcase-stage {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+body.theme-appliance-showroom .product-media {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 30px;
+  background:
+    linear-gradient(180deg, #172226 0%, #0f171a 100%);
+}
+
+body.theme-appliance-showroom .product-media img {
+  object-fit: contain;
+}
+
+body.theme-appliance-showroom .product-media figcaption,
+body.theme-appliance-showroom .feature-media figcaption {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.36);
+}
+
+body.theme-appliance-showroom .product-feature-stack,
+body.theme-appliance-showroom .media-feature-copy {
+  display: grid;
+  min-height: 0;
+  gap: 14px;
+}
+
+body.theme-appliance-showroom .showcase-feature {
+  padding: 20px 22px;
+}
+
+body.theme-appliance-showroom .showcase-feature h2 {
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+}
+
+body.theme-appliance-showroom .showcase-feature p {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+}
+
+body.theme-appliance-showroom .product-metrics,
+body.theme-appliance-showroom .media-feature-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.theme-appliance-showroom .product-metrics article,
+body.theme-appliance-showroom .media-feature-metrics article {
+  min-height: 98px;
+  border-left: 4px solid var(--accent-2);
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+body.theme-appliance-showroom .media-feature-stage {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+body.theme-appliance-showroom .media-feature-layout.is-media-right .feature-media {
+  order: 2;
+}
+
+body.theme-appliance-showroom .feature-media {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: #f3f9f8;
+}
+
+body.theme-appliance-showroom .feature-media img {
+  object-fit: cover;
+}
+
+body.theme-appliance-showroom .media-feature-list {
+  display: grid;
+  gap: 12px;
+}
+
+body.theme-appliance-showroom .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.98fr 1.02fr;
+  gap: 42px;
+  align-items: center;
+}
+
+body.theme-appliance-showroom .data-story-copy h2 {
+  margin-top: 34px;
+  max-width: 760px;
+  font-size: 3.05rem;
+  line-height: 1.04;
+}
+
+body.theme-appliance-showroom .data-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.theme-appliance-showroom .data-metric {
+  min-height: 152px;
+  padding: 24px;
+}
+
+body.theme-appliance-showroom .data-metric strong {
+  font-size: 3.25rem;
+}
+
+body.theme-appliance-showroom .data-metric span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+body.theme-appliance-showroom .market-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+body.theme-appliance-showroom .market-segment {
+  min-height: 306px;
+  padding: 22px;
+}
+
+body.theme-appliance-showroom .market-segment:nth-child(2),
+body.theme-appliance-showroom .market-segment:nth-child(4) {
+  margin-top: 32px;
+}
+
+body.theme-appliance-showroom .market-segment h2 {
+  margin-top: 34px;
+  font-size: 1.24rem;
+}
+
+body.theme-appliance-showroom .market-segment p {
+  font-size: 0.94rem;
+}
+
+body.theme-appliance-showroom .map-insight,
+body.theme-appliance-showroom .architecture-callout {
+  margin: 0;
+  padding-left: 18px;
+  border-left: 4px solid var(--accent);
+  color: #24363a;
+  font-weight: 800;
+}
+
+body.theme-appliance-showroom .architecture-stack {
+  display: grid;
+  gap: 14px;
+}
+
+body.theme-appliance-showroom .architecture-layer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  min-height: 104px;
+  padding: 20px 22px;
+}
+
+body.theme-appliance-showroom .architecture-layer h2 {
+  margin-bottom: 8px;
+  font-size: 1.22rem;
+}
+
+body.theme-appliance-showroom .architecture-layer p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+body.theme-appliance-showroom .tension-grid {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+body.theme-appliance-showroom .tension-card {
+  min-height: 350px;
+  padding: 32px;
+}
+
+body.theme-appliance-showroom .is-tension {
+  background: rgba(255, 246, 241, 0.72);
+}
+
+body.theme-appliance-showroom .is-resolution {
+  background: rgba(232, 247, 243, 0.82);
+}
+
+body.theme-appliance-showroom .resolution-arrow {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: #142023;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 900;
+  box-shadow: 0 18px 48px rgba(36, 56, 62, 0.2);
+}
+
+body.theme-appliance-showroom .timeline-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin-top: 44px;
+}
+
+body.theme-appliance-showroom .timeline-track::before {
+  top: 23px;
+  height: 2px;
+  background: rgba(20, 32, 35, 0.16);
+}
+
+body.theme-appliance-showroom .timeline-event::before {
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  border: 6px solid #ffffff;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px rgba(18, 103, 255, 0.28), 0 10px 28px rgba(18, 103, 255, 0.28);
+}
+
+body.theme-appliance-showroom .timeline-event h2 {
+  margin-bottom: 12px;
+  font-size: 1.34rem;
+}
+
+body.theme-appliance-showroom .timeline-event p:last-child {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+body.theme-appliance-showroom .quote-break-layout {
+  display: flex;
+  max-width: 1080px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.theme-appliance-showroom .quote-break-layout blockquote {
+  margin: 0 0 26px;
+  color: var(--text);
+  font-size: 3.75rem;
+  font-weight: 900;
+  line-height: 1.04;
+}
+
+body.theme-appliance-showroom .quote-attribution {
+  color: var(--accent);
+  font-weight: 900;
+}
+
+body.theme-appliance-showroom .quote-context {
+  max-width: 700px;
+  color: var(--muted);
+}
+
+body.theme-appliance-showroom .final-ask-layout {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 52px;
+  align-items: end;
+}
+
+body.theme-appliance-showroom .final-copy h1 {
+  max-width: 730px;
+  font-size: 4.05rem;
+  line-height: 0.98;
+}
+
+body.theme-appliance-showroom .ask-panel {
+  padding: 34px;
+}
+
+body.theme-appliance-showroom .ask-panel strong {
+  display: block;
+  margin: 12px 0 28px;
+  color: #ffffff;
+  font-size: 2.1rem;
+  line-height: 1.18;
+}
+
+body.theme-appliance-showroom .ask-panel .point-list li::before {
+  background: var(--accent-2);
+}

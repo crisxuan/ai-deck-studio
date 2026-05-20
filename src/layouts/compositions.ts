@@ -1,9 +1,12 @@
 import type {
   ArchitectureLayer,
+  BaseSlide,
   DataStorySlide,
   FeatureCard,
   FinalAskSlide,
   HeroStatementSlide,
+  MediaFeatureSlide,
+  MediaAsset,
   MarketMapSlide,
   MarketSegment,
   MiniMetric,
@@ -17,8 +20,8 @@ import { escapeHtml, eyebrow, pointsList, titleBlock } from "./shared.js";
 
 export function renderNarrativeOpener(slide: NarrativeOpenerSlide): string {
   return `
-    <div class="composition narrative-opener-layout">
-      <div class="keynote-ambient" aria-hidden="true"></div>
+    <div class="${compositionClass(slide, "narrative-opener-layout")}">
+      ${slide.media ? renderMediaFrame(slide.media, "opener-media") : renderVisualFallback()}
       <div class="narrative-copy">
         ${eyebrow(slide.eyebrow)}
         <h1>${escapeHtml(slide.title)}</h1>
@@ -32,7 +35,7 @@ export function renderNarrativeOpener(slide: NarrativeOpenerSlide): string {
 
 export function renderHeroStatement(slide: HeroStatementSlide): string {
   return `
-    <div class="composition hero-statement-layout">
+    <div class="${compositionClass(slide, "hero-statement-layout")}">
       <div class="hero-statement-copy">
         ${eyebrow(slide.eyebrow)}
         <h1>${escapeHtml(slide.headline)}</h1>
@@ -45,19 +48,10 @@ export function renderHeroStatement(slide: HeroStatementSlide): string {
 
 export function renderProductShowcase(slide: ProductShowcaseSlide): string {
   return `
-    <div class="composition product-showcase-layout">
+    <div class="${compositionClass(slide, "product-showcase-layout")}">
       ${titleBlock(slide.title, slide.subtitle)}
       <div class="product-showcase-stage">
-        <div class="product-device" aria-label="${escapeHtml(slide.productName)} product preview">
-          <div class="device-topbar"><span></span><span></span><span></span></div>
-          <div class="device-hero">
-            <p>${escapeHtml(slide.productName)}</p>
-            <strong>${escapeHtml(slide.tagline ?? "Intelligent workflow command center")}</strong>
-          </div>
-          <div class="device-grid">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </div>
+        ${slide.media ? renderMediaFrame(slide.media, "product-media") : renderProductDevice(slide)}
         <div class="product-feature-stack">
           ${slide.features.map(renderFeatureCard).join("")}
           ${slide.metrics?.length ? `<div class="product-metrics">${slide.metrics.map(renderCompactMetric).join("")}</div>` : ""}
@@ -67,9 +61,43 @@ export function renderProductShowcase(slide: ProductShowcaseSlide): string {
   `;
 }
 
+export function renderMediaFeature(slide: MediaFeatureSlide): string {
+  const orientation = slide.orientation ?? "media-left";
+
+  return `
+    <div class="${compositionClass(slide, "media-feature-layout", `is-${orientation}`)}">
+      ${titleBlock(slide.title, slide.subtitle)}
+      <div class="media-feature-stage">
+        ${renderMediaFrame(slide.media, "feature-media")}
+        <div class="media-feature-copy">
+          <div class="media-feature-list">
+            ${slide.features.map(renderFeatureCard).join("")}
+          </div>
+          ${slide.metrics?.length ? `<div class="media-feature-metrics">${slide.metrics.map(renderCompactMetric).join("")}</div>` : ""}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderProductDevice(slide: ProductShowcaseSlide): string {
+  return `
+    <div class="product-device" aria-label="${escapeHtml(slide.productName)} product preview">
+      <div class="device-topbar"><span></span><span></span><span></span></div>
+      <div class="device-hero">
+        <p>${escapeHtml(slide.productName)}</p>
+        <strong>${escapeHtml(slide.tagline ?? "Intelligent workflow command center")}</strong>
+      </div>
+      <div class="device-grid">
+        ${slide.features.slice(0, 4).map(renderDeviceReadout).join("")}
+      </div>
+    </div>
+  `;
+}
+
 export function renderMarketMap(slide: MarketMapSlide): string {
   return `
-    <div class="composition market-map-layout">
+    <div class="${compositionClass(slide, "market-map-layout")}">
       ${titleBlock(slide.title, slide.subtitle)}
       <div class="market-map">
         ${slide.segments.map(renderMarketSegment).join("")}
@@ -81,7 +109,7 @@ export function renderMarketMap(slide: MarketMapSlide): string {
 
 export function renderSystemArchitecture(slide: SystemArchitectureSlide): string {
   return `
-    <div class="composition system-architecture-layout">
+    <div class="${compositionClass(slide, "system-architecture-layout")}">
       ${titleBlock(slide.title, slide.subtitle)}
       <div class="architecture-stack">
         ${slide.layers.map(renderArchitectureLayer).join("")}
@@ -93,7 +121,7 @@ export function renderSystemArchitecture(slide: SystemArchitectureSlide): string
 
 export function renderDataStory(slide: DataStorySlide): string {
   return `
-    <div class="composition data-story-layout">
+    <div class="${compositionClass(slide, "data-story-layout")}">
       <div class="data-story-copy">
         ${titleBlock(slide.title, slide.subtitle)}
         <h2>${escapeHtml(slide.headline)}</h2>
@@ -108,7 +136,7 @@ export function renderDataStory(slide: DataStorySlide): string {
 
 export function renderTensionResolution(slide: TensionResolutionSlide): string {
   return `
-    <div class="composition tension-resolution-layout">
+    <div class="${compositionClass(slide, "tension-resolution-layout")}">
       ${titleBlock(slide.title, slide.subtitle)}
       <div class="tension-grid">
         <section class="tension-card is-tension">
@@ -129,7 +157,7 @@ export function renderTensionResolution(slide: TensionResolutionSlide): string {
 
 export function renderQuoteBreak(slide: QuoteBreakSlide): string {
   return `
-    <div class="composition quote-break-layout">
+    <div class="${compositionClass(slide, "quote-break-layout")}">
       ${eyebrow(slide.eyebrow)}
       <blockquote>${escapeHtml(slide.quote)}</blockquote>
       ${slide.attribution ? `<p class="quote-attribution">${escapeHtml(slide.attribution)}</p>` : ""}
@@ -140,7 +168,7 @@ export function renderQuoteBreak(slide: QuoteBreakSlide): string {
 
 export function renderFinalAsk(slide: FinalAskSlide): string {
   return `
-    <div class="composition final-ask-layout">
+    <div class="${compositionClass(slide, "final-ask-layout")}">
       <div class="final-copy">
         <h1>${escapeHtml(slide.title)}</h1>
         ${slide.subtitle ? `<p class="composition-subtitle">${escapeHtml(slide.subtitle)}</p>` : ""}
@@ -153,6 +181,24 @@ export function renderFinalAsk(slide: FinalAskSlide): string {
       </div>
     </div>
   `;
+}
+
+function compositionClass(slide: BaseSlide, layoutClass: string, ...extraClasses: string[]): string {
+  const classes = ["composition", layoutClass, ...extraClasses];
+
+  if (slide.layoutVariant) {
+    classes.push(`variant-${cssToken(slide.layoutVariant)}`);
+  }
+
+  return classes.join(" ");
+}
+
+function cssToken(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function renderChips(chips?: string[]): string {
@@ -189,6 +235,37 @@ function renderFeatureCard(feature: FeatureCard): string {
       <h2>${escapeHtml(feature.title)}</h2>
       <p>${escapeHtml(feature.description)}</p>
     </article>
+  `;
+}
+
+function renderDeviceReadout(feature: FeatureCard): string {
+  return `
+    <span>
+      <b>${escapeHtml(feature.title)}</b>
+      <small>${escapeHtml(feature.description)}</small>
+    </span>
+  `;
+}
+
+function renderMediaFrame(media: MediaAsset, className: string): string {
+  const fit = media.fit === "contain" ? "contain" : "cover";
+  const position = media.position ? `object-position: ${escapeHtml(media.position)};` : "";
+
+  return `
+    <figure class="${className}">
+      <img src="${escapeHtml(media.src)}" alt="${escapeHtml(media.alt ?? "")}" style="object-fit: ${fit}; ${position}" />
+      ${media.caption ? `<figcaption>${escapeHtml(media.caption)}</figcaption>` : ""}
+    </figure>
+  `;
+}
+
+function renderVisualFallback(): string {
+  return `
+    <div class="opener-media visual-fallback keynote-ambient" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   `;
 }
 

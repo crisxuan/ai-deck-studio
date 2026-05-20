@@ -1,0 +1,234 @@
+{
+  "version": "0.3.0",
+  "title": "程序员年终述职报告",
+  "audience": "技术负责人、直属上级、产品负责人和项目协作团队",
+  "goal": "用程序员视角汇报年度交付、工程质量、技术沉淀、协作复盘和下一年度计划。",
+  "tone": "技术可信、结果导向、有工程感、适合公司正式述职。",
+  "theme": "technical-blueprint",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "story": {
+    "thesis": "这一年的核心价值，是把不确定需求编译成稳定系统，并把个人经验沉淀为团队可复用的工程资产。",
+    "arc": [
+      "从业务需求切入，说明年度交付和关键影响。",
+      "用工程指标证明质量、效率和稳定性提升。",
+      "复盘问题后，给出下一年度的平台化和系统化计划。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "eyebrow": "Developer Year-End Review",
+      "title": "把需求编译成稳定系统",
+      "subtitle": "2026 年终述职报告 | 部门：请替换 | 岗位：后端 / 前端 / 全栈工程师 | 姓名：请替换",
+      "chips": [
+        "Feature Delivery",
+        "System Design",
+        "Reliability",
+        "Team Enablement"
+      ],
+      "stat": {
+        "label": "年度核心目标完成度",
+        "value": "94%",
+        "detail": "请替换为真实绩效口径"
+      },
+      "presenterNotes": "开场用工程师语言建立主线：不是简单完成需求，而是把不确定输入转化为稳定、可维护、可复用的系统输出。"
+    },
+    {
+      "id": "agenda",
+      "type": "agenda",
+      "title": "述职结构",
+      "subtitle": "用 commit log 的方式回顾一年，但每一项都对应业务影响。",
+      "items": [
+        "年度角色定位",
+        "关键交付与业务影响",
+        "工程质量与效率指标",
+        "系统设计与技术沉淀",
+        "问题复盘与能力成长",
+        "下一年度计划"
+      ],
+      "presenterNotes": "这一页告诉听众：接下来不是按流水账讲任务，而是按交付、质量、架构、复盘和计划来讲。"
+    },
+    {
+      "id": "core-claim",
+      "type": "hero-statement",
+      "eyebrow": "Main Thread",
+      "headline": "我的年度关键词：把复杂度关进系统边界里。",
+      "subheadline": "面对需求变化、系统耦合和交付节奏，我重点做的是拆边界、补观测、降返工，并让团队后续少踩同样的坑。",
+      "proofs": [
+        {
+          "label": "核心需求交付",
+          "value": "18 项",
+          "detail": "覆盖关键业务链路和内部效率工具"
+        },
+        {
+          "label": "稳定性问题",
+          "value": "-37%",
+          "detail": "通过监控、回滚和测试前置下降"
+        },
+        {
+          "label": "工程资产沉淀",
+          "value": "9 个",
+          "detail": "组件、脚手架、文档和排障手册"
+        }
+      ],
+      "presenterNotes": "本页是整套述职的中心论点。建议结合一两个具体项目说明，自己如何把复杂度变成可管理的系统边界。"
+    },
+    {
+      "id": "year-log",
+      "type": "code",
+      "title": "年度 Commit 摘要",
+      "subtitle": "用工程语言把年度贡献压缩成一段可读的变更记录。",
+      "language": "typescript",
+      "code": "export const yearEndReview = {\n  mission: \"compile_requirements_into_reliable_systems\",\n  shipped: [\"core-flow-refactor\", \"release-automation\", \"observability\"],\n  improved: { latency: \"-28%\", incidents: \"-37%\", buildTime: \"-42%\" },\n  principles: [\"typed-boundaries\", \"rollback-first\", \"docs-as-assets\"],\n  nextYear: \"platformize_reusable_engineering_capabilities\"\n};",
+      "caption": "这页不是展示真实代码，而是把年度述职的工程主线可视化。",
+      "presenterNotes": "这页用于制造程序员风格和记忆点。汇报时可以解释每个字段背后的真实项目：交付了什么、改善了什么、形成了什么原则。"
+    },
+    {
+      "id": "metrics",
+      "type": "data-story",
+      "title": "工程指标：交付更快，也更稳",
+      "subtitle": "用可替换的指标说明工程投入如何转化为效率和质量。",
+      "headline": "真正的年度产出，不只是上线数量，而是系统在更高节奏下仍然可控。",
+      "metrics": [
+        {
+          "label": "核心需求交付",
+          "value": "18 项",
+          "detail": "按期完成率 94%"
+        },
+        {
+          "label": "平均构建耗时",
+          "value": "-42%",
+          "detail": "缓存、并行和脚本治理"
+        },
+        {
+          "label": "线上稳定性问题",
+          "value": "-37%",
+          "detail": "告警、回滚和灰度策略前置"
+        },
+        {
+          "label": "重复排障时间",
+          "value": "-31%",
+          "detail": "文档化和可观测性补齐"
+        }
+      ],
+      "takeaway": "效率提升来自自动化，稳定性提升来自边界、测试、监控和复盘的系统化。",
+      "presenterNotes": "所有数据都是示例占位。替换真实数据时，最好保留四类口径：交付、效率、稳定性、团队复用。"
+    },
+    {
+      "id": "engineering-stack",
+      "type": "system-architecture",
+      "title": "我的工程贡献栈",
+      "subtitle": "把一年的工作拆成四层，每一层都服务于更稳定的业务交付。",
+      "layers": [
+        {
+          "label": "业务交付层",
+          "description": "负责核心需求设计、开发、联调、上线和验收闭环。",
+          "tools": [
+            "feature",
+            "api",
+            "release"
+          ]
+        },
+        {
+          "label": "系统质量层",
+          "description": "通过边界治理、测试补齐和性能优化降低后续维护成本。",
+          "tools": [
+            "test",
+            "perf",
+            "refactor"
+          ]
+        },
+        {
+          "label": "稳定性层",
+          "description": "补齐日志、监控、告警、灰度和回滚，让问题可发现、可定位。",
+          "tools": [
+            "logs",
+            "metrics",
+            "rollback"
+          ]
+        },
+        {
+          "label": "团队赋能层",
+          "description": "把个人经验沉淀成文档、模板、脚手架和排障流程。",
+          "tools": [
+            "docs",
+            "template",
+            "playbook"
+          ]
+        }
+      ],
+      "callout": "代码只是交付物的一部分，真正可复用的是工程系统和团队共识。",
+      "presenterNotes": "这一页适合展开年度代表项目。每一层都可以举一个具体例子，说明自己如何从写代码延展到提升团队工程能力。"
+    },
+    {
+      "id": "project-rhythm",
+      "type": "timeline",
+      "title": "年度推进节奏",
+      "subtitle": "用四个阶段说明一年不是散点任务，而是一条持续升级的工程路线。",
+      "events": [
+        {
+          "label": "Q1",
+          "title": "补齐基础",
+          "description": "梳理历史问题，补充测试、监控和关键链路文档。"
+        },
+        {
+          "label": "Q2",
+          "title": "核心交付",
+          "description": "集中完成重点业务需求，压缩联调和上线等待时间。"
+        },
+        {
+          "label": "Q3",
+          "title": "架构治理",
+          "description": "拆分高耦合模块，统一接口边界和异常处理策略。"
+        },
+        {
+          "label": "Q4",
+          "title": "沉淀复用",
+          "description": "把高频问题抽象成脚手架、模板和排障手册。"
+        }
+      ],
+      "presenterNotes": "如果你有真实季度项目，可以直接替换这里的阶段描述。重点是讲出年度成长曲线，而不是一串任务列表。"
+    },
+    {
+      "id": "reflection",
+      "type": "tension-resolution",
+      "title": "复盘：从修 bug 到治理问题来源",
+      "subtitle": "工程成长的关键，是把重复问题往系统层解决。",
+      "tension": {
+        "label": "年初的挑战",
+        "headline": "问题被发现得晚，修复依赖个人经验",
+        "points": [
+          "需求边界不清，开发后期反复改动。",
+          "监控和日志不足，问题定位成本偏高。",
+          "知识分散在个人记忆里，新同学上手慢。"
+        ]
+      },
+      "resolution": {
+        "label": "年末的改进",
+        "headline": "用流程、工具和文档减少重复损耗",
+        "points": [
+          "评审阶段前置接口、异常和验收标准。",
+          "关键链路补齐指标、日志和告警面板。",
+          "把排障经验沉淀为 playbook 和模板。"
+        ]
+      },
+      "presenterNotes": "这一页要体现成熟度。不要把复盘讲成甩锅，重点讲自己识别了哪些系统性问题，以及采取了哪些改进。"
+    },
+    {
+      "id": "next-year",
+      "type": "final-ask",
+      "title": "下一年：从个人高效到团队工程杠杆",
+      "subtitle": "继续把高频、重复、容易出错的工作抽象成平台能力。",
+      "ask": "希望在重点项目优先级、工程治理时间和跨团队技术方案评审上获得明确支持。",
+      "actions": [
+        "建设核心链路可观测性和稳定性基线",
+        "推动高频业务能力组件化、平台化",
+        "建立技术方案评审和复盘资产库"
+      ],
+      "contact": "姓名 | 技术团队 | 2026 年终",
+      "presenterNotes": "最后收束到下一年的目标。这里的请求要具体：要时间、要优先级、要协作机制，而不是泛泛说希望支持。"
+    }
+  ]
+}

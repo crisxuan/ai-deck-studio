@@ -98,6 +98,23 @@ body.theme-founder-editorial .narrative-copy h1 {
   line-height: 1;
 }
 
+body.theme-founder-editorial .narrative-opener-layout.variant-editorial-cover {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 44px;
+  align-items: center;
+}
+
+body.theme-founder-editorial .narrative-opener-layout.variant-editorial-cover .narrative-copy h1 {
+  max-width: 730px;
+  font-size: 3.82rem;
+  line-height: 1.02;
+}
+
+body.theme-founder-editorial .narrative-opener-layout.variant-editorial-cover .opener-media {
+  min-height: 560px;
+  box-shadow: 12px 12px 0 rgba(36, 88, 255, 0.18);
+}
+
 body.theme-founder-editorial .composition-subtitle {
   max-width: 760px;
   font-size: 1.22rem;
@@ -285,9 +302,32 @@ body.theme-founder-editorial .device-grid {
 }
 
 body.theme-founder-editorial .device-grid span {
+  display: flex;
+  box-sizing: border-box;
   height: 82px;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px;
   border: 2px solid #111111;
   background: #f5f3ed;
+}
+
+body.theme-founder-editorial .device-grid b {
+  color: #111111;
+  font-size: 0.88rem;
+  line-height: 1.15;
+}
+
+body.theme-founder-editorial .device-grid small {
+  display: -webkit-box;
+  overflow: hidden;
+  color: rgba(17, 17, 17, 0.62);
+  font-size: 0.68rem;
+  line-height: 1.32;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 body.theme-founder-editorial .product-feature-stack {

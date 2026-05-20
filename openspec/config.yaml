@@ -1,0 +1,8 @@
+project: ai-deck-studio
+description: Narrative-first, schema-driven, visually verified HTML/PDF/PNG/PPTX deck generator for AI agents.
+default_schema: spec-driven
+tools:
+  - codex
+workflow:
+  non_trivial_changes_require_openspec: true
+  active_change: effect-driven-deck-engine

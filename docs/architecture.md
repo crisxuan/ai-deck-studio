@@ -5,7 +5,7 @@ AI Deck Studio separates the generation workflow into four layers:
 1. Deck planning: the agent clarifies audience, goal, thesis, and narrative arc.
 2. Deck spec: the agent writes `deck.json` against `deck.schema.json`.
 3. Rendering: TypeScript layouts and CSS themes produce static HTML.
-4. Verification and export: Playwright screenshots check quality, then PDF/PNG artifacts are produced.
+4. Verification and export: Playwright screenshots check quality, then PDF/PNG/PPTX artifacts are produced.
 
 The model should not hand-author HTML for a deck. HTML is an output artifact generated from a structured spec.
 
@@ -18,6 +18,7 @@ The model should not hand-author HTML for a deck. HTML is an output artifact gen
 - `src/runtime`: keyboard navigation for the static HTML deck.
 - `src/verifier`: Playwright screenshot capture and DOM quality checks.
 - `src/exporters`: PDF and PNG export from rendered HTML.
+- `scripts/test.ts`: fast regression test that validates and renders all example decks.
 - `src/cli`: command-line interface for agents and developers.
 
 ## Data Flow
@@ -29,5 +30,5 @@ deck.json
   -> output/index.html
   -> verifyDeck
   -> verification report and screenshots
-  -> export PDF/PNG
+  -> export PDF/PNG/PPTX
 ```

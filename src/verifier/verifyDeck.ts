@@ -3,6 +3,7 @@ import path from "node:path";
 import { chromium } from "playwright";
 import { runDomChecks, type VerificationCheck } from "./checks.js";
 import { captureActiveSlide, slideScreenshotPath, toBrowserUrl } from "./screenshot.js";
+import { collectVisualSlideStats, runVisualQa, visualQaChecks, type VisualQaReport, type VisualSlideStats } from "./visualQa.js";
 
 export type SlideVerification = {
   index: number;
@@ -25,10 +26,12 @@ export type VerificationReport = {
   consoleErrors: string[];
   requestFailures: string[];
   slides: SlideVerification[];
+  visualQa?: VisualQaReport;
 };
 
 export type VerifyOptions = {
   outputDir?: string;
+  visual?: boolean;
 };
 
 export async function verifyDeck(htmlPathOrUrl: string, options: VerifyOptions = {}): Promise<VerificationReport> {
@@ -64,6 +67,7 @@ export async function verifyDeck(htmlPathOrUrl: string, options: VerifyOptions =
     }));
 
     const slides: SlideVerification[] = [];
+    const visualStats: VisualSlideStats[] = [];
 
     for (let index = 0; index < metadata.actual; index += 1) {
       await page.evaluate((slideIndex) => {
@@ -77,6 +81,10 @@ export async function verifyDeck(htmlPathOrUrl: string, options: VerifyOptions =
       const screenshot = slideScreenshotPath(outputDir, index);
       await captureActiveSlide(page, screenshot);
       const checks = await runDomChecks(page);
+
+      if (options.visual) {
+        visualStats.push(await collectVisualSlideStats(page, index, slideId));
+      }
 
       slides.push({
         index,
@@ -103,8 +111,10 @@ export async function verifyDeck(htmlPathOrUrl: string, options: VerifyOptions =
         message: requestFailures.length ? `${requestFailures.length} failed request(s).` : "No failed asset requests."
       }
     ];
+    const visualQa = options.visual ? runVisualQa(visualStats) : undefined;
+    const visualChecks = visualQa ? visualQaChecks(visualQa) : [];
 
-    const allChecks = [...globalChecks, ...slides.flatMap((slide) => slide.checks)];
+    const allChecks = [...globalChecks, ...slides.flatMap((slide) => slide.checks), ...visualChecks];
     const summary = summarizeChecks(allChecks);
     const status = summary.failed > 0 ? "fail" : summary.warnings > 0 ? "warn" : "pass";
     const report: VerificationReport = {
@@ -116,10 +126,14 @@ export async function verifyDeck(htmlPathOrUrl: string, options: VerifyOptions =
       summary,
       consoleErrors,
       requestFailures,
-      slides
+      slides,
+      visualQa
     };
 
     await fs.writeFile(path.join(outputDir, "verification-report.json"), `${JSON.stringify(report, null, 2)}\n`);
+    if (visualQa) {
+      await fs.writeFile(path.join(outputDir, "visual-qa-report.json"), `${JSON.stringify(visualQa, null, 2)}\n`);
+    }
     await fs.writeFile(path.join(outputDir, "summary.txt"), humanSummary(report));
 
     return report;
@@ -158,6 +172,15 @@ function humanSummary(report: VerificationReport): string {
 
     if (failed.length || warned.length) {
       lines.push(`Slide ${slide.index + 1} (${slide.id}): ${failed.length} failed, ${warned.length} warnings`);
+    }
+  }
+
+  if (report.visualQa) {
+    lines.push(`Visual QA: ${report.visualQa.summary.visualWarnings} warning(s)`);
+
+    for (const finding of report.visualQa.findings.slice(0, 8)) {
+      lines.push(`- ${finding.slide ? `Slide ${finding.slide}: ` : ""}${finding.message}`);
+      lines.push(`  Suggestion: ${finding.suggestion}`);
     }
   }
 

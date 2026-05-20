@@ -25,6 +25,8 @@ export async function runDomChecks(page: Page): Promise<VerificationCheck[]> {
         textLength: 0,
         overflow: [],
         tinyText: [],
+        emptyPlaceholders: [],
+        brokenImages: [],
         contrastSample: null
       };
     }
@@ -73,6 +75,44 @@ export async function runDomChecks(page: Page): Promise<VerificationCheck[]> {
 
     const bodyStyle = window.getComputedStyle(document.body);
     const canvasStyle = window.getComputedStyle(canvas);
+    const emptyPlaceholders = Array.from(
+      slide.querySelectorAll(
+        ".device-grid span,.showcase-feature,.media-feature-metrics article,.product-media,.feature-media,.metric-tile,.data-metric,.market-segment,.architecture-layer,.content-panel,.comparison-side"
+      )
+    )
+      .filter((element) => {
+        const htmlElement = element as HTMLElement;
+        const rect = htmlElement.getBoundingClientRect();
+        const style = window.getComputedStyle(htmlElement);
+        const hasMedia = Boolean(htmlElement.querySelector("img,svg,canvas,video"));
+
+        return (
+          rect.width > 0 &&
+          rect.height > 0 &&
+          style.visibility !== "hidden" &&
+          style.display !== "none" &&
+          !htmlElement.innerText.trim() &&
+          !hasMedia
+        );
+      })
+      .slice(0, 8)
+      .map((element) => ({
+        tag: element.tagName.toLowerCase(),
+        className: (element as HTMLElement).className
+      }));
+    const brokenImages = Array.from(slide.querySelectorAll("img"))
+      .filter((element) => {
+        const rect = element.getBoundingClientRect();
+        const style = window.getComputedStyle(element);
+
+        return rect.width > 0 && rect.height > 0 && style.visibility !== "hidden" && style.display !== "none";
+      })
+      .filter((element) => element.naturalWidth === 0 || element.naturalHeight === 0)
+      .slice(0, 8)
+      .map((element) => ({
+        src: element.getAttribute("src") ?? "",
+        alt: element.getAttribute("alt") ?? ""
+      }));
 
     return {
       hasSlide: true,
@@ -82,6 +122,8 @@ export async function runDomChecks(page: Page): Promise<VerificationCheck[]> {
       textLength: slide.innerText.trim().length,
       overflow,
       tinyText,
+      emptyPlaceholders,
+      brokenImages,
       contrastSample: {
         color: bodyStyle.color,
         backgroundColor: canvasStyle.backgroundColor
@@ -124,6 +166,22 @@ export async function runDomChecks(page: Page): Promise<VerificationCheck[]> {
     status: result.tinyText.length ? "warn" : "pass",
     message: result.tinyText.length ? `${result.tinyText.length} text element(s) are below 12px.` : "Readable font size threshold is respected.",
     details: result.tinyText
+  });
+
+  checks.push({
+    name: "empty-content-placeholders",
+    status: result.emptyPlaceholders.length ? "fail" : "pass",
+    message: result.emptyPlaceholders.length
+      ? `${result.emptyPlaceholders.length} visible content placeholder(s) are empty.`
+      : "No empty content placeholders detected.",
+    details: result.emptyPlaceholders
+  });
+
+  checks.push({
+    name: "image-natural-size",
+    status: result.brokenImages.length ? "fail" : "pass",
+    message: result.brokenImages.length ? `${result.brokenImages.length} visible image(s) failed to load.` : "Visible images report natural dimensions.",
+    details: result.brokenImages
   });
 
   if (result.contrastSample) {

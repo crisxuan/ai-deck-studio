@@ -1,0 +1,300 @@
+{
+  "version": "0.2.0",
+  "title": "Asteria-2 新模型发布",
+  "audience": "企业客户、开发者、AI 产品团队和媒体嘉宾",
+  "goal": "发布虚构新一代 AI 模型 Asteria-2，并说明它的能力、可信边界和落地节奏",
+  "tone": "科技发布会、清晰可信、面向决策者",
+  "theme": "futuristic",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "story": {
+    "thesis": "新模型的竞争力不只来自更强的生成能力，而是来自能被企业稳定接入、治理和验证的完整能力边界。",
+    "arc": [
+      "用户已经接受 AI 进入工作流，但仍然担心稳定性、成本和可控性。",
+      "Asteria-2 把推理、工具调用、多模态理解和安全治理放进同一个发布叙事。",
+      "发布会最终推动客户从试点走向生产接入。"
+    ]
+  },
+  "visualSystem": {
+    "mood": "高对比发布会、冷光科技、空间感强",
+    "density": "中高信息密度，保证每页一个主判断",
+    "imageTreatment": "使用系统生成的抽象模型核心和数据网格，不依赖外部真实照片",
+    "compositionRhythm": "开场沉浸，随后能力、证据、架构、治理、行动逐步推进",
+    "colorIntent": "深色基底搭配蓝紫冷光，绿色只用于可信和上线信号",
+    "typographyIntent": "大标题像发布会主屏，指标和标签保持工程化精度",
+    "qaPriorities": ["标题不压住指标", "四列信息不拥挤", "时间线文案不溢出"]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "layoutVariant": "editorial-cover",
+      "eyebrow": "Model Launch 2026",
+      "title": "Asteria-2 正式发布",
+      "subtitle": "面向企业级智能应用的新一代多模态模型：更强推理、更稳工具调用、更清晰的安全边界。",
+      "chips": ["多模态理解", "长上下文推理", "工具调用", "企业治理"],
+      "stat": {
+        "label": "内部试点任务完成率",
+        "value": "+32%",
+        "detail": "相对上一代模型口径"
+      },
+      "presenterNotes": "开场明确这是虚构示例发布，不绑定真实厂商或真实公开数据。"
+    },
+    {
+      "id": "category-shift",
+      "type": "hero-statement",
+      "layoutVariant": "proof-wall",
+      "eyebrow": "核心判断",
+      "headline": "下一代模型发布，必须同时回答能力、成本和信任。",
+      "subheadline": "企业客户不只问模型能不能生成，还会问它能否稳定接入流程、解释失败，并在权限边界内工作。",
+      "proofs": [
+        {
+          "label": "复杂任务推理",
+          "value": "+41%",
+          "detail": "内部综合任务集"
+        },
+        {
+          "label": "工具调用稳定性",
+          "value": "96.8%",
+          "detail": "带重试和校验链路"
+        },
+        {
+          "label": "单位任务成本",
+          "value": "-28%",
+          "detail": "缓存和路由策略后"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "type": "product-showcase",
+      "layoutVariant": "specimen-board",
+      "title": "Asteria-2 的发布主张",
+      "subtitle": "把模型能力打包成企业真正能落地的四类产品价值。",
+      "productName": "Asteria-2",
+      "tagline": "Reason. See. Act. Govern.",
+      "features": [
+        {
+          "title": "深度推理",
+          "description": "跨文档、跨步骤拆解问题，在长任务中保持目标和约束。"
+        },
+        {
+          "title": "多模态理解",
+          "description": "同时理解文本、截图、表格和界面状态，减少人工转述。"
+        },
+        {
+          "title": "可靠工具调用",
+          "description": "把函数调用、浏览器操作和数据读取放进可检查的运行轨迹。"
+        },
+        {
+          "title": "企业治理",
+          "description": "支持权限、审计、敏感信息处理和输出验证的接入要求。"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "上下文窗口",
+          "value": "256k"
+        },
+        {
+          "label": "发布场景",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "id": "capability-map",
+      "type": "market-map",
+      "layoutVariant": "segment-cards",
+      "title": "四个能力模块构成发布主屏",
+      "subtitle": "每个模块都对应客户在生产环境里的真实问题。",
+      "segments": [
+        {
+          "label": "理解",
+          "description": "解析长文档、设计稿、截图和业务表格，形成统一任务上下文。",
+          "signal": "Multimodal"
+        },
+        {
+          "label": "推理",
+          "description": "在复杂目标下拆分步骤、比较方案，并给出可执行判断。",
+          "signal": "Reasoning"
+        },
+        {
+          "label": "行动",
+          "description": "通过工具调用完成检索、写入、导出和自动化操作。",
+          "signal": "Agentic"
+        },
+        {
+          "label": "治理",
+          "description": "在权限、审计、安全策略和输出验证中保持企业可控。",
+          "signal": "Trust"
+        }
+      ],
+      "insight": "发布会重点不是堆参数，而是让客户看见模型进入生产流程后的边界和收益。"
+    },
+    {
+      "id": "data",
+      "type": "data-story",
+      "layoutVariant": "metric-wall",
+      "title": "内部基准强调可落地的提升",
+      "subtitle": "以下为示例发布口径，用于展示模型发布页的信息结构。",
+      "headline": "Asteria-2 在复杂任务、工具链路和成本效率上同时改善。",
+      "metrics": [
+        {
+          "label": "多步骤任务成功率",
+          "value": "+32%",
+          "detail": "8 类企业试点任务"
+        },
+        {
+          "label": "长上下文召回",
+          "value": "+24%",
+          "detail": "跨文档问答场景"
+        },
+        {
+          "label": "工具调用修复率",
+          "value": "88%",
+          "detail": "失败后自动重试"
+        },
+        {
+          "label": "平均响应延迟",
+          "value": "-19%",
+          "detail": "路由和缓存优化"
+        }
+      ],
+      "takeaway": "真正有说服力的发布数据，需要直接对应客户的上线风险和运营成本。"
+    },
+    {
+      "id": "architecture",
+      "type": "system-architecture",
+      "layoutVariant": "blueprint-layers",
+      "title": "模型系统不是单点能力，而是四层架构",
+      "subtitle": "发布会上需要解释模型如何被稳定、安全地放进客户工作流。",
+      "layers": [
+        {
+          "label": "Model Core",
+          "description": "负责多模态理解、推理规划和自然语言生成。",
+          "tools": ["reasoning", "vision", "generation"]
+        },
+        {
+          "label": "Tool Runtime",
+          "description": "承接检索、函数调用、浏览器动作和业务系统连接。",
+          "tools": ["functions", "browser", "retrieval"]
+        },
+        {
+          "label": "Trust Layer",
+          "description": "处理权限、敏感信息、审计日志和输出验证。",
+          "tools": ["policy", "audit", "guardrails"]
+        },
+        {
+          "label": "Delivery APIs",
+          "description": "让模型能力以 API、控制台和模板工作流进入产品。",
+          "tools": ["api", "console", "templates"]
+        }
+      ],
+      "callout": "发布叙事要让客户相信：模型能力强，接入边界也清楚。"
+    },
+    {
+      "id": "developer-flow",
+      "type": "tension-resolution",
+      "layoutVariant": "decision-bridge",
+      "title": "开发者从调用模型，升级为编排能力",
+      "subtitle": "Asteria-2 的开发者故事要让接入路径非常具体。",
+      "tension": {
+        "label": "旧体验",
+        "headline": "只拿到一个回答，后续质量靠人工兜底",
+        "points": [
+          "提示词难以复用",
+          "工具调用失败不可解释",
+          "上线前缺少统一验证报告"
+        ]
+      },
+      "resolution": {
+        "label": "新体验",
+        "headline": "用模型、工具和验证组成稳定工作流",
+        "points": [
+          "任务模板沉淀为可复用流程",
+          "每次工具调用都有轨迹和状态",
+          "输出先通过规则和视觉检查再交付"
+        ]
+      }
+    },
+    {
+      "id": "trust",
+      "type": "data-story",
+      "layoutVariant": "single-big-number",
+      "title": "信任是发布会必须单独讲清的能力",
+      "subtitle": "安全治理不能藏在技术附录里，它直接决定企业是否敢上线。",
+      "headline": "把高风险操作放进显式授权和可审计链路。",
+      "metrics": [
+        {
+          "label": "高风险操作确认点",
+          "value": "100%",
+          "detail": "写入、发送、购买、删除"
+        },
+        {
+          "label": "敏感信息处理",
+          "value": "内置",
+          "detail": "识别、遮蔽、审计"
+        },
+        {
+          "label": "输出验证策略",
+          "value": "可配置",
+          "detail": "规则、schema、视觉检查"
+        }
+      ],
+      "takeaway": "客户需要知道模型什么时候可以自动执行，什么时候必须停下来等人确认。"
+    },
+    {
+      "id": "launch-plan",
+      "type": "timeline",
+      "layoutVariant": "launch-rail",
+      "title": "发布节奏：从预览到生产接入",
+      "subtitle": "用清晰时间线降低客户采用的不确定性。",
+      "events": [
+        {
+          "label": "T0",
+          "title": "发布会主讲",
+          "description": "公布模型定位、能力模块、基准口径和客户试点故事。"
+        },
+        {
+          "label": "T+7",
+          "title": "开发者预览",
+          "description": "开放 API、控制台示例、工具调用模板和迁移指南。"
+        },
+        {
+          "label": "T+21",
+          "title": "行业方案包",
+          "description": "面向客服、销售运营、知识管理和数据分析发布场景模板。"
+        },
+        {
+          "label": "T+45",
+          "title": "生产可用",
+          "description": "上线 SLA、企业权限、审计报表和成本控制能力。"
+        }
+      ]
+    },
+    {
+      "id": "quote",
+      "type": "quote-break",
+      "layoutVariant": "citation-band",
+      "eyebrow": "发布会金句",
+      "quote": "Asteria-2 不是让 AI 多回答一点，而是让 AI 更可靠地进入真实工作。",
+      "attribution": "发布会主讲口径",
+      "context": "这页适合放在产品演示之后，用一句话收束能力、信任和商业价值。"
+    },
+    {
+      "id": "ask",
+      "type": "final-ask",
+      "layoutVariant": "next-actions",
+      "title": "让客户从今天开始试用 Asteria-2",
+      "subtitle": "发布页的最后一屏需要把情绪转成具体行动。",
+      "ask": "开放开发者预览，并邀请首批企业客户进入 45 天生产试点。",
+      "actions": [
+        "申请 API 访问和控制台配额",
+        "选择一个高价值工作流做试点",
+        "接入权限、审计和验证策略"
+      ],
+      "contact": "launch@asteria.example"
+    }
+  ]
+}

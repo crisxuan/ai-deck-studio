@@ -13,7 +13,11 @@ export async function htmlShell(deck: DeckSpec, slidesHtml: string): Promise<str
   const story = deck.story
     ? `<script type="application/json" id="deck-story">${escapeHtml(JSON.stringify(deck.story))}</script>`
     : "";
+  const visualSystem = deck.visualSystem
+    ? `<script type="application/json" id="deck-visual-system">${escapeHtml(JSON.stringify(deck.visualSystem))}</script>`
+    : "";
   const languageSwitcher = renderLanguageSwitcher(deck);
+  const visualAttrs = deck.visualSystem ? renderVisualSystemAttrs(deck.visualSystem) : "";
 
   return `<!doctype html>
 <html lang="${escapeHtml(deck.language ?? "en")}">
@@ -26,7 +30,7 @@ ${css}
 ${themeCss}
   </style>
 </head>
-<body class="theme-${deck.theme}" data-aspect-ratio="${deck.aspectRatio}" data-slide-count="${deck.slides.length}">
+<body class="theme-${deck.theme}" data-aspect-ratio="${deck.aspectRatio}" data-slide-count="${deck.slides.length}"${visualAttrs}>
   <main class="deck-root" aria-label="${escapeHtml(deck.title)}">
     ${slidesHtml}
   </main>
@@ -37,6 +41,7 @@ ${themeCss}
   </nav>
   ${languageSwitcher}
   ${story}
+  ${visualSystem}
   <script>
 ${runtime}
   </script>
@@ -58,6 +63,25 @@ function renderLanguageSwitcher(deck: DeckSpec): string {
     .join("");
 
   return `<nav class="language-switcher" aria-label="Language switcher">${current}${links}</nav>`;
+}
+
+function renderVisualSystemAttrs(visualSystem: DeckSpec["visualSystem"]): string {
+  if (!visualSystem) {
+    return "";
+  }
+
+  const attrs = [
+    attr("data-visual-mood", visualSystem.mood),
+    attr("data-visual-density", visualSystem.density),
+    attr("data-image-treatment", visualSystem.imageTreatment),
+    attr("data-composition-rhythm", visualSystem.compositionRhythm)
+  ].filter(Boolean);
+
+  return attrs.length ? ` ${attrs.join(" ")}` : "";
+}
+
+function attr(name: string, value: string | undefined): string {
+  return value ? `${name}="${escapeHtml(value)}"` : "";
 }
 
 function languageLabel(language: string): string {

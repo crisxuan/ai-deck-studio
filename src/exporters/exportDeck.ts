@@ -1,8 +1,9 @@
 import path from "node:path";
 import { exportPdf } from "./exportPdf.js";
 import { exportPng } from "./exportPng.js";
+import { exportPptx } from "./exportPptx.js";
 
-export type ExportFormat = "pdf" | "png";
+export type ExportFormat = "pdf" | "png" | "pptx";
 
 export type ExportDeckOptions = {
   format: ExportFormat;
@@ -15,6 +16,11 @@ export async function exportDeck(htmlPathOrUrl: string, options: ExportDeckOptio
   if (options.format === "pdf") {
     const outputPath = options.output ?? path.join(artifactParent, "deck.pdf");
     return [await exportPdf(htmlPathOrUrl, { outputPath })];
+  }
+
+  if (options.format === "pptx") {
+    const outputPath = options.output ?? path.join(artifactParent, "deck.pptx");
+    return [await exportPptx(htmlPathOrUrl, { outputPath })];
   }
 
   const outputDir = options.output ?? path.join(artifactParent, "png");

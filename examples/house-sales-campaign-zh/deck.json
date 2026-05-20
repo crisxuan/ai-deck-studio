@@ -1,0 +1,307 @@
+{
+  "version": "0.3.0",
+  "title": "云麓公馆房产销售活动策划",
+  "audience": "房产营销、渠道、销售案场、开发商管理团队",
+  "goal": "策划一场面向改善型家庭和城市新贵的房产销售活动，提升到访、认筹和成交转化。",
+  "tone": "高端、清晰、转化导向、有生活方式想象。",
+  "theme": "luxury",
+  "aspectRatio": "16:9",
+  "language": "zh-CN",
+  "visualSystem": {
+    "mood": "real-estate-campaign",
+    "density": "editorial",
+    "imageTreatment": "architectural-showcase",
+    "compositionRhythm": "hero / audience / value proof / event journey / conversion ask",
+    "colorIntent": "warm luxury real estate palette with gold and stone accents",
+    "typographyIntent": "large premium titles, compact sales proof, clear action labels",
+    "qaPriorities": [
+      "distinct page rhythm",
+      "strong property value anchor",
+      "clear conversion path"
+    ]
+  },
+  "story": {
+    "thesis": "这场销售活动不是单纯邀约看房，而是把项目价值、家庭生活想象和限时成交理由组织成一次可转化的现场体验。",
+    "arc": [
+      "先用一个强主题建立项目调性和购买想象。",
+      "再拆解目标客群、核心卖点和现场体验动线。",
+      "最后收束到认筹机制、渠道动作和执行节奏。"
+    ]
+  },
+  "slides": [
+    {
+      "id": "opener",
+      "type": "narrative-opener",
+      "layoutVariant": "editorial-cover",
+      "visualIntent": "用高端地产活动封面建立第一眼调性，右侧用抽象建筑主视觉承载项目感。",
+      "eyebrow": "Real Estate Sales Campaign",
+      "title": "云麓公馆：把理想生活变成到场理由",
+      "subtitle": "一场围绕改善型家庭、新城市资产和品质生活方式设计的周末销售活动策划案。",
+      "chips": [
+        "到访邀约",
+        "样板体验",
+        "限时权益",
+        "认筹转化"
+      ],
+      "stat": {
+        "label": "活动周期",
+        "value": "14 天",
+        "detail": "预热 10 天 + 周末集中成交"
+      },
+      "presenterNotes": "开场先强调活动目标：不是把客户带到售楼处，而是让客户有理由带家人一起到场，并在现场形成认筹决策。"
+    },
+    {
+      "id": "core-claim",
+      "type": "hero-statement",
+      "layoutVariant": "proof-wall",
+      "visualIntent": "用一句活动判断和三条转化证明建立策划方向。",
+      "eyebrow": "Core Strategy",
+      "headline": "客户不会因为一场活动买房，但会因为一次被组织好的生活想象做决定。",
+      "subheadline": "本次活动要同时解决三件事：为什么来、为什么留、为什么现在下定。",
+      "proofs": [
+        {
+          "label": "到访理由",
+          "value": "生活方式",
+          "detail": "家庭、圈层、教育和资产话题组合邀约"
+        },
+        {
+          "label": "停留理由",
+          "value": "体验动线",
+          "detail": "从社区价值到户型细节逐步推进"
+        },
+        {
+          "label": "成交理由",
+          "value": "限时权益",
+          "detail": "把优惠、席位和服务打包成决策窗口"
+        }
+      ],
+      "presenterNotes": "这页用于统一营销、渠道和销售案场团队的判断：活动不是热闹本身，而是一个销售转化装置。"
+    },
+    {
+      "id": "audience-map",
+      "type": "market-map",
+      "layoutVariant": "journey-segments",
+      "visualIntent": "把目标客户做成四个可邀约入口，方便渠道和销售执行。",
+      "title": "目标客群：四类最值得邀约的人",
+      "subtitle": "不同人群进入活动的理由不同，但最终都要回到项目的居住价值和资产价值。",
+      "segments": [
+        {
+          "label": "改善型家庭",
+          "description": "当前居住面积或功能不足，关注三房四房、学区通勤和老人孩子的舒适度。",
+          "signal": "家庭升级"
+        },
+        {
+          "label": "城市新贵",
+          "description": "关注城市界面、圈层身份和长期资产配置，希望房子能代表审美和选择。",
+          "signal": "身份表达"
+        },
+        {
+          "label": "婚房客户",
+          "description": "关注总价、首付压力、交付确定性和父母参与决策的安全感。",
+          "signal": "成家计划"
+        },
+        {
+          "label": "老带新客户",
+          "description": "已有信任基础，适合用专属权益和家庭礼遇激发二次推荐。",
+          "signal": "信任裂变"
+        }
+      ],
+      "insight": "活动邀约话术不要统一成“周末有优惠”，而要按客群翻译成不同的到场理由。",
+      "presenterNotes": "这一页可以直接转成销售邀约脚本，每类客户一个主话术。"
+    },
+    {
+      "id": "value-proof",
+      "type": "data-story",
+      "layoutVariant": "metric-wall",
+      "visualIntent": "用四个价值关键词形成强视觉证据墙。",
+      "title": "项目价值：把卖点翻译成购买理由",
+      "subtitle": "房产活动现场最重要的不是讲全信息，而是让客户记住最能促成决策的价值锚点。",
+      "headline": "云麓公馆的销售表达应围绕“城芯、尺度、品质、权益”四个词展开。",
+      "metrics": [
+        {
+          "label": "位置价值",
+          "value": "城芯",
+          "detail": "通勤、商业、学校和城市资源形成确定性"
+        },
+        {
+          "label": "户型价值",
+          "value": "尺度",
+          "detail": "更好的采光、收纳、客餐厅和家庭动线"
+        },
+        {
+          "label": "交付价值",
+          "value": "品质",
+          "detail": "立面、园林、公区和物业承载长期体验"
+        },
+        {
+          "label": "成交价值",
+          "value": "权益",
+          "detail": "限时折扣、车位、家装和金融方案打包"
+        }
+      ],
+      "takeaway": "活动所有物料、讲解和现场节点都要围绕这四个价值词反复强化。",
+      "presenterNotes": "这页是活动价值主轴。不要把所有楼盘信息都塞进活动里，要优先让客户形成四个清晰记忆点。"
+    },
+    {
+      "id": "event-theme",
+      "type": "quote-break",
+      "layoutVariant": "citation-band",
+      "visualIntent": "用活动主题页打断信息密度，并形成可传播口号。",
+      "eyebrow": "Campaign Theme",
+      "quote": "把家安在城市向上的位置。",
+      "attribution": "云麓公馆周末生活品鉴会",
+      "context": "主题同时回应地段、家庭生活和资产选择，适合作为邀约海报、案场门头和短视频标题。",
+      "presenterNotes": "这句主题要足够短，可以用于所有渠道物料。现场讲解时可以扩展为：地段向上、家庭向上、资产向上。"
+    },
+    {
+      "id": "experience-system",
+      "type": "system-architecture",
+      "layoutVariant": "blueprint-layers",
+      "visualIntent": "把现场体验设计成四层闭环，而不是松散的活动清单。",
+      "title": "现场体验系统：从进场到认筹的四层闭环",
+      "subtitle": "案场每一个节点都应服务转化，不做与销售目标无关的热闹。",
+      "layers": [
+        {
+          "label": "迎宾识别层",
+          "description": "入口签到按客群打标签，销售快速了解家庭结构、预算区间和关注点。",
+          "tools": [
+            "签到",
+            "客群标签",
+            "专属顾问"
+          ]
+        },
+        {
+          "label": "价值讲解层",
+          "description": "用城市区位、沙盘、户型和样板间串成一条确定的讲解路线。",
+          "tools": [
+            "区位",
+            "沙盘",
+            "样板间"
+          ]
+        },
+        {
+          "label": "家庭停留层",
+          "description": "设置咖啡、儿童手作、收纳课堂和家装咨询，让客户愿意带家人停留。",
+          "tools": [
+            "咖啡",
+            "亲子",
+            "家装"
+          ]
+        },
+        {
+          "label": "成交推进层",
+          "description": "集中释放认筹权益、限时席位、付款方案和老带新奖励。",
+          "tools": [
+            "认筹",
+            "权益",
+            "席位"
+          ]
+        }
+      ],
+      "callout": "活动现场必须让客户从“看一看”自然走到“算一算”和“定一套”。",
+      "presenterNotes": "这页用于和销售案场对齐执行标准：每个节点要有人负责、可记录、能推进下一步。"
+    },
+    {
+      "id": "conversion-bridge",
+      "type": "tension-resolution",
+      "layoutVariant": "before-after-cards",
+      "visualIntent": "用前后对比说明活动如何从热闹转向转化。",
+      "title": "从热闹活动，到成交活动",
+      "subtitle": "房产销售活动最常见的问题，是到场人数不错，但客户没有形成下定理由。",
+      "tension": {
+        "label": "常见做法",
+        "headline": "活动很多，但销售路径松散",
+        "points": [
+          "邀约只讲礼品和优惠，客户预期偏低。",
+          "现场节点热闹但不承接楼盘价值。",
+          "客户离场后缺少明确跟进理由。"
+        ]
+      },
+      "resolution": {
+        "label": "建议做法",
+        "headline": "每个体验节点都绑定一个转化动作",
+        "points": [
+          "邀约阶段绑定客群痛点和到场理由。",
+          "现场阶段绑定项目价值和家庭决策。",
+          "离场阶段绑定认筹权益和限时回访。"
+        ]
+      },
+      "presenterNotes": "这页用于说服团队减少无效活动项。现场可以热闹，但热闹必须服务成交路径。"
+    },
+    {
+      "id": "campaign-timeline",
+      "type": "timeline",
+      "layoutVariant": "journey-segments",
+      "title": "执行节奏：14 天完成预热、爆发和追单",
+      "subtitle": "活动不只发生在周末，真正的转化来自前期邀约和后续追单。",
+      "events": [
+        {
+          "label": "D-10",
+          "title": "主题预热",
+          "description": "发布主题海报、短视频和老业主转介绍权益。"
+        },
+        {
+          "label": "D-7",
+          "title": "精准邀约",
+          "description": "销售按客群标签发出不同话术，锁定家庭共同到访。"
+        },
+        {
+          "label": "D-Day",
+          "title": "现场转化",
+          "description": "用讲解动线、家庭体验和权益席位推进认筹。"
+        },
+        {
+          "label": "D+3",
+          "title": "集中追单",
+          "description": "按到访热度分级回访，推动复访、算价和下定。"
+        }
+      ],
+      "presenterNotes": "这里要强调 D+3 追单的重要性，很多成交不是当天发生，而是活动后 72 小时内被推进。"
+    },
+    {
+      "id": "kpi-plan",
+      "type": "data-story",
+      "layoutVariant": "single-big-number",
+      "visualIntent": "用一个大数字强化活动目标，再用三项指标拆解。",
+      "title": "活动目标：把到访变成可管理的成交漏斗",
+      "subtitle": "指标不只是看人气，还要看客户质量、跟进动作和认筹结果。",
+      "headline": "本次活动建议以 30 组高意向到访作为核心目标。",
+      "metrics": [
+        {
+          "label": "高意向到访",
+          "value": "30",
+          "detail": "组高意向客户，含家庭共同到访"
+        },
+        {
+          "label": "现场算价",
+          "value": "18 组",
+          "detail": "完成户型、楼层、付款方案测算"
+        },
+        {
+          "label": "认筹目标",
+          "value": "8 组",
+          "detail": "现场或 72 小时内完成"
+        }
+      ],
+      "takeaway": "活动复盘要按漏斗看，而不是只看签到人数。",
+      "presenterNotes": "具体数字可以按项目体量调整。这里给出的是一场中小规模周末活动的目标结构。"
+    },
+    {
+      "id": "final-ask",
+      "type": "final-ask",
+      "layoutVariant": "campaign-brief",
+      "visualIntent": "用 campaign brief 收束为明确执行请求。",
+      "title": "本周即可启动：先锁定邀约名单和活动权益",
+      "subtitle": "活动能否成交，取决于名单质量、权益设计和现场转化配合。",
+      "ask": "确认活动主题、客群名单、到场礼遇、认筹权益和销售分工，进入 10 天预热周期。",
+      "actions": [
+        "销售团队完成 120 组客户分层",
+        "渠道团队确定老带新和转介绍权益",
+        "案场团队搭建四层体验动线",
+        "活动后 72 小时完成集中追单"
+      ],
+      "contact": "房产销售活动策划案",
+      "presenterNotes": "最后一页要明确下一步工作项，让团队知道会后马上做什么。"
+    }
+  ]
+}

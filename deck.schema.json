@@ -33,6 +33,8 @@
         "consulting-clean",
         "tech-dark",
         "xiaohongshu-editorial",
+        "wedding-editorial",
+        "appliance-showroom",
         "premium-keynote",
         "technical-blueprint",
         "founder-editorial",
@@ -106,6 +108,9 @@
         }
       }
     },
+    "visualSystem": {
+      "$ref": "#/$defs/visualSystem"
+    },
     "slides": {
       "type": "array",
       "minItems": 1,
@@ -125,6 +130,7 @@
           { "$ref": "#/$defs/narrativeOpener" },
           { "$ref": "#/$defs/heroStatement" },
           { "$ref": "#/$defs/productShowcase" },
+          { "$ref": "#/$defs/mediaFeature" },
           { "$ref": "#/$defs/marketMap" },
           { "$ref": "#/$defs/systemArchitecture" },
           { "$ref": "#/$defs/dataStory" },
@@ -152,9 +158,37 @@
           "type": "string",
           "maxLength": 1200
         },
+        "layoutVariant": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
         "visualIntent": {
           "type": "string",
           "maxLength": 400
+        }
+      }
+    },
+    "visualSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mood": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "density": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "imageTreatment": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "compositionRhythm": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "colorIntent": { "type": "string", "minLength": 1, "maxLength": 220 },
+        "typographyIntent": { "type": "string", "minLength": 1, "maxLength": 220 },
+        "qaPriorities": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": { "type": "string", "minLength": 1, "maxLength": 140 }
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
         }
       }
     },
@@ -192,6 +226,7 @@
             "title": { "type": "string", "minLength": 1, "maxLength": 140 },
             "subtitle": { "type": "string", "maxLength": 220 },
             "meta": { "type": "string", "maxLength": 120 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -216,6 +251,7 @@
               "maxItems": 8,
               "items": { "$ref": "#/$defs/shortText" }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -235,6 +271,7 @@
             "eyebrow": { "$ref": "#/$defs/shortText" },
             "title": { "type": "string", "minLength": 1, "maxLength": 140 },
             "kicker": { "type": "string", "maxLength": 220 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -255,6 +292,7 @@
             "headline": { "type": "string", "minLength": 1, "maxLength": 140 },
             "points": { "$ref": "#/$defs/points" },
             "evidence": { "type": "string", "maxLength": 180 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -288,6 +326,7 @@
                 }
               }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -308,6 +347,7 @@
             "subtitle": { "type": "string", "maxLength": 180 },
             "left": { "$ref": "#/$defs/comparisonSide" },
             "right": { "$ref": "#/$defs/comparisonSide" },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -351,6 +391,7 @@
                 }
               }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -384,6 +425,7 @@
                 }
               }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -405,6 +447,7 @@
             "language": { "type": "string", "maxLength": 40 },
             "code": { "type": "string", "minLength": 1, "maxLength": 1800 },
             "caption": { "type": "string", "maxLength": 180 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -431,6 +474,7 @@
               "items": { "$ref": "#/$defs/shortText" }
             },
             "contact": { "type": "string", "maxLength": 120 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -456,6 +500,33 @@
         "description": { "type": "string", "minLength": 1, "maxLength": 180 }
       }
     },
+    "mediaAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["src"],
+      "properties": {
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "alt": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "fit": {
+          "enum": ["cover", "contain"]
+        },
+        "position": {
+          "type": "string",
+          "maxLength": 80
+        }
+      }
+    },
     "narrativeOpener": {
       "allOf": [
         { "$ref": "#/$defs/baseSlide" },
@@ -476,6 +547,8 @@
               "items": { "$ref": "#/$defs/shortText" }
             },
             "stat": { "$ref": "#/$defs/miniMetric" },
+            "media": { "$ref": "#/$defs/mediaAsset" },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -501,6 +574,7 @@
               "maxItems": 4,
               "items": { "$ref": "#/$defs/miniMetric" }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -533,6 +607,43 @@
               "maxItems": 3,
               "items": { "$ref": "#/$defs/miniMetric" }
             },
+            "media": { "$ref": "#/$defs/mediaAsset" },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
+            "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
+            "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
+          }
+        }
+      ]
+    },
+    "mediaFeature": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSlide" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "type", "title", "media", "features"],
+          "properties": {
+            "id": { "$ref": "#/$defs/baseSlide/properties/id" },
+            "type": { "const": "media-feature" },
+            "title": { "$ref": "#/$defs/shortText" },
+            "subtitle": { "type": "string", "maxLength": 220 },
+            "media": { "$ref": "#/$defs/mediaAsset" },
+            "features": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/featureCard" }
+            },
+            "metrics": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": { "$ref": "#/$defs/miniMetric" }
+            },
+            "orientation": {
+              "enum": ["media-left", "media-right"]
+            },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -567,6 +678,7 @@
                 }
               }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -606,6 +718,7 @@
                 }
               }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -632,6 +745,7 @@
               "maxItems": 5,
               "items": { "$ref": "#/$defs/miniMetric" }
             },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -652,6 +766,7 @@
             "subtitle": { "type": "string", "maxLength": 220 },
             "tension": { "$ref": "#/$defs/comparisonSide" },
             "resolution": { "$ref": "#/$defs/comparisonSide" },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -672,6 +787,7 @@
             "quote": { "type": "string", "minLength": 1, "maxLength": 260 },
             "attribution": { "$ref": "#/$defs/shortText" },
             "context": { "type": "string", "maxLength": 220 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
@@ -698,6 +814,7 @@
               "items": { "$ref": "#/$defs/shortText" }
             },
             "contact": { "type": "string", "maxLength": 120 },
+            "layoutVariant": { "$ref": "#/$defs/baseSlide/properties/layoutVariant" },
             "presenterNotes": { "$ref": "#/$defs/baseSlide/properties/presenterNotes" },
             "visualIntent": { "$ref": "#/$defs/baseSlide/properties/visualIntent" }
           }
