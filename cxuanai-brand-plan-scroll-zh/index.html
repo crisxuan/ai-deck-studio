@@ -1,0 +1,2721 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cxuanAI 品牌策划：把 AI 变成普通人的生产力外挂</title>
+  <style>
+:root {
+  color-scheme: light;
+  --deck-page-bg: #eef1f4;
+  --slide-bg: #ffffff;
+  --text: #17202a;
+  --muted: #687381;
+  --subtle: #dce3ea;
+  --line: #d8dee6;
+  --panel: #f6f8fa;
+  --panel-strong: #eef3f7;
+  --accent: #2563eb;
+  --accent-2: #0f766e;
+  --accent-3: #b45309;
+  --danger: #be123c;
+  --shadow: 0 28px 80px rgba(15, 23, 42, 0.18);
+  --radius: 8px;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--deck-page-bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  text-rendering: geometricPrecision;
+}
+
+button {
+  font: inherit;
+}
+
+.deck-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.presentation-mode .slide.is-active .slide-canvas > * {
+  animation: deck-enter 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.presentation-mode .slide.is-active .slide-canvas > *:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.presentation-mode .slide.is-active .slide-canvas > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+@keyframes deck-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.992);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.slide-canvas {
+  position: relative;
+  width: min(calc(100vw - 48px), calc((100vh - 48px) * 1.7778));
+  max-height: calc(100vh - 48px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--slide-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 64px;
+}
+
+body[data-aspect-ratio="4:3"] .slide-canvas {
+  width: min(calc(100vw - 48px), calc((100vh - 48px) * 1.3333));
+  aspect-ratio: 4 / 3;
+}
+
+body[data-aspect-ratio="3:4"] .slide-canvas {
+  width: min(calc(100vw - 40px), calc((100vh - 40px) * 0.75));
+  aspect-ratio: 3 / 4;
+  padding: 44px;
+}
+
+.deck-chrome {
+  position: fixed;
+  right: 24px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.36);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #334155;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(16px);
+}
+
+.deck-chrome button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.deck-chrome button:disabled {
+  cursor: not-allowed;
+  opacity: 0.34;
+}
+
+.deck-chrome span {
+  min-width: 64px;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.36);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #334155;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.language-switcher a,
+.language-switcher span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  height: 30px;
+  border-radius: 999px;
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.language-switcher .is-current {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.language-switcher a:hover {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.preview-mode {
+  overflow: hidden;
+}
+
+.preview-mode .slide {
+  padding: 8px;
+}
+
+.preview-mode .deck-chrome,
+.preview-mode .language-switcher {
+  display: none;
+}
+
+.notes-drawer {
+  position: fixed;
+  right: 24px;
+  bottom: 76px;
+  z-index: 10;
+  width: min(520px, calc(100vw - 48px));
+  max-height: min(520px, calc(100vh - 116px));
+  overflow: auto;
+  padding: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.94);
+  color: #ffffff;
+  box-shadow: 0 28px 72px rgba(15, 23, 42, 0.36);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.notes-drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.notes-drawer button,
+.deck-overview-panel > button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.notes-drawer h2 {
+  margin: 0 42px 14px 0;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.notes-drawer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.08rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.deck-overview {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(15, 23, 42, 0.58);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.deck-overview.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.deck-overview-panel {
+  position: relative;
+  width: min(920px, 100%);
+  max-height: min(720px, calc(100vh - 56px));
+  overflow: auto;
+  padding: 26px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.38);
+}
+
+.deck-overview-panel h2 {
+  margin: 0 42px 22px 0;
+  color: #ffffff;
+}
+
+.deck-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.deck-overview-grid button {
+  min-height: 92px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 760;
+  line-height: 1.25;
+  padding: 16px;
+  text-align: left;
+}
+
+.deck-overview-grid button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.deck-overview-grid span {
+  display: block;
+  margin-bottom: 10px;
+  color: #93c5fd;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.speaker-notes {
+  display: none;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 3.55rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+  line-height: 1.14;
+  letter-spacing: 0;
+}
+
+p,
+li {
+  font-size: 1.02rem;
+  line-height: 1.46;
+}
+
+.slide-header {
+  max-width: 860px;
+}
+
+.slide-header h1 {
+  margin-bottom: 12px;
+  font-size: 2.5rem;
+  line-height: 1.05;
+}
+
+.slide-subtitle {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.point-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--text);
+}
+
+.point-list li::before {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.cover-layout,
+.agenda-layout,
+.two-column-layout,
+.comparison-layout,
+.timeline-layout,
+.metric-grid-layout,
+.code-layout,
+.closing-layout,
+.composition {
+  height: 100%;
+}
+
+.media-feature-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 28px;
+}
+
+.media-feature-stage {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.media-feature-layout.is-media-right .feature-media {
+  order: 2;
+}
+
+.product-media,
+.feature-media {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel-strong);
+}
+
+.product-media img,
+.feature-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.product-media figcaption,
+.feature-media figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  left: 18px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.76rem;
+  font-weight: 750;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.media-feature-copy {
+  display: grid;
+  min-height: 0;
+  gap: 16px;
+}
+
+.media-feature-list {
+  display: grid;
+  min-height: 0;
+  gap: 14px;
+}
+
+.media-feature-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.showcase-feature,
+.media-feature-metrics article {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 20px;
+}
+
+.showcase-feature p {
+  color: var(--muted);
+}
+
+.media-feature-metrics article strong {
+  display: block;
+  color: var(--accent);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.media-feature-metrics article p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cover-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-copy {
+  max-width: 820px;
+}
+
+.cover-copy h1 {
+  font-size: 4.3rem;
+}
+
+.cover-subtitle {
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 1.34rem;
+  line-height: 1.36;
+}
+
+.cover-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.agenda-layout {
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.agenda-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  counter-reset: agenda;
+  list-style: none;
+}
+
+.agenda-list li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.18rem;
+  font-weight: 720;
+}
+
+.agenda-list li::before {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--panel-strong);
+  color: var(--accent);
+  content: counter(agenda, decimal-leading-zero);
+  counter-increment: agenda;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.section-layout {
+  display: flex;
+  height: 100%;
+  max-width: 900px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-layout h1 {
+  max-width: 850px;
+  font-size: 4.05rem;
+}
+
+.section-kicker {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.24rem;
+}
+
+.key-insight-layout {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1.08fr 0.82fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.insight-main h1 {
+  font-size: 3.5rem;
+  line-height: 1.02;
+}
+
+.evidence {
+  max-width: 650px;
+  margin-top: 26px;
+  padding-left: 18px;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.insight-points {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.two-column-layout,
+.comparison-layout,
+.metric-grid-layout,
+.code-layout,
+.timeline-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+}
+
+.column-grid,
+.comparison-grid {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.content-panel,
+.comparison-side,
+.metric-tile {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.content-panel,
+.comparison-side {
+  padding: 30px;
+}
+
+.panel-body {
+  color: var(--muted);
+}
+
+.comparison-label,
+.timeline-label,
+.metric-tile p {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.timeline-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.timeline-track::before {
+  position: absolute;
+  top: 22px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--line);
+  content: "";
+}
+
+.timeline-event {
+  position: relative;
+  padding-top: 56px;
+}
+
+.timeline-event::before {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 5px solid var(--slide-bg);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px var(--line);
+  content: "";
+}
+
+.timeline-event p:last-child {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-content: stretch;
+}
+
+.metric-tile {
+  display: flex;
+  min-height: 152px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.metric-tile strong {
+  display: block;
+  color: var(--text);
+  font-size: 2.32rem;
+  line-height: 1;
+}
+
+.metric-tile span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.code-window {
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.code-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.code-window-bar span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.code-window-bar span:nth-child(2) {
+  background: #f59e0b;
+}
+
+.code-window-bar span:nth-child(3) {
+  background: #22c55e;
+}
+
+.code-window-bar p {
+  margin: 0 0 0 8px;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+pre {
+  max-height: 410px;
+  margin: 0;
+  overflow: auto;
+  padding: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.code-caption {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.closing-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 48px;
+  align-items: end;
+}
+
+.closing-layout h1 {
+  font-size: 4rem;
+}
+
+.closing-subtitle,
+.closing-takeaway {
+  max-width: 660px;
+  color: var(--muted);
+  font-size: 1.18rem;
+}
+
+.closing-actions {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.contact {
+  margin: 22px 0 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.visual-fallback {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  min-height: 320px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 64% 28%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 28%),
+    radial-gradient(circle at 34% 72%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--panel-strong) 78%, transparent), var(--panel));
+}
+
+.visual-fallback::before {
+  position: absolute;
+  inset: 16%;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  border-radius: 50%;
+  content: "";
+}
+
+.visual-fallback span {
+  position: absolute;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow);
+}
+
+.visual-fallback span:nth-child(1) {
+  width: 42%;
+  height: 58%;
+}
+
+.visual-fallback span:nth-child(2) {
+  right: 16%;
+  bottom: 18%;
+  width: 26%;
+  height: 24%;
+}
+
+.visual-fallback span:nth-child(3) {
+  top: 18%;
+  left: 18%;
+  width: 20%;
+  height: 18%;
+}
+
+.composition.variant-full-bleed-image .opener-media {
+  position: absolute;
+  inset: -64px;
+  overflow: hidden;
+  margin: 0;
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+}
+
+.composition.variant-full-bleed-image .opener-media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 13, 24, 0.78), rgba(8, 13, 24, 0.22) 58%, rgba(8, 13, 24, 0.04));
+  content: "";
+}
+
+.composition.variant-full-bleed-image .opener-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.composition.variant-full-bleed-image .narrative-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  max-width: 760px;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.composition.variant-full-bleed-image .narrative-copy h1,
+.composition.variant-full-bleed-image .narrative-copy .composition-subtitle {
+  color: #ffffff;
+}
+
+.composition.variant-split-product .opener-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  margin: 0;
+  width: 46%;
+  height: 78%;
+}
+
+.composition.variant-split-product .narrative-copy {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  width: min(720px, 56%);
+}
+
+.composition.variant-editorial-cover {
+  display: grid;
+  grid-template-columns: 0.86fr 1fr;
+  gap: 42px;
+  align-items: end;
+}
+
+.composition.variant-editorial-cover .opener-media {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.composition.variant-split-product .opener-media img,
+.composition.variant-editorial-cover .opener-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.composition.variant-editorial-cover .narrative-copy {
+  align-self: center;
+}
+
+.composition.variant-split-proof.hero-statement-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-rows: 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.composition.variant-split-proof .proof-strip {
+  grid-template-columns: 1fr;
+  align-content: center;
+}
+
+.composition.variant-kinetic-claim.hero-statement-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.composition.variant-kinetic-claim .hero-statement-copy h1 {
+  max-width: 1050px;
+  font-size: 5.05rem;
+}
+
+.composition.variant-proof-wall.hero-statement-layout {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 36px;
+}
+
+.composition.variant-proof-wall .hero-statement-copy {
+  max-width: 980px;
+}
+
+.composition.variant-proof-wall .proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.composition.variant-product-plinth .product-showcase-stage {
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 34px;
+}
+
+.composition.variant-product-plinth .product-media,
+.composition.variant-product-plinth .product-device {
+  min-height: 430px;
+}
+
+.composition.variant-annotated-product .product-showcase-stage {
+  grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
+}
+
+.composition.variant-annotated-product .product-feature-stack {
+  counter-reset: annotation;
+  align-content: center;
+}
+
+.composition.variant-annotated-product .showcase-feature {
+  position: relative;
+  padding-left: 58px;
+}
+
+.composition.variant-annotated-product .showcase-feature::before {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  content: counter(annotation, decimal-leading-zero);
+  counter-increment: annotation;
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.composition.variant-specimen-board .product-showcase-stage {
+  grid-template-columns: 0.92fr 1.08fr;
+}
+
+.composition.variant-specimen-board .product-feature-stack {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: stretch;
+}
+
+.composition.variant-specimen-board .product-metrics {
+  grid-column: 1 / -1;
+}
+
+.composition.variant-image-led .media-feature-stage {
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+}
+
+.composition.variant-image-led.is-media-right .media-feature-stage {
+  grid-template-columns: minmax(300px, 0.65fr) minmax(0, 1.35fr);
+}
+
+.composition.variant-feature-wall .media-feature-stage {
+  grid-template-columns: 0.78fr 1.22fr;
+}
+
+.composition.variant-feature-wall .media-feature-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.composition.variant-captioned-proof .feature-media figcaption {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: rgba(10, 18, 28, 0.72);
+}
+
+.composition.variant-captioned-proof .media-feature-metrics article:first-child {
+  grid-column: 1 / -1;
+}
+
+.composition.variant-metric-wall.data-story-layout {
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.composition.variant-metric-wall .data-story-copy {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 28px;
+  align-items: end;
+}
+
+.composition.variant-metric-wall .data-dashboard {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.composition.variant-single-big-number.data-story-layout {
+  grid-template-columns: 0.78fr 1.22fr;
+}
+
+.composition.variant-single-big-number .data-dashboard {
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.composition.variant-single-big-number .data-metric:first-child {
+  grid-row: span 2;
+}
+
+.composition.variant-single-big-number .data-metric:first-child strong {
+  font-size: 5.4rem;
+  line-height: 0.82;
+  min-height: 1em;
+}
+
+.composition.variant-left-claim-right-proof.data-story-layout {
+  grid-template-columns: 0.92fr 1.08fr;
+}
+
+.composition.variant-segment-cards .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.composition.variant-quadrant .market-map {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.composition.variant-quadrant .market-segment {
+  min-height: 168px;
+}
+
+.composition.variant-journey-segments .market-map {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.composition.variant-journey-segments .market-segment {
+  position: relative;
+}
+
+.composition.variant-journey-segments .market-segment:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  z-index: 2;
+  color: var(--accent);
+  content: "→";
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.composition.variant-blueprint-layers .architecture-stack {
+  position: relative;
+  display: grid;
+  gap: 10px;
+}
+
+.composition.variant-blueprint-layers .architecture-layer {
+  border-style: dashed;
+}
+
+.composition.variant-platform-map .architecture-stack {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.composition.variant-platform-map .architecture-layer:first-child {
+  grid-column: 1 / -1;
+}
+
+.composition.variant-layered-stack .architecture-layer:nth-child(even) {
+  margin-left: 44px;
+}
+
+.composition.variant-diagonal-split .tension-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.composition.variant-diagonal-split .resolution-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.composition.variant-decision-bridge .tension-grid {
+  grid-template-columns: 0.92fr 92px 1.08fr;
+}
+
+.composition.variant-before-after-cards .tension-grid {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.composition.variant-before-after-cards .resolution-arrow {
+  transform: rotate(90deg);
+}
+
+.composition.variant-before-after-cards .tension-card {
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.composition.variant-full-bleed-quote.quote-break-layout {
+  max-width: none;
+  justify-content: end;
+}
+
+.composition.variant-full-bleed-quote blockquote {
+  max-width: 1120px;
+  font-size: 4.5rem;
+}
+
+.composition.variant-editorial-quote.quote-break-layout {
+  display: grid;
+  grid-template-columns: 0.38fr 1fr;
+  gap: 46px;
+  align-items: center;
+}
+
+.composition.variant-citation-band.quote-break-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 42px;
+  align-items: end;
+  max-width: none;
+}
+
+.composition.variant-citation-band blockquote {
+  grid-row: 1 / 4;
+  max-width: 1000px;
+  font-size: 4rem;
+}
+
+.composition.variant-citation-band .quote-attribution,
+.composition.variant-citation-band .quote-context {
+  grid-column: 2;
+}
+
+.composition.variant-campaign-brief.final-ask-layout {
+  grid-template-columns: 0.92fr 1.08fr;
+}
+
+.composition.variant-campaign-brief .ask-panel {
+  align-self: stretch;
+}
+
+.composition.variant-decision-slide.final-ask-layout {
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.composition.variant-decision-slide .ask-panel {
+  max-width: 900px;
+}
+
+.composition.variant-next-actions.final-ask-layout {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+body[data-aspect-ratio="3:4"] .slide-canvas {
+  font-size: 0.92rem;
+}
+
+body[data-aspect-ratio="3:4"] h1,
+body[data-aspect-ratio="3:4"] .cover-copy h1,
+body[data-aspect-ratio="3:4"] .section-layout h1,
+body[data-aspect-ratio="3:4"] .closing-layout h1 {
+  font-size: 2.8rem;
+}
+
+body[data-aspect-ratio="3:4"] .agenda-layout,
+body[data-aspect-ratio="3:4"] .key-insight-layout,
+body[data-aspect-ratio="3:4"] .closing-layout {
+  grid-template-columns: 1fr;
+}
+
+body[data-aspect-ratio="3:4"] .column-grid,
+body[data-aspect-ratio="3:4"] .comparison-grid,
+body[data-aspect-ratio="3:4"] .metric-grid {
+  grid-template-columns: 1fr;
+}
+
+body[data-aspect-ratio="3:4"] .timeline-track {
+  grid-template-columns: 1fr;
+}
+
+body[data-aspect-ratio="3:4"] .timeline-track::before {
+  display: none;
+}
+
+body[data-aspect-ratio="3:4"] .timeline-event {
+  padding-top: 0;
+  padding-left: 28px;
+}
+
+body[data-aspect-ratio="3:4"] .timeline-event::before {
+  top: 4px;
+}
+
+body[data-aspect-ratio="3:4"] pre {
+  max-height: 360px;
+}
+
+@media (max-width: 760px) {
+  .slide {
+    padding: 12px;
+  }
+
+  .slide-canvas {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    padding: 28px;
+  }
+
+  h1,
+  .cover-copy h1,
+  .section-layout h1,
+  .closing-layout h1 {
+    font-size: 2.2rem;
+  }
+
+  .slide-header h1 {
+    font-size: 1.75rem;
+  }
+
+  p,
+  li {
+    font-size: 0.88rem;
+  }
+
+  .agenda-layout,
+  .key-insight-layout,
+  .closing-layout,
+  .column-grid,
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-grid,
+  .timeline-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .deck-chrome {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .language-switcher {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+body.print-mode {
+  overflow: visible;
+}
+
+body.print-mode .deck-root {
+  height: auto;
+  overflow: visible;
+}
+
+body.print-mode .slide {
+  position: relative;
+  min-height: 100vh;
+  opacity: 1;
+  pointer-events: auto;
+  break-after: page;
+  page-break-after: always;
+}
+
+body.print-mode .deck-chrome {
+  display: none;
+}
+
+body.print-mode .language-switcher {
+  display: none;
+}
+
+body.print-mode .notes-drawer,
+body.print-mode .deck-overview {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation-mode .slide.is-active .slide-canvas > * {
+    animation: none;
+  }
+}
+
+@media print {
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    background: var(--slide-bg);
+  }
+
+  .slide {
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .slide-canvas {
+    width: 100vw !important;
+    max-height: none;
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .language-switcher {
+    display: none;
+  }
+}
+
+body.theme-creator-campaign {
+  --deck-page-bg: #f4f6fb;
+  --slide-bg: #ffffff;
+  --text: #111318;
+  --muted: #626975;
+  --subtle: #dbe1ed;
+  --line: rgba(17, 19, 24, 0.14);
+  --panel: #ffffff;
+  --panel-strong: #eef3ff;
+  --accent: #2758ff;
+  --accent-2: #b9ff3d;
+  --accent-3: #ff5b3d;
+  --shadow: 0 26px 76px rgba(17, 19, 24, 0.13);
+  --radius: 8px;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+}
+
+body.theme-creator-campaign.scroll-document {
+  background:
+    linear-gradient(90deg, rgba(39, 88, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(17, 19, 24, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(185, 255, 61, 0.22), transparent 26%),
+    radial-gradient(circle at 88% 16%, rgba(255, 91, 61, 0.16), transparent 24%),
+    var(--deck-page-bg);
+  background-size: 54px 54px, 54px 54px, auto, auto, auto;
+  color: var(--text);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+body.theme-creator-campaign.scroll-document .scroll-root {
+  width: min(1220px, calc(100vw - 56px));
+  padding-bottom: 128px;
+}
+
+body.theme-creator-campaign.scroll-document .scroll-section {
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 42px;
+  padding: 104px 0;
+  border-top: 1px solid rgba(17, 19, 24, 0.16);
+}
+
+body.theme-creator-campaign.scroll-document .scroll-section:first-child {
+  min-height: 0;
+  padding-top: 72px;
+}
+
+body.theme-creator-campaign.scroll-document .scroll-panel {
+  min-height: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+body.theme-creator-campaign.scroll-document .scroll-panel > * {
+  height: auto;
+  min-height: 0;
+}
+
+body.theme-creator-campaign.scroll-document .cover-layout,
+body.theme-creator-campaign.scroll-document .agenda-layout,
+body.theme-creator-campaign.scroll-document .two-column-layout,
+body.theme-creator-campaign.scroll-document .comparison-layout,
+body.theme-creator-campaign.scroll-document .timeline-layout,
+body.theme-creator-campaign.scroll-document .metric-grid-layout,
+body.theme-creator-campaign.scroll-document .code-layout,
+body.theme-creator-campaign.scroll-document .closing-layout,
+body.theme-creator-campaign.scroll-document .section-layout,
+body.theme-creator-campaign.scroll-document .key-insight-layout,
+body.theme-creator-campaign.scroll-document .composition {
+  height: auto;
+  min-height: 0;
+}
+
+body.theme-creator-campaign .scroll-marker {
+  position: sticky;
+  top: 36px;
+  gap: 8px;
+  padding: 12px 0 0;
+}
+
+body.theme-creator-campaign.scroll-document .scroll-marker span {
+  display: inline-grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  background: var(--accent-2);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 1.18rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+body.theme-creator-campaign .scroll-marker strong,
+body.theme-creator-campaign .eyebrow,
+body.theme-creator-campaign .metric-tile p,
+body.theme-creator-campaign .comparison-label,
+body.theme-creator-campaign .timeline-label,
+body.theme-creator-campaign .ask-label,
+body.theme-creator-campaign .data-metric p {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+body.theme-creator-campaign h1,
+body.theme-creator-campaign h2,
+body.theme-creator-campaign h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 900;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+body.theme-creator-campaign p,
+body.theme-creator-campaign li {
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.68;
+}
+
+body.theme-creator-campaign .slide-header {
+  display: grid;
+  gap: 16px;
+  max-width: 840px;
+}
+
+body.theme-creator-campaign .slide-header h1 {
+  font-size: 3.65rem;
+  line-height: 1.06;
+}
+
+body.theme-creator-campaign .slide-subtitle,
+body.theme-creator-campaign .composition-subtitle,
+body.theme-creator-campaign .section-kicker,
+body.theme-creator-campaign .data-takeaway,
+body.theme-creator-campaign .architecture-layer p,
+body.theme-creator-campaign .market-segment p {
+  color: #4c5563;
+}
+
+body.theme-creator-campaign .point-list {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 0;
+}
+
+body.theme-creator-campaign .point-list li {
+  padding-left: 28px;
+  color: #1b2029;
+}
+
+body.theme-creator-campaign .point-list li::before {
+  top: 0.78em;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: inset 0 0 0 2px var(--text);
+}
+
+body.theme-creator-campaign .content-panel,
+body.theme-creator-campaign .comparison-side,
+body.theme-creator-campaign .metric-tile,
+body.theme-creator-campaign .closing-actions,
+body.theme-creator-campaign .proof-strip article,
+body.theme-creator-campaign .showcase-feature,
+body.theme-creator-campaign .market-segment,
+body.theme-creator-campaign .architecture-layer,
+body.theme-creator-campaign .data-metric,
+body.theme-creator-campaign .tension-card,
+body.theme-creator-campaign .ask-panel {
+  border: 1px solid rgba(17, 19, 24, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 42px rgba(17, 19, 24, 0.08);
+}
+
+body.theme-creator-campaign.scroll-document .scroll-section-cover {
+  padding-bottom: 72px;
+}
+
+body.theme-creator-campaign .cover-layout {
+  position: relative;
+  display: grid;
+  min-height: 620px;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 42px;
+  align-items: stretch;
+  padding: 0;
+}
+
+body.theme-creator-campaign .cover-copy {
+  position: relative;
+  display: grid;
+  gap: 26px;
+  align-content: center;
+  min-height: 620px;
+  padding: 58px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(39, 88, 255, 0.1), transparent 48%),
+    rgba(255, 255, 255, 0.88);
+}
+
+body.theme-creator-campaign .cover-copy::after {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 0;
+  width: 88px;
+  height: 88px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  background: var(--accent-2);
+  content: "";
+  box-shadow: -14px -14px 0 var(--accent), 14px 14px 0 var(--accent-3);
+}
+
+body.theme-creator-campaign .cover-copy h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  font-size: 6.6rem;
+  line-height: 1.1;
+}
+
+body.theme-creator-campaign .cover-subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0;
+  color: #303846;
+  font-size: 1.28rem;
+  font-weight: 720;
+  line-height: 1.75;
+}
+
+body.theme-creator-campaign .cover-meta {
+  position: relative;
+  display: grid;
+  align-content: space-between;
+  min-height: 620px;
+  padding: 42px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background: #101318;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+body.theme-creator-campaign .cover-meta::before {
+  display: block;
+  max-width: 260px;
+  color: var(--accent-2);
+  content: "Creator OS";
+  font-family: var(--font-sans);
+  font-size: 4.3rem;
+  font-weight: 950;
+  line-height: 0.92;
+}
+
+body.theme-creator-campaign .cover-meta::after {
+  position: absolute;
+  right: -36px;
+  bottom: -36px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+body.theme-creator-campaign .cover-meta span {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+body.theme-creator-campaign .cover-meta span:last-child {
+  color: var(--accent-2);
+}
+
+body.theme-creator-campaign .section-layout {
+  display: grid;
+  max-width: 980px;
+  gap: 26px;
+  padding: 48px 0;
+}
+
+body.theme-creator-campaign .section-layout h1 {
+  max-width: 940px;
+  font-size: 5rem;
+  line-height: 1.02;
+}
+
+body.theme-creator-campaign .section-kicker {
+  max-width: 760px;
+  margin: 0;
+  padding: 24px 28px;
+  border-left: 8px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: rgba(255, 255, 255, 0.82);
+  font-size: 1.18rem;
+  font-weight: 680;
+}
+
+body.theme-creator-campaign .data-story-layout {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 34px;
+  align-items: stretch;
+}
+
+body.theme-creator-campaign .data-story-copy {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  padding: 38px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+body.theme-creator-campaign .data-story-copy h2 {
+  width: 100%;
+  margin: 0;
+  padding: 22px 0;
+  border-top: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 4.45rem;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+body.theme-creator-campaign .data-takeaway {
+  margin: 0;
+  color: #24520a;
+  font-size: 1.08rem;
+  font-weight: 850;
+}
+
+body.theme-creator-campaign .data-dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+body.theme-creator-campaign .data-metric {
+  display: grid;
+  min-height: 150px;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  padding: 26px;
+}
+
+body.theme-creator-campaign .data-metric p {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  color: var(--text);
+}
+
+body.theme-creator-campaign .data-metric strong {
+  display: block;
+  color: var(--text);
+  font-size: 2.35rem;
+  font-weight: 920;
+  line-height: 1.22;
+}
+
+body.theme-creator-campaign .composition.variant-single-big-number .data-metric:first-child strong {
+  font-size: 2.35rem;
+  line-height: 1.22;
+}
+
+body.theme-creator-campaign .data-metric span {
+  display: block;
+  margin-top: 8px;
+  color: #4c5563;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+body.theme-creator-campaign .metric-grid-layout {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 38px;
+  align-items: start;
+}
+
+body.theme-creator-campaign .metric-grid-layout .slide-header {
+  position: sticky;
+  top: 36px;
+  padding: 28px;
+  border-radius: 18px;
+  background: #101318;
+}
+
+body.theme-creator-campaign .metric-grid-layout .slide-header h1,
+body.theme-creator-campaign .metric-grid-layout .slide-header .slide-subtitle {
+  color: #ffffff;
+}
+
+body.theme-creator-campaign .metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.theme-creator-campaign .metric-tile {
+  min-height: 360px;
+  padding: 26px;
+  border: 2px solid var(--text);
+}
+
+body.theme-creator-campaign .metric-tile:nth-child(1) {
+  background: #ffffff;
+}
+
+body.theme-creator-campaign .metric-tile:nth-child(2) {
+  margin-top: 44px;
+  background: #eef3ff;
+}
+
+body.theme-creator-campaign .metric-tile:nth-child(3) {
+  margin-top: 88px;
+  background: #f1ffd4;
+}
+
+body.theme-creator-campaign .metric-tile strong {
+  display: block;
+  margin: 34px 0 18px;
+  color: var(--text);
+  font-size: 2.3rem;
+  font-weight: 930;
+  line-height: 1.05;
+}
+
+body.theme-creator-campaign .metric-tile span {
+  color: #303846;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+body.theme-creator-campaign .comparison-layout,
+body.theme-creator-campaign .tension-resolution-layout {
+  display: grid;
+  gap: 34px;
+}
+
+body.theme-creator-campaign .comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+body.theme-creator-campaign .tension-grid {
+  display: grid;
+  grid-template-columns: 1fr 96px 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+body.theme-creator-campaign .comparison-side,
+body.theme-creator-campaign .tension-card {
+  min-height: 410px;
+  padding: 34px;
+  border: 2px solid var(--text);
+}
+
+body.theme-creator-campaign .comparison-left,
+body.theme-creator-campaign .is-tension {
+  background: #ffffff;
+}
+
+body.theme-creator-campaign .comparison-right,
+body.theme-creator-campaign .is-resolution {
+  background: #101318;
+}
+
+body.theme-creator-campaign .comparison-right *,
+body.theme-creator-campaign .is-resolution * {
+  color: #ffffff;
+}
+
+body.theme-creator-campaign .comparison-side h2,
+body.theme-creator-campaign .tension-card h2 {
+  margin-top: 18px;
+  font-size: 3.1rem;
+  line-height: 1.02;
+}
+
+body.theme-creator-campaign .resolution-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 2.1rem;
+  font-weight: 900;
+}
+
+body.theme-creator-campaign .system-architecture-layout {
+  display: grid;
+  gap: 32px;
+}
+
+body.theme-creator-campaign .architecture-stack {
+  display: grid;
+  gap: 18px;
+  padding: 0;
+  background: transparent;
+}
+
+body.theme-creator-campaign .architecture-layer {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+  min-height: 210px;
+  padding: 30px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+body.theme-creator-campaign .architecture-layer:nth-child(2) {
+  margin-left: 54px;
+  background: #eef3ff;
+}
+
+body.theme-creator-campaign .architecture-layer:nth-child(3) {
+  margin-left: 108px;
+  background: #f1ffd4;
+}
+
+body.theme-creator-campaign .architecture-layer h2 {
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+body.theme-creator-campaign .architecture-layer p {
+  margin: 14px 0 0;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+body.theme-creator-campaign .tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: start;
+  justify-content: flex-end;
+}
+
+body.theme-creator-campaign .tool-row span,
+body.theme-creator-campaign .chip-row span,
+body.theme-creator-campaign .market-segment span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  border: 1px solid rgba(17, 19, 24, 0.22);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+body.theme-creator-campaign .architecture-callout,
+body.theme-creator-campaign .map-insight {
+  margin: 10px 0 0;
+  padding: 26px 30px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background: var(--accent-2);
+  color: var(--text);
+  font-size: 1.12rem;
+  font-weight: 850;
+  line-height: 1.65;
+}
+
+body.theme-creator-campaign .market-map-layout {
+  display: grid;
+  gap: 32px;
+}
+
+body.theme-creator-campaign .market-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+body.theme-creator-campaign .market-segment {
+  min-height: 310px;
+  padding: 26px;
+  border: 2px solid var(--text);
+}
+
+body.theme-creator-campaign .market-segment:nth-child(odd) {
+  background: #ffffff;
+}
+
+body.theme-creator-campaign .market-segment:nth-child(even) {
+  margin-top: 46px;
+  background: #eef3ff;
+}
+
+body.theme-creator-campaign .market-segment h2 {
+  margin-top: 26px;
+  font-size: 2.1rem;
+  line-height: 1.06;
+}
+
+body.theme-creator-campaign .market-segment p {
+  margin: 18px 0 0;
+  font-size: 0.98rem;
+  font-weight: 640;
+}
+
+body.theme-creator-campaign .quote-break-layout {
+  position: relative;
+  display: grid;
+  min-height: 540px;
+  align-content: center;
+  gap: 22px;
+  padding: 64px;
+  border: 2px solid var(--text);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(185, 255, 61, 0.95), transparent 22%),
+    #101318;
+  color: #ffffff;
+}
+
+body.theme-creator-campaign .quote-break-layout blockquote {
+  max-width: 1020px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 4.6rem;
+  font-weight: 930;
+  line-height: 1.04;
+}
+
+body.theme-creator-campaign .quote-break-layout .eyebrow,
+body.theme-creator-campaign .quote-break-layout .quote-attribution,
+body.theme-creator-campaign .quote-break-layout .quote-context {
+  color: #d8ff84;
+}
+
+body.theme-creator-campaign .final-ask-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 42px;
+  align-items: stretch;
+}
+
+body.theme-creator-campaign .final-copy {
+  display: grid;
+  align-content: center;
+  gap: 20px;
+  padding: 42px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+body.theme-creator-campaign .final-copy h1 {
+  font-size: 4.6rem;
+  line-height: 1.02;
+}
+
+body.theme-creator-campaign .ask-panel {
+  display: grid;
+  gap: 22px;
+  padding: 38px;
+  border: 2px solid var(--text);
+  border-radius: 18px;
+  background: #101318;
+}
+
+body.theme-creator-campaign .ask-panel strong {
+  color: var(--accent-2);
+  font-size: 2.55rem;
+  font-weight: 930;
+  line-height: 1.12;
+}
+
+body.theme-creator-campaign .ask-panel .point-list li,
+body.theme-creator-campaign .ask-panel .contact {
+  color: #ffffff;
+}
+
+body.theme-creator-campaign .ask-panel .contact {
+  margin: 8px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1040px) {
+  body.theme-creator-campaign.scroll-document .scroll-root {
+    width: min(100% - 40px, 880px);
+  }
+
+  body.theme-creator-campaign.scroll-document .scroll-section {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  body.theme-creator-campaign .cover-layout,
+  body.theme-creator-campaign .data-story-layout,
+  body.theme-creator-campaign .metric-grid-layout,
+  body.theme-creator-campaign .final-ask-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-creator-campaign .metric-grid,
+  body.theme-creator-campaign .market-map,
+  body.theme-creator-campaign .comparison-grid,
+  body.theme-creator-campaign .tension-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-creator-campaign .resolution-arrow {
+    min-height: 72px;
+    transform: rotate(90deg);
+  }
+
+  body.theme-creator-campaign .architecture-layer,
+  body.theme-creator-campaign .architecture-layer:nth-child(2),
+  body.theme-creator-campaign .architecture-layer:nth-child(3) {
+    margin-left: 0;
+  }
+
+  body.theme-creator-campaign .metric-tile:nth-child(2),
+  body.theme-creator-campaign .metric-tile:nth-child(3),
+  body.theme-creator-campaign .market-segment:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  body.theme-creator-campaign.scroll-document .scroll-section {
+    grid-template-columns: 1fr;
+    padding: 72px 0;
+  }
+
+  body.theme-creator-campaign .scroll-marker {
+    position: static;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  body.theme-creator-campaign .cover-copy,
+  body.theme-creator-campaign .cover-meta {
+    min-height: 420px;
+    padding: 34px;
+  }
+
+  body.theme-creator-campaign .cover-copy h1,
+  body.theme-creator-campaign .section-layout h1,
+  body.theme-creator-campaign .final-copy h1 {
+    font-size: 3.2rem;
+  }
+
+  body.theme-creator-campaign .slide-header h1 {
+    font-size: 2.65rem;
+  }
+
+  body.theme-creator-campaign .data-story-copy h2,
+  body.theme-creator-campaign .quote-break-layout blockquote {
+    font-size: 2.85rem;
+  }
+
+  body.theme-creator-campaign .data-metric,
+  body.theme-creator-campaign .architecture-layer {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-creator-campaign .tool-row {
+    justify-content: flex-start;
+  }
+}
+
+html:has(body.scroll-document),
+body.scroll-document {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
+
+body.scroll-document {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.scroll-document .scroll-root {
+  width: min(1180px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 0 0 96px;
+}
+
+body.scroll-document .scroll-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 48px;
+  padding: 112px 0;
+  border-top: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+body.scroll-document .scroll-section:first-child {
+  min-height: 100vh;
+  border-top: 0;
+}
+
+body.scroll-document .scroll-marker {
+  position: sticky;
+  top: 42px;
+  align-self: start;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+
+body.scroll-document .scroll-marker span {
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.8rem;
+  font-style: italic;
+  line-height: 0.92;
+}
+
+body.scroll-document .scroll-marker strong {
+  max-width: 92px;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+body.scroll-document .scroll-panel {
+  position: relative;
+  min-width: 0;
+  min-height: 520px;
+  overflow: visible;
+  background: var(--deck-page-bg);
+  padding: 0;
+}
+
+body.scroll-document .scroll-panel > * {
+  min-height: inherit;
+}
+
+body.scroll-document .cover-layout,
+body.scroll-document .agenda-layout,
+body.scroll-document .two-column-layout,
+body.scroll-document .comparison-layout,
+body.scroll-document .timeline-layout,
+body.scroll-document .metric-grid-layout,
+body.scroll-document .code-layout,
+body.scroll-document .closing-layout,
+body.scroll-document .section-layout,
+body.scroll-document .key-insight-layout,
+body.scroll-document .composition {
+  height: auto;
+  min-height: inherit;
+}
+
+body.scroll-document .speaker-notes,
+body.scroll-document .deck-chrome {
+  display: none;
+}
+
+body.scroll-document .language-switcher {
+  position: fixed;
+}
+
+@media (max-width: 860px) {
+  body.scroll-document .scroll-root {
+    width: min(100% - 32px, 680px);
+  }
+
+  body.scroll-document .scroll-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 72px 0;
+  }
+
+  body.scroll-document .scroll-marker {
+    position: static;
+    grid-template-columns: auto 1fr;
+    align-items: end;
+  }
+
+  body.scroll-document .scroll-marker span {
+    font-size: 2.4rem;
+  }
+
+  body.scroll-document .scroll-marker strong {
+    max-width: none;
+  }
+}
+
+  </style>
+</head>
+<body class="theme-creator-campaign scroll-document" data-render-mode="scroll" data-aspect-ratio="16:9" data-slide-count="11" data-visual-mood="creator-brand-strategy" data-visual-density="editorial" data-image-treatment="typographic-campaign" data-composition-rhythm="cover / positioning / growth formula / audience / differentiation / content engine / campaign / metrics / closing">
+  <main class="scroll-root" aria-label="cxuanAI 品牌策划：把 AI 变成普通人的生产力外挂">
+    
+    <section class="scroll-section scroll-section-cover" data-slide-index="0" data-slide-id="cover" data-slide-type="cover" aria-label="cxuanAI 品牌策划">
+      <div class="scroll-marker">
+        <span>01</span>
+        <strong>cover</strong>
+      </div>
+      <div class="scroll-panel layout-cover">
+        
+    <div class="cover-layout">
+      <div class="cover-copy">
+        <p class="eyebrow">Volume I · Creator Brand Strategy</p>
+        <h1>cxuanAI 品牌策划</h1>
+        <p class="cover-subtitle">把复杂的 AI 变化，翻译成普通人今天就能用起来的生产力方法。</p>
+      </div>
+      <div class="cover-meta">
+        <span>Long-scroll HTML brand plan</span>
+        <span>0.4.0</span>
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-section" data-slide-index="1" data-slide-id="positioning" data-slide-type="section" aria-label="普通人的 AI 生产力外挂">
+      <div class="scroll-marker">
+        <span>02</span>
+        <strong>section</strong>
+      </div>
+      <div class="scroll-panel layout-section">
+        
+    <div class="section-layout">
+      <p class="eyebrow">01 · Brand Positioning</p>
+      <h1>普通人的 AI 生产力外挂</h1>
+      <p class="section-kicker">cxuanAI 的核心价值不是追逐每一个新工具，而是把工具、场景和方法打包成可执行的工作流，让读者从“知道 AI”进入“每天用 AI”。</p>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-data-story" data-slide-index="2" data-slide-id="growth-formula" data-slide-type="data-story" aria-label="品牌增长来自可复用的信任">
+      <div class="scroll-marker">
+        <span>03</span>
+        <strong>data-story</strong>
+      </div>
+      <div class="scroll-panel layout-data-story variant-single-big-number" data-layout-variant="single-big-number">
+        
+    <div class="composition data-story-layout variant-single-big-number">
+      <div class="data-story-copy">
+        <header class="slide-header"><h1>品牌增长来自可复用的信任</h1><p class="slide-subtitle">自媒体品牌不是靠一次爆文成立，而是靠读者不断形成“这个号能解决我问题”的稳定预期。</p></header>
+        <h2>G = T × R × D</h2>
+        <p class="data-takeaway">能被反复使用的内容，才会沉淀成品牌资产。</p>
+      </div>
+      <div class="data-dashboard">
+        
+    <article class="data-metric">
+      <p>T</p>
+      <strong>信任密度</strong>
+      <span>内容是否具体、真实、可验证</span>
+    </article>
+  
+    <article class="data-metric">
+      <p>R</p>
+      <strong>复用频率</strong>
+      <span>读者是否会收藏、套用、转给同事</span>
+    </article>
+  
+    <article class="data-metric">
+      <p>D</p>
+      <strong>分发势能</strong>
+      <span>选题是否天然适合转发和讨论</span>
+    </article>
+  
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-metric-grid" data-slide-index="3" data-slide-id="audience" data-slide-type="metric-grid" aria-label="先抓住三类高价值读者">
+      <div class="scroll-marker">
+        <span>04</span>
+        <strong>metric-grid</strong>
+      </div>
+      <div class="scroll-panel layout-metric-grid">
+        
+    <div class="metric-grid-layout">
+      <header class="slide-header"><h1>先抓住三类高价值读者</h1><p class="slide-subtitle">公众号早期不需要服务所有人，而要先让最容易被 AI 改变工作方式的人产生强烈记忆。</p></header>
+      <div class="metric-grid">
+        
+    <article class="metric-tile">
+      <p>Knowledge Worker</p>
+      <strong>职场提效人群</strong>
+      <span>需要写方案、做汇报、查资料、整理信息，希望马上减少重复劳动。</span>
+    </article>
+  
+    <article class="metric-tile">
+      <p>Creator</p>
+      <strong>内容创作者</strong>
+      <span>关注选题、脚本、排版、分发和私域，希望 AI 直接进入创作链路。</span>
+    </article>
+  
+    <article class="metric-tile">
+      <p>Builder</p>
+      <strong>独立开发者</strong>
+      <span>关心自动化、代码生成、工具组合，希望从 AI 里找到新产品机会。</span>
+    </article>
+  
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-comparison" data-slide-index="4" data-slide-id="differentiation" data-slide-type="comparison" aria-label="不要做又一个 AI 工具搬运号">
+      <div class="scroll-marker">
+        <span>05</span>
+        <strong>comparison</strong>
+      </div>
+      <div class="scroll-panel layout-comparison variant-decision-bridge" data-layout-variant="decision-bridge">
+        
+    <div class="comparison-layout">
+      <header class="slide-header"><h1>不要做又一个 AI 工具搬运号</h1><p class="slide-subtitle">工具信息会过期，方法和场景才会复利。cxuanAI 应该把“发现工具”升级为“交付工作流”。</p></header>
+      <div class="comparison-grid">
+        
+    <section class="comparison-side comparison-left">
+      <p class="comparison-label">工具流</p>
+      <h2>只告诉读者有什么</h2>
+      <ul class="point-list"><li>标题依赖新奇感</li><li>内容容易被同质化复制</li><li>读者看完知道一个工具，但不知道如何上手</li><li>品牌记忆停留在信息源</li></ul>
+    </section>
+  
+        
+    <section class="comparison-side comparison-right">
+      <p class="comparison-label">工作流品牌</p>
+      <h2>直接交付怎么做</h2>
+      <ul class="point-list"><li>每篇文章绑定真实场景</li><li>给出提示词、模板和步骤</li><li>用案例展示前后差异</li><li>品牌记忆沉淀为方法来源</li></ul>
+    </section>
+  
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-system-architecture" data-slide-index="5" data-slide-id="content-engine" data-slide-type="system-architecture" aria-label="内容引擎：一篇文章带出一套资产">
+      <div class="scroll-marker">
+        <span>06</span>
+        <strong>system-architecture</strong>
+      </div>
+      <div class="scroll-panel layout-system-architecture variant-blueprint-layers" data-layout-variant="blueprint-layers">
+        
+    <div class="composition system-architecture-layout variant-blueprint-layers">
+      <header class="slide-header"><h1>内容引擎：一篇文章带出一套资产</h1><p class="slide-subtitle">把公众号从单篇内容生产，升级为“文章 + 模板 + 社群讨论 + 二次分发”的复合资产。</p></header>
+      <div class="architecture-stack">
+        
+    <article class="architecture-layer">
+      <div>
+        <h2>选题</h2>
+        <p>从读者真实痛点出发选题：汇报、简历、品牌策划、代码开发、资料整理、学习复盘。</p>
+      </div>
+      <div class="tool-row"><span>痛点雷达</span><span>场景库</span></div>
+    </article>
+  
+    <article class="architecture-layer">
+      <div>
+        <h2>工作流</h2>
+        <p>每篇内容给出可复制流程：输入材料、AI 角色、提示词、检查标准、最终产物。</p>
+      </div>
+      <div class="tool-row"><span>提示词</span><span>模板包</span></div>
+    </article>
+  
+    <article class="architecture-layer">
+      <div>
+        <h2>分发承接</h2>
+        <p>长文沉淀在公众号，短切片投放到朋友圈/小红书/即刻，模板引导进入社群或 GitHub。</p>
+      </div>
+      <div class="tool-row"><span>公众号</span><span>社群</span><span>GitHub</span></div>
+    </article>
+  
+      </div>
+      <p class="architecture-callout">每篇文章都要留下一个可被收藏、复用或转发的实体资产。</p>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-market-map" data-slide-index="6" data-slide-id="content-pillars" data-slide-type="market-map" aria-label="四条内容栏目线">
+      <div class="scroll-marker">
+        <span>07</span>
+        <strong>market-map</strong>
+      </div>
+      <div class="scroll-panel layout-market-map variant-segment-cards" data-layout-variant="segment-cards">
+        
+    <div class="composition market-map-layout variant-segment-cards">
+      <header class="slide-header"><h1>四条内容栏目线</h1><p class="slide-subtitle">栏目不是分类目录，而是让读者形成稳定期待的品牌货架。</p></header>
+      <div class="market-map">
+        
+    <article class="market-segment">
+      <span>工具</span>
+      <h2>AI 工具拆解</h2>
+      <p>不做泛泛介绍，只讲这个工具适合谁、解决什么问题、替代哪段工作。</p>
+    </article>
+  
+    <article class="market-segment">
+      <span>流程</span>
+      <h2>真实工作流</h2>
+      <p>用一个完整任务演示 AI 如何参与：从输入、生成、修改到最终交付。</p>
+    </article>
+  
+    <article class="market-segment">
+      <span>资产</span>
+      <h2>提示词资产</h2>
+      <p>沉淀可复用提示词、模板、检查清单，让读者带走可直接使用的东西。</p>
+    </article>
+  
+    <article class="market-segment">
+      <span>判断</span>
+      <h2>趋势判断</h2>
+      <p>把 AI 新闻翻译成普通人的机会判断：什么该学、什么可等等、什么只是噪音。</p>
+    </article>
+  
+      </div>
+      <p class="map-insight">cxuanAI 的内容语气应该是：懂技术，但不炫技；懂趋势，但能落地。</p>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-tension-resolution" data-slide-index="7" data-slide-id="launch-campaign" data-slide-type="tension-resolution" aria-label="第一波推广：从内容关注到资产领取">
+      <div class="scroll-marker">
+        <span>08</span>
+        <strong>tension-resolution</strong>
+      </div>
+      <div class="scroll-panel layout-tension-resolution variant-before-after-cards" data-layout-variant="before-after-cards">
+        
+    <div class="composition tension-resolution-layout variant-before-after-cards">
+      <header class="slide-header"><h1>第一波推广：从内容关注到资产领取</h1><p class="slide-subtitle">推广不是单纯求关注，而是让用户在第一次接触时就获得一个明确收益。</p></header>
+      <div class="tension-grid">
+        <section class="tension-card is-tension">
+          <p class="comparison-label">Weak CTA</p>
+          <h2>欢迎关注</h2>
+          <ul class="point-list"><li>利益点模糊</li><li>无法解释为什么现在关注</li><li>关注后不知道还能获得什么</li></ul>
+        </section>
+        <div class="resolution-arrow" aria-hidden="true">→</div>
+        <section class="tension-card is-resolution">
+          <p class="comparison-label">Strong CTA</p>
+          <h2>领取 AI 工作流包</h2>
+          <ul class="point-list"><li>10 个高频场景提示词</li><li>品牌策划/述职/产品介绍模板</li><li>每周更新一个真实案例拆解</li></ul>
+        </section>
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-quote-break" data-slide-index="8" data-slide-id="brand-voice" data-slide-type="quote-break" aria-label="Slide 9">
+      <div class="scroll-marker">
+        <span>09</span>
+        <strong>quote-break</strong>
+      </div>
+      <div class="scroll-panel layout-quote-break variant-full-bleed-quote" data-layout-variant="full-bleed-quote">
+        
+    <div class="composition quote-break-layout variant-full-bleed-quote">
+      <p class="eyebrow">Brand Voice</p>
+      <blockquote>不是教你追 AI 热点，而是帮你把 AI 用进今天的工作里。</blockquote>
+      <p class="quote-attribution">cxuanAI · 普通人的 AI 生产力外挂</p>
+      <p class="quote-context">这句话可以作为公众号简介、文章结尾和分享海报的统一表达。</p>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-metric-grid" data-slide-index="9" data-slide-id="operating-metrics" data-slide-type="metric-grid" aria-label="三类指标判断品牌是否成立">
+      <div class="scroll-marker">
+        <span>10</span>
+        <strong>metric-grid</strong>
+      </div>
+      <div class="scroll-panel layout-metric-grid">
+        
+    <div class="metric-grid-layout">
+      <header class="slide-header"><h1>三类指标判断品牌是否成立</h1><p class="slide-subtitle">不要只看阅读量。真正有价值的指标，是读者是否愿意保存、复用，并把 cxuanAI 当成解决问题的入口。</p></header>
+      <div class="metric-grid">
+        
+    <article class="metric-tile">
+      <p>Save Rate</p>
+      <strong>收藏 / 在看</strong>
+      <span>判断内容是否从信息变成资产，尤其适合模板、清单、工作流类文章。</span>
+    </article>
+  
+    <article class="metric-tile">
+      <p>Asset Claim</p>
+      <strong>领取 / 入群</strong>
+      <span>判断读者是否愿意进入下一层关系，承接提示词包、模板包和社群。</span>
+    </article>
+  
+    <article class="metric-tile">
+      <p>Case Loop</p>
+      <strong>投稿 / 共创</strong>
+      <span>判断品牌是否开始拥有读者案例，案例会反过来成为最强内容素材。</span>
+    </article>
+  
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    <section class="scroll-section scroll-section-final-ask" data-slide-index="10" data-slide-id="roadmap" data-slide-type="final-ask" aria-label="用 30 天建立品牌记忆">
+      <div class="scroll-marker">
+        <span>11</span>
+        <strong>final-ask</strong>
+      </div>
+      <div class="scroll-panel layout-final-ask variant-next-actions" data-layout-variant="next-actions">
+        
+    <div class="composition final-ask-layout variant-next-actions">
+      <div class="final-copy">
+        <h1>用 30 天建立品牌记忆</h1>
+        <p class="composition-subtitle">先用一组连续内容把“可复制工作流”打透，再把模板和社群变成增长承接点。</p>
+      </div>
+      <div class="ask-panel">
+        <p class="ask-label">The ask</p>
+        <strong>启动 cxuanAI「AI 工作流 30 天」内容战役。</strong>
+        <ul class="next-steps"><li>第 1 周：发布 3 篇高频办公场景工作流</li><li>第 2 周：上线提示词资产包和领取入口</li><li>第 3 周：做 2 个读者案例改造</li><li>第 4 周：沉淀合集页并引导社群共创</li></ul>
+        <p class="contact">cxuanAI</p>
+      </div>
+    </div>
+  
+      </div>
+    </section>
+  
+  </main>
+  
+  <script type="application/json" id="deck-story">{&quot;thesis&quot;:&quot;cxuanAI 不只做 AI 工具推荐，而是帮助普通人把 AI 变成可复制的工作方法。&quot;,&quot;arc&quot;:[&quot;先建立一句话定位：普通人的 AI 生产力外挂。&quot;,&quot;再定义内容资产：工具、案例、教程、观点、资源。&quot;,&quot;然后设计传播路径：公众号文章到社群、模板、直播和案例共创。&quot;,&quot;最后用可衡量指标把品牌增长变成持续动作。&quot;]}</script>
+  <script type="application/json" id="deck-visual-system">{&quot;mood&quot;:&quot;creator-brand-strategy&quot;,&quot;density&quot;:&quot;editorial&quot;,&quot;imageTreatment&quot;:&quot;typographic-campaign&quot;,&quot;compositionRhythm&quot;:&quot;cover / positioning / growth formula / audience / differentiation / content engine / campaign / metrics / closing&quot;,&quot;colorIntent&quot;:&quot;white canvas, ink black, electric blue, lime signal, coral action&quot;,&quot;typographyIntent&quot;:&quot;bold sans creator-brand hierarchy with compact mono campaign tags&quot;,&quot;qaPriorities&quot;:[&quot;brand planning clarity&quot;,&quot;long-scroll sharing&quot;,&quot;section-level visual rhythm&quot;,&quot;no slide runtime&quot;],&quot;reference&quot;:&quot;Uses the polished long-scroll visual essay structure established by the software editorial example.&quot;}</script>
+</body>
+</html>
